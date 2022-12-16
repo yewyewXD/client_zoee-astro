@@ -1,6 +1,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../theme";
 import { Source_Sans_Pro } from "@next/font/google";
+import "../styles/global.css";
 
 const ssp = Source_Sans_Pro({
   subsets: ["latin"],

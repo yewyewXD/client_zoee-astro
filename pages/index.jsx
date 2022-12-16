@@ -1,8 +1,11 @@
+import { Box } from "@chakra-ui/react";
 import Head from "next/head";
+import { useRef } from "react";
 import Hero from "../components/Home/Hero";
 import Navbar from "../components/Navbar";
 
 export default function Home() {
+  const servicesRef = useRef();
   return (
     <div>
       <Head>
@@ -16,7 +19,19 @@ export default function Home() {
       </header>
 
       <main>
-        <Hero />
+        <Box position={"relative"}>
+          <Hero />
+          <Box
+            className="scroll-down"
+            onClick={() => {
+              servicesRef.current.scrollIntoView({
+                behavior: "smooth",
+              });
+            }}
+          ></Box>
+        </Box>
+
+        <Box ref={servicesRef} height={"100vh"} width="100%"></Box>
       </main>
     </div>
   );

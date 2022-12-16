@@ -1,17 +1,6 @@
-import {
-  Box,
-  Button,
-  Container,
-  Flex,
-  Grid,
-  GridItem,
-  Heading,
-  Link,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Button, Container, Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
 import BgOverlay from "../BgOverlay";
-import NextLink from "../NextLink";
 
 const Hero = () => {
   return (
