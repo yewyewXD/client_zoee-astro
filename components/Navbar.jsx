@@ -28,7 +28,6 @@ export default function Navbar() {
   return (
     <Box position="fixed" right={0} left={0} zIndex={99}>
       <Container
-        maxW="85%"
         minH={"60px"}
         display={"flex"}
         alignItems="center"

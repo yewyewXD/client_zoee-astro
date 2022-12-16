@@ -23,7 +23,6 @@ const Hero = () => {
     >
       <BgOverlay alpha={700} />
       <Container
-        maxW={"80%"}
         display="flex"
         alignItems={"center"}
         height="100%"
