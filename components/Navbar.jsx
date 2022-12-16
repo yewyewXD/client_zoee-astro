@@ -3,8 +3,6 @@ import {
   Flex,
   Text,
   IconButton,
-  Button,
-  Stack,
   Collapse,
   Icon,
   Link,
@@ -14,6 +12,8 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
+  Container,
+  Stack,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -26,17 +26,13 @@ export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box>
-      <Flex
-        bg={useColorModeValue("white", "gray.800")}
-        color={useColorModeValue("gray.600", "white")}
+    <Box position="fixed" right={0} left={0} zIndex={99}>
+      <Container
+        maxW="85%"
         minH={"60px"}
-        py={{ base: 2 }}
-        px={{ base: 4 }}
-        borderBottom={1}
-        borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.900")}
-        align={"center"}
+        display={"flex"}
+        alignItems="center"
+        flexGrow={1}
       >
         <Flex
           flex={{ base: 1, md: "auto" }}
@@ -52,7 +48,10 @@ export default function Navbar() {
             aria-label={"Toggle Navigation"}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
+        <Flex
+          flex={{ base: 1 }}
+          justify={{ base: "space-between", md: "start" }}
+        >
           <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
@@ -61,41 +60,11 @@ export default function Navbar() {
             Logo
           </Text>
 
-          <Flex display={{ base: "none", md: "flex" }} ml={10}>
+          <Flex display={{ base: "none", md: "flex" }} ml={"auto"}>
             <DesktopNav />
           </Flex>
         </Flex>
-
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={"flex-end"}
-          direction={"row"}
-          spacing={6}
-        >
-          <Button
-            as={"a"}
-            fontSize={"sm"}
-            fontWeight={400}
-            variant={"link"}
-            href={"#"}
-          >
-            Sign In
-          </Button>
-          <Button
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"pink.400"}
-            href={"#"}
-            _hover={{
-              bg: "pink.300",
-            }}
-          >
-            Sign Up
-          </Button>
-        </Stack>
-      </Flex>
+      </Container>
 
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
@@ -118,7 +87,7 @@ const DesktopNav = () => {
               <Link
                 p={2}
                 href={navItem.href ?? "#"}
-                fontSize={"sm"}
+                fontSize={"md"}
                 fontWeight={500}
                 color={linkColor}
                 _hover={{
@@ -259,7 +228,7 @@ const MobileNavItem = ({ label, children, href }) => {
 
 const NAV_ITEMS = [
   {
-    label: "Inspiration",
+    label: "Home",
     children: [
       {
         label: "Explore Design Work",
@@ -274,7 +243,7 @@ const NAV_ITEMS = [
     ],
   },
   {
-    label: "Find Work",
+    label: "About",
     children: [
       {
         label: "Job Board",
@@ -289,8 +258,19 @@ const NAV_ITEMS = [
     ],
   },
   {
-    label: "Learn Design",
-    href: "#",
+    label: "Services",
+    children: [
+      {
+        label: "Job Board",
+        subLabel: "Find your dream design job",
+        href: "#",
+      },
+      {
+        label: "Freelance Projects",
+        subLabel: "An exclusive list for contract work",
+        href: "#",
+      },
+    ],
   },
   {
     label: "Hire Designers",
