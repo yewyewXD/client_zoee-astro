@@ -24,44 +24,33 @@ const Hero = () => {
       <BgOverlay alpha={700} />
       <Container
         display="flex"
+        flexDir={"column"}
         alignItems={"center"}
+        justifyContent={"center"}
         height="100%"
         position={"relative"}
+        textAlign="center"
       >
-        <Grid templateColumns="repeat(3, 1fr)" gap={6}>
-          <GridItem colSpan={2}>
-            <Text width={"280px"} mb={4}>
-              For self-discovery, relationships, or even self-growth, astrology
-              guide you into your life in the best way.
-            </Text>
-            <Heading as="h1" fontSize={"6xl"} width={"700px"} fontWeight={600}>
-              Ready To Change Your Life With Astrology?
-            </Heading>
-            <Flex alignItems={"center"} mt={10}>
-              <Button
-                fontSize={"xl"}
-                px={10}
-                py={6}
-                bg={"#708285"}
-                transition={"0.3s"}
-                borderRadius={"30px"}
-                _hover={{ bg: "white", color: "black" }}
-              >
-                Yes, I am!
-              </Button>
-
-              <Text
-                ml={10}
-                cursor="pointer"
-                transition={"0.3s"}
-                textDecor={"underline"}
-                _hover={{ opacity: "0.7" }}
-              >
-                Learn more
-              </Text>
-            </Flex>
-          </GridItem>
-        </Grid>
+        <Heading as="h1" fontSize={"6xl"} width={"700px"} fontWeight={600}>
+          Ready To Change Your Life With Astrology?
+        </Heading>
+        <Text width={"400px"} fontSize={"lg"} mt={4}>
+          For self-discovery, relationships, or even self-growth, astrology
+          guide you into your life in the best way.
+        </Text>
+        <Flex alignItems={"center"} mt={10}>
+          <Button
+            fontSize={"xl"}
+            px={12}
+            py={7}
+            bg={"#708285"}
+            transition={"0.3s"}
+            borderRadius={"30px"}
+            _hover={{ bg: "white", color: "black" }}
+          >
+            Book a Reading
+          </Button>
+        </Flex>
       </Container>
     </Box>
   );
