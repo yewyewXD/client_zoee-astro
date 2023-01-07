@@ -1,0 +1,22 @@
+[
+  {
+    "id": "nav-item-1",
+    "text": "Home",
+    "link": "/"
+  },
+  {
+    "id": "nav-item-2",
+    "text": "About Me",
+    "link": "/about"
+  },
+  {
+    "id": "nav-item-3",
+    "text": "Services",
+    "link": "/services"
+  },
+  {
+    "id": "nav-item-4",
+    "text": "Contact Me",
+    "link": "/contact"
+  }
+]
