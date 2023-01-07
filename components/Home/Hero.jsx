@@ -1,47 +1,35 @@
-import { Box, Button, Container, Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
 import BgOverlay from "../BgOverlay";
 
 const Hero = () => {
   return (
-    <Box
-      background={"url(/images/hero-bg.jpg) no-repeat center center / cover"}
-      height="100vh"
-      width="100%"
-      position={"relative"}
+    <div
+      className="h-screen w-full relative"
+      style={{
+        background: "url(/images/hero-bg.jpg) no-repeat center center / cover",
+      }}
     >
-      <BgOverlay alpha={700} />
-      <Container
-        display="flex"
-        flexDir={"column"}
-        alignItems={"center"}
-        justifyContent={"center"}
-        height="100%"
-        position={"relative"}
-        textAlign="center"
-      >
-        <Heading as="h1" fontSize={"6xl"} width={"700px"} fontWeight={600}>
+      <BgOverlay opacity={40} />
+      <div className="flex flex-col items-center justify-center h-full relative text-center">
+        <h1 className="text-6xl font-bold" style={{ width: "700px" }}>
           Ready To Change Your Life With Astrology?
-        </Heading>
-        <Text width={"400px"} fontSize={"lg"} mt={4}>
+        </h1>
+        <div width={"400px"} fontSize={"lg"} mt={4}>
           For self-discovery, relationships, or even self-growth, astrology
           guide you into your life in the best way.
-        </Text>
-        <Flex alignItems={"center"} mt={10}>
-          <Button
-            fontSize={"xl"}
-            px={12}
-            py={7}
-            bg={"#708285"}
-            transition={"0.3s"}
-            borderRadius={"30px"}
-            _hover={{ bg: "white", color: "black" }}
+        </div>
+        <div className="flex items-center mt-10">
+          <button
+            className="text-xl px-12 py-7 transition duration-300 rounded-3xl hover:bg-white hover:text-black"
+            style={{
+              background: "#708285",
+            }}
           >
             Book a Reading
-          </Button>
-        </Flex>
-      </Container>
-    </Box>
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 

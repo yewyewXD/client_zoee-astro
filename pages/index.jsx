@@ -1,4 +1,3 @@
-import { Box } from "@chakra-ui/react";
 import Head from "next/head";
 import { useRef } from "react";
 import Hero from "../components/Home/Hero";
@@ -19,19 +18,19 @@ export default function Home() {
       </header>
 
       <main>
-        <Box position={"relative"}>
+        <div position={"relative"}>
           <Hero />
-          <Box
+          <div
             className="scroll-down"
             onClick={() => {
               servicesRef.current.scrollIntoView({
                 behavior: "smooth",
               });
             }}
-          ></Box>
-        </Box>
+          ></div>
+        </div>
 
-        <Box ref={servicesRef} height={"100vh"} width="100%"></Box>
+        <div ref={servicesRef} height={"100vh"} width="100%"></div>
       </main>
     </div>
   );

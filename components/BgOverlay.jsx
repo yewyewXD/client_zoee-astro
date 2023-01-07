@@ -1,14 +1,8 @@
-import { Box } from "@chakra-ui/react";
 import React from "react";
 
-const BgOverlay = ({ alpha }) => {
+const BgOverlay = ({ opacity }) => {
   return (
-    <Box
-      height={"100%"}
-      width={"100%"}
-      position="absolute"
-      bg={`blackAlpha.${alpha}`}
-    ></Box>
+    <div className={`h-full w-full absolute bg-black opacity-${opacity}`}></div>
   );
 };
 
