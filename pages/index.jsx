@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useRef } from "react";
 import Hero from "../components/Home/Hero";
+import Services from "../components/Home/Services";
 import Navbar from "../components/Navbar";
 
 export default function Home() {
@@ -30,7 +31,9 @@ export default function Home() {
           ></div>
         </div>
 
-        <div ref={servicesRef} height={"100vh"} width="100%"></div>
+        <div ref={servicesRef}>
+          <Services />
+        </div>
       </main>
     </div>
   );

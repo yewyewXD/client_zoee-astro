@@ -2,11 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-$brand-gray: #708285;
+$brand-green: #708285;
+$brand-brown: #cbb89b;
+$brand-gray: #867c7d;
+$brand-purple: #5e5a7b;
+$brand-red: #ab3838;
 
 .container {
   margin-left: auto;
   margin-right: auto;
+}
+
+.bg {
+  &-green {
+    background-color: #708285;
+  }
+  &-brown {
+    background-color: #cbb89b;
+  }
+  &-gray {
+    background-color: #867c7d;
+  }
+  &-purple {
+    background-color: #5e5a7b;
+  }
+  &-red {
+    background-color: #ab3838;
+  }
+}
+
+.navItem {
+  &:hover {
+    background-color: $brand-gray;
+  }
+}
+
+.smooth {
+  transition: 0.3s;
 }
 
 .scroll-down {
@@ -59,7 +91,7 @@ $brand-gray: #708285;
 }
 
 .btn {
-  background: $brand-gray;
+  background: $brand-green;
   display: inline-block;
   text-decoration: none;
   width: 230px;

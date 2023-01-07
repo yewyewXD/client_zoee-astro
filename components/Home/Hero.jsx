@@ -9,8 +9,8 @@ const Hero = () => {
         background: "url(/images/hero-bg.jpg) no-repeat center center / cover",
       }}
     >
-      <BgOverlay opacity={"40"} />
-      <div className="text-white flex flex-col items-center justify-center h-full relative text-center">
+      <BgOverlay />
+      <div className="container text-white flex flex-col items-center justify-center h-full relative text-center">
         <h1 className="text-6xl font-bold" style={{ width: "700px" }}>
           Ready To Change Your Life With Astrology?
         </h1>
