@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+$brand-gray: #708285;
+
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -53,5 +55,44 @@
   }
   100% {
     opacity: 0;
+  }
+}
+
+.btn {
+  background: $brand-gray;
+  display: inline-block;
+  text-decoration: none;
+  width: 230px;
+  height: 67px;
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+  transition: 0.3s;
+
+  &::after,
+  &::before {
+    content: "Book a Reading";
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    line-height: 3.5;
+    left: 0;
+    transition: 0.3s;
+    top: 0;
+  }
+
+  &:hover {
+    opacity: 0.8;
+    &::after {
+      top: -50px;
+    }
+    &::before {
+      top: 0;
+    }
+  }
+
+  &::before {
+    content: "Change ur Life";
+    top: 50px;
   }
 }

@@ -1,9 +1,7 @@
 import React from "react";
 
-const BgOverlay = ({ opacity }) => {
-  return (
-    <div className={`h-full w-full absolute bg-black opacity-${opacity}`}></div>
-  );
-};
+function BgOverlay() {
+  return <div className={`h-full w-full absolute bg-black opacity-40`}></div>;
+}
 
 export default BgOverlay;
