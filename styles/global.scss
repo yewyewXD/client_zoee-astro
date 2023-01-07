@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .scroll-down {
   border: 2px solid #fff;
   border-radius: 20px;
