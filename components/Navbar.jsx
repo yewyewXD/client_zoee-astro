@@ -18,7 +18,9 @@ const Navbar = () => {
         <div className="ml-auto mt-10">
           {navItems.map((navItem) => (
             <Link href={navItem.link} key={navItem.id}>
-              <span className="mx-4 text-xl">{navItem.text}</span>
+              <span className="text-lg font-semibold smooth hover-bg-gray px-5 py-2 rounded-3xl">
+                {navItem.text}
+              </span>
             </Link>
           ))}
         </div>
