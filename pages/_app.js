@@ -1,5 +1,7 @@
 import { Source_Sans_Pro } from "@next/font/google";
 import "../styles/global.scss";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const ssp = Source_Sans_Pro({
   subsets: ["latin"],
