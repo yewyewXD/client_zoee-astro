@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useRef } from "react";
 import Hero from "../components/Home/Hero";
 import Services from "../components/Home/Services";
+import SocialMedia from "../components/Home/SocialMedia";
 import Testimonial from "../components/Home/Testimonial";
 import Navbar from "../components/Navbar";
 
@@ -36,6 +37,8 @@ export default function Home() {
         </div>
 
         <Services />
+
+        <SocialMedia />
 
         {/* CTA */}
         <div className="py-10 px-20 text-white bg-red text-center">

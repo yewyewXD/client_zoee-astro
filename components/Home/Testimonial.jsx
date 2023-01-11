@@ -19,7 +19,7 @@ const Testimonial = () => {
           See what others have to say...
         </div>
 
-        <div>
+        <div className="mb-6">
           <Slider {...settings}>
             {testimonials.map((review) => (
               <div
