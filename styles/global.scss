@@ -9,6 +9,7 @@ $brand-purple: #5e5a7b;
 $brand-red: #ab3838;
 
 .container {
+  width: 85%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -131,4 +132,10 @@ $brand-red: #ab3838;
 
 .navDark {
   background: linear-gradient(rgba(0, 0, 0, 0.4) 80%, transparent);
+}
+
+.ServiceCard {
+  background: rgba(255, 255, 255, 0.2);
+  transition: 0.5s;
+  width: max-content;
 }
