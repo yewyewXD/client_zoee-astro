@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Instagram",
+    "link": "https://www.instagram.com/easy.astrology.by.zoee/",
+    "text": "Stay updated about my readings, follow my daily life, ask me questions, and learn astrology with interesting videos and post everyday!"
+  },
+
+  {
+    "name": "TikTok",
+    "link": "https://www.tiktok.com/@easy.astrology.by.zoee",
+    "text": "Learn astrology easily and in an entertaining way with daily short videos!",
+    "isReverse": true
+  },
+
+  {
+    "name": "Twitter",
+    "link": "https://twitter.com/easyastrobyzoee",
+    "text": "Find inspiring daily tweet: astrology quotes, my personal thoughts, debates and interesting astrology knowledge!"
+  }
+]
