@@ -40,7 +40,7 @@ const Services = () => {
               </div>
 
               <div className="flex items-center mt-10">
-                <a href="#" class="btn text-xl font-semibold"></a>
+                <a href="#" className="btn text-xl font-semibold"></a>
               </div>
             </div>
           </div>

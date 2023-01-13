@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useRef } from "react";
 import AboutMe from "../components/Home/AboutMe";
+import FAQ from "../components/Home/FAQ";
 import Hero from "../components/Home/Hero";
 import Services from "../components/Home/Services";
 import SocialMedia from "../components/Home/SocialMedia";
@@ -40,6 +41,8 @@ export default function Home() {
         <Services />
 
         <AboutMe />
+
+        <FAQ />
 
         {/* CTA */}
         <div className="py-10 px-20 text-white bg-red text-center">

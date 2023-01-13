@@ -145,3 +145,7 @@ $brand-red: #ab3838;
   transition: 0.5s;
   width: max-content;
 }
+
+.rotateSvg .accordion {
+  transform: rotate(180deg);
+}

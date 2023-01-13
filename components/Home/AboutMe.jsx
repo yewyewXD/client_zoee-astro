@@ -22,7 +22,7 @@ const AboutMe = () => {
                   ancient and moderns astrology techniques.
                 </div>
 
-                <button className="mt-10 border-2 px-10 py-4 hover:bg-white hover:text-black smooth">
+                <button className="mt-10 border-2 border-white px-10 py-4 hover:bg-white hover:text-black smooth">
                   Read more
                 </button>
               </div>
