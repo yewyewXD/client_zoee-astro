@@ -10,9 +10,9 @@ const ssp = Source_Sans_Pro({
 
 function MyApp({ Component, pageProps }) {
   return (
-    <main className={ssp.className}>
+    <div className={ssp.className}>
       <Component {...pageProps} />
-    </main>
+    </div>
   );
 }
 

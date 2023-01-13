@@ -42,7 +42,7 @@ const SocialMedia = () => {
           </div>
         </div>
 
-        <Marquee gradient={false} speed={80} className="my-32">
+        <Marquee gradient={false} speed={80} className="my-24">
           <div className="h-60 w-60 bg-white mx-4"></div>
           <div className="h-60 w-60 bg-white mx-4"></div>
           <div className="h-60 w-60 bg-white mx-4"></div>
@@ -82,7 +82,7 @@ const SocialMedia = () => {
           direction="right"
           gradient={false}
           speed={80}
-          className="my-32"
+          className="my-24"
         >
           <div className="h-60 w-60 bg-white mx-4"></div>
           <div className="h-60 w-60 bg-white mx-4"></div>
