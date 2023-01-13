@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import socialMedias from "../../json/socialMedias.json";
+import Marquee from "react-fast-marquee";
 
 const SocialMedia = () => {
   return (
@@ -14,7 +15,7 @@ const SocialMedia = () => {
         </div>
 
         <div className="container-deep">
-          <div className="flex justify-between items-center mb-20">
+          <div className="flex justify-between items-center">
             <div>
               <div>
                 <h3 className="text-4xl font-bold mt-6 mb-7">
@@ -41,8 +42,18 @@ const SocialMedia = () => {
           </div>
         </div>
 
+        <Marquee gradient={false} speed={80} className="my-32">
+          <div className="h-60 w-60 bg-white mx-4"></div>
+          <div className="h-60 w-60 bg-white mx-4"></div>
+          <div className="h-60 w-60 bg-white mx-4"></div>
+          <div className="h-60 w-60 bg-white mx-4"></div>
+          <div className="h-60 w-60 bg-white mx-4"></div>
+          <div className="h-60 w-60 bg-white mx-4"></div>
+          <div className="h-60 w-60 bg-white mx-4"></div>
+        </Marquee>
+
         <div className="container-deep">
-          <div className="flex flex-row-reverse justify-between items-center mb-20">
+          <div className="flex flex-row-reverse justify-between items-center">
             <div className="w-5/12">
               <h3 className="text-4xl font-bold mt-6 mb-7">
                 {socialMedias[1].name}
@@ -67,8 +78,23 @@ const SocialMedia = () => {
           </div>
         </div>
 
+        <Marquee
+          direction="right"
+          gradient={false}
+          speed={80}
+          className="my-32"
+        >
+          <div className="h-60 w-60 bg-white mx-4"></div>
+          <div className="h-60 w-60 bg-white mx-4"></div>
+          <div className="h-60 w-60 bg-white mx-4"></div>
+          <div className="h-60 w-60 bg-white mx-4"></div>
+          <div className="h-60 w-60 bg-white mx-4"></div>
+          <div className="h-60 w-60 bg-white mx-4"></div>
+          <div className="h-60 w-60 bg-white mx-4"></div>
+        </Marquee>
+
         <div className="container-deep">
-          <div className="flex justify-between items-center mb-20">
+          <div className="flex justify-between items-center">
             <div>
               <div>
                 <h3 className="text-4xl font-bold mt-6 mb-7">
