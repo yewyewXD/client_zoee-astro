@@ -51,8 +51,8 @@ export default function Home() {
           <div className="mb-6 text-3xl font-semibold">
             Dive right in and change your life now!
           </div>
-          <button className="border-2 text-xl px-8 py-3 smooth hover:bg-white hover:text-black">
-            Book a Coaching
+          <button className="border-2 border-white text-xl px-8 py-3 smooth hover:bg-white hover:text-black">
+            Book a Consultation
           </button>
         </div>
       </main>
