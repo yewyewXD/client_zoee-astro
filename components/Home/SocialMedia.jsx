@@ -4,7 +4,7 @@ import socialMedias from "../../json/socialMedias.json";
 
 const SocialMedia = () => {
   return (
-    <div className="bg-green text-white">
+    <div className="bg-purple text-white">
       <div className="py-20">
         <h2 className="text-5xl text-center font-bold">Social Media</h2>
         <div className="text-center text mt-3 text-xl mb-20">

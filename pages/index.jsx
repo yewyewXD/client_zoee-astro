@@ -44,6 +44,8 @@ export default function Home() {
 
         <FAQ />
 
+        <SocialMedia />
+
         {/* CTA */}
         <div className="py-10 px-20 text-white bg-red text-center">
           <div className="mb-6 text-3xl font-semibold">

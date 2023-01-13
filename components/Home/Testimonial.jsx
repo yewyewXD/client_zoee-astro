@@ -12,7 +12,7 @@ const settings = {
 
 const Testimonial = () => {
   return (
-    <div className="bg-green text-white relative">
+    <div className="bg-brown text-white relative">
       <div className="container py-20 relative">
         <h2 className="text-5xl text-center font-bold">Testimonials</h2>
         <div className="text-center text mt-3 mb-6 text-xl">
