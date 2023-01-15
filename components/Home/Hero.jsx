@@ -2,6 +2,12 @@ import React from "react";
 import BgOverlay from "../BgOverlay";
 
 const Hero = () => {
+  async function sendRequest() {
+    const res = await fetch("http://localhost:5000/oauth");
+    const data = await res.json();
+    console.log(data);
+  }
+
   return (
     <div
       className="h-screen w-full relative"
@@ -19,7 +25,10 @@ const Hero = () => {
           guide you into your life in the best way.
         </div>
         <div className="flex items-center mt-10">
-          <a href="#" className="btn text-xl font-semibold"></a>
+          <button
+            className="btn text-xl font-semibold"
+            onClick={sendRequest}
+          ></button>
         </div>
       </div>
     </div>
