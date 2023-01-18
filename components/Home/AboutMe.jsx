@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const AboutMe = () => {
@@ -22,9 +23,11 @@ const AboutMe = () => {
                   ancient and moderns astrology techniques.
                 </div>
 
-                <button className="mt-10 border-2 border-white px-10 py-4 hover:bg-white hover:text-black smooth">
-                  Read more
-                </button>
+                <Link passHref href="/about">
+                  <button className="mt-10 border-2 border-white px-10 py-4 hover:bg-white hover:text-black smooth">
+                    Read more
+                  </button>
+                </Link>
               </div>
             </div>
 

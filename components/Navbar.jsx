@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <header>
       <nav
-        className={`fixed right-0 left-0 z-50 smooth bg-transparent ${
+        className={`fixed right-0 left-0 top-0 z-50 smooth bg-transparent ${
           isScrolled && "pb-8 navDark"
         }`}
       >
