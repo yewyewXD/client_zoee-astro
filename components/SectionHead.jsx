@@ -6,7 +6,7 @@ const SectionHead = ({ title }) => {
     <div
       className="h-96 flex justify-center items-center text-white relative bg-green"
       style={{
-        background: "url(/images/hero-bg.jpg) no-repeat center center / cover",
+        background: "url(/images/hero-bg.jpg) no-repeat top center / cover",
       }}
     >
       <BgOverlay opacity={"0.4"} />

@@ -2,11 +2,13 @@ import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 import BgOverlay from "../components/BgOverlay";
+import CallToAction from "../components/CallToAction";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import SectionHead from "../components/SectionHead";
 import CoachingAstrology from "../components/Services/CoachingAstrology";
 import FollowUp from "../components/Services/FollowUp";
+import Synastry from "../components/Services/Synastry";
 
 const Services = () => {
   return (
@@ -31,22 +33,14 @@ const Services = () => {
             <div className="mb-20">
               <FollowUp />
             </div>
+
+            <div className="mb-20">
+              <Synastry />
+            </div>
           </div>
         </div>
 
-        <div
-          className="text-white bg-green text-center relative"
-          style={{
-            background:
-              "url(/images/hero-bg.jpg) no-repeat center center / cover",
-          }}
-        >
-          <BgOverlay opacity={"0.4"} />
-          <div className="relative py-20">
-            <div className="mb-8 text-5xl font-semibold">Work with me</div>
-            <button className="btn text-xl font-semibold"></button>
-          </div>
-        </div>
+        <CallToAction />
       </main>
 
       <Footer />

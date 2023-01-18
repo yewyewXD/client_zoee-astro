@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useRef } from "react";
+import CallToAction from "../components/CallToAction";
 import Footer from "../components/Footer";
 import AboutMe from "../components/Home/AboutMe";
 import FAQ from "../components/Home/FAQ";
@@ -45,15 +46,7 @@ export default function Home() {
 
         <SocialMedia />
 
-        {/* CTA */}
-        <div className="py-10 px-20 text-white bg-red text-center">
-          <div className="mb-6 text-3xl font-semibold">
-            Dive right in and change your life now!
-          </div>
-          <button className="border-2 border-white text-xl px-8 py-3 smooth hover:bg-white hover:text-black">
-            Book a Consultation
-          </button>
-        </div>
+        <CallToAction />
       </main>
 
       <Footer />
