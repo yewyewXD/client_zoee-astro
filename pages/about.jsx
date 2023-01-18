@@ -23,8 +23,8 @@ const About = () => {
         <div className="bg-green py-20">
           <div className="container-deep relative">
             <div className="grid grid-cols-3">
-              <div className="col-span-2 flex pr-32 items-center">
-                <div className="text-xl">
+              <div className="col-span-2 flex pr-20 items-center">
+                <div className="text-2xl">
                   <div className="font-bold">
                     I’m Zoée, astrologer, consultant and content creator but not
                     only.
@@ -45,19 +45,19 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-span-1 pb-7">
+              <div className="col-span-1">
                 <Image
                   className="rounded-full"
                   src="/images/about-face.jpeg"
                   alt=""
-                  width={320}
+                  width={340}
                   height={400}
                 />
               </div>
             </div>
 
-            <div className="text-xl">
-              <div className="">
+            <div className="text-2xl">
+              <div className="mt-6">
                 Fun fact: I did breakdance for 6 years (yes you read it right,
                 it&apos;s the dance you turn on your head haha). But you are
                 going to tell me “what does that have to do with astrology?”.

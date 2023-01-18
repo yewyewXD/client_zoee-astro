@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import SectionHead from "../components/SectionHead";
 import CoachingAstrology from "../components/Services/CoachingAstrology";
+import FollowUp from "../components/Services/FollowUp";
 
 const Services = () => {
   return (
@@ -27,7 +28,9 @@ const Services = () => {
               <CoachingAstrology />
             </div>
 
-            <CoachingAstrology />
+            <div className="mb-20">
+              <FollowUp />
+            </div>
           </div>
         </div>
 

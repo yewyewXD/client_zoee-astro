@@ -26,9 +26,11 @@ const CoachingAstrology = () => {
 
           <div>
             <div className="font-semibold mb-2">What is it?</div>
-            Give you the keys to reach your goals. In Coaching Astrology, your
-            birth chart describe who you should be to achieve happiness, success
-            and efficiency.
+            Coaching Astrology is a very efficient self-development tool. In
+            coaching astrology, we say that your birth chart describe who you
+            should be and what you should do to achieve happiness, success and
+            efficiency. It will give you the keys to reach your goals, then the
+            choice belongs to you to use it or not.
           </div>
 
           <div className="mt-5">

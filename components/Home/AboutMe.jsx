@@ -11,12 +11,12 @@ const AboutMe = () => {
         <div className="container-deep">
           <div className="grid grid-cols-3">
             <div className="col-span-2 flex pr-40 items-center">
-              <div className="text-xl">
+              <div className="text-2xl">
                 <div>
                   I’m Zoée, astrologer, consultant and content creator but not
                   only.
                 </div>
-                <div className="mt-3">
+                <div className="mt-5">
                   Well, I&apos;ll say it again (better too much than not
                   enough): I help people truly understand themselves with
                   astrology to reach happiness. And all of this using multiples
