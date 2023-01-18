@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import BgOverlay from "../BgOverlay";
 
@@ -18,12 +19,11 @@ const Services = () => {
 
         <div className="grid grid-cols-3 items-center">
           <div className="col-span-1 flex justify-end">
-            <div className="p-3 rounded-xl ServiceCard">
+            <div>
               <Image
-                src="/images/service-img.png"
-                className="rounded-xl"
+                src="/images/service-coaching.jpg"
                 alt=""
-                height={200}
+                height={300}
                 width={300}
               />
             </div>
@@ -39,8 +39,12 @@ const Services = () => {
                 happiness, success and efficiency.
               </div>
 
-              <div className="flex items-center mt-10">
-                <a href="#" className="btn text-xl font-semibold"></a>
+              <div className="flex items-center mt-10 text-xl">
+                <Link passHref href="/services">
+                  <button className="border-2 border-white px-10 py-4 hover:bg-white hover:text-black smooth">
+                    See all services
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
