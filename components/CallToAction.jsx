@@ -7,7 +7,7 @@ const CallToAction = () => {
     <div
       className="text-white bg-green text-center relative"
       style={{
-        background: "url(/images/hero-bg.jpg) no-repeat center bottom / cover",
+        background: "url(/images/hero-bg.jpg) no-repeat center center / cover",
       }}
     >
       <BgOverlay opacity={"0.4"} />
