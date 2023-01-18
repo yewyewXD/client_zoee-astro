@@ -25,7 +25,7 @@ const Services = () => {
         <SectionHead title={"Services"} />
 
         <div className="bg-green py-20">
-          <div className="container-deep">
+          <div className="container">
             <div className="mb-20">
               <CoachingAstrology />
             </div>

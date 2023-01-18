@@ -8,11 +8,11 @@ const Synastry = () => {
     <div className="grid grid-cols-3">
       <div className="flex items-center col-span-1">
         <Image
-          src="/images/service-img.png"
+          src="/images/service-synastry.jpg"
           className="rounded-xl"
           alt=""
-          height={200}
-          width={300}
+          height={500}
+          width={600}
         />
       </div>
       <div className="flex items-center col-span-2 pl-40 text-xl">

@@ -82,11 +82,11 @@ const FollowUp = () => {
 
       <div className="flex items-center col-span-1">
         <Image
-          src="/images/service-img.png"
+          src="/images/service-follow.jpg"
           className="rounded-xl"
           alt=""
-          height={200}
-          width={300}
+          width={450}
+          height={500}
         />
       </div>
     </div>

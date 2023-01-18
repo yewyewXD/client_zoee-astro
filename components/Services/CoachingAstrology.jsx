@@ -8,11 +8,11 @@ const CoachingAstrology = () => {
     <div className="grid grid-cols-3">
       <div className="flex items-center col-span-1">
         <Image
-          src="/images/service-img.png"
+          src="/images/service-coaching.jpg"
           className="rounded-xl"
           alt=""
-          height={200}
-          width={300}
+          width={500}
+          height={400}
         />
       </div>
       <div className="flex items-center col-span-2 pl-40 text-xl">
