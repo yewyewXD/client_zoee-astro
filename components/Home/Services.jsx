@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import BgOverlay from "../UI/BgOverlay";
+import SecondaryBtn from "../UI/buttons/SecondaryBtn";
 
 const Services = () => {
   return (
@@ -43,9 +44,7 @@ const Services = () => {
 
               <div className="flex items-center lg:justify-start justify-center mt-10 text-xl">
                 <Link passHref href="/services">
-                  <button className="border-2 border-white px-10 py-4 hover:bg-white hover:text-black smooth">
-                    See all services
-                  </button>
+                  <SecondaryBtn>See all services</SecondaryBtn>
                 </Link>
               </div>
             </div>

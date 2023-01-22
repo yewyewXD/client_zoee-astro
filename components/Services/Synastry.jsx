@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
+import SecondaryBtn from "../UI/buttons/SecondaryBtn";
 
 const Synastry = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -116,13 +117,11 @@ const Synastry = () => {
           )}
 
           <div className="flex items-center mt-10">
-            <button className="border-2 border-white px-10 py-4 hover:bg-white hover:text-black smooth">
-              Book now
-            </button>
+            <SecondaryBtn>Book now</SecondaryBtn>
 
             <span
               onClick={() => setIsExpanded((bool) => !bool)}
-              className="text-lg ml-10 underline cursor-pointer"
+              className="text-lg ml-10 underline cursor-pointer smooth hover:opacity-80"
             >
               {isExpanded ? "Read less" : "Read more"}
             </span>

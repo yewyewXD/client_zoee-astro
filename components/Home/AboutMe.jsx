@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import SecondaryBtn from "../UI/buttons/SecondaryBtn";
 
 const AboutMe = () => {
   return (
@@ -25,10 +26,9 @@ const AboutMe = () => {
                   ancient and moderns astrology techniques.
                 </div>
 
+                <div className="2xl:mt-10 mt-7"></div>
                 <Link passHref href="/about">
-                  <button className="2xl:mt-10 mt-7 border-2 border-white px-10 py-4 hover:bg-white hover:text-black smooth">
-                    Read more
-                  </button>
+                  <SecondaryBtn>Read more</SecondaryBtn>
                 </Link>
               </div>
             </div>

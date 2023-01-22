@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import socialMedias from "../../json/socialMedias.json";
 import Marquee from "react-fast-marquee";
+import SecondaryBtn from "../UI/buttons/SecondaryBtn";
 
 const SocialMedia = () => {
   return (
@@ -23,16 +24,16 @@ const SocialMedia = () => {
                 </h3>
                 <div className="text-xl w-8/12">{socialMedias[0].text}</div>
 
-                <Link
-                  href={socialMedias[0].link}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  passHref
-                >
-                  <button className="text-xl font-semibold mt-10 border-2 px-10 py-4 hover:bg-white hover:text-black smooth">
-                    Check it Out
-                  </button>
-                </Link>
+                <div className="mt-10">
+                  <Link
+                    href={socialMedias[0].link}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    passHref
+                  >
+                    <SecondaryBtn>Check it Out</SecondaryBtn>
+                  </Link>
+                </div>
               </div>
             </div>
 
@@ -60,16 +61,16 @@ const SocialMedia = () => {
               </h3>
               <div className="text-xl">{socialMedias[1].text}</div>
 
-              <Link
-                href={socialMedias[1].link}
-                target="_blank"
-                rel="noreferrer noopener"
-                passHref
-              >
-                <button className="text-xl font-semibold mt-10 border-2 px-10 py-4 hover:bg-white hover:text-black smooth">
-                  Check it Out
-                </button>
-              </Link>
+              <div className="mt-10">
+                <Link
+                  href={socialMedias[1].link}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  passHref
+                >
+                  <SecondaryBtn>Check it Out</SecondaryBtn>
+                </Link>
+              </div>
             </div>
 
             <div>
@@ -102,16 +103,16 @@ const SocialMedia = () => {
                 </h3>
                 <div className="text-xl w-8/12">{socialMedias[2].text}</div>
 
-                <Link
-                  href={socialMedias[2].link}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  passHref
-                >
-                  <button className="text-xl font-semibold mt-10 border-2 px-10 py-4 hover:bg-white hover:text-black smooth">
-                    Check it Out
-                  </button>
-                </Link>
+                <div className="mt-10">
+                  <Link
+                    href={socialMedias[2].link}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    passHref
+                  >
+                    <SecondaryBtn>Check it Out</SecondaryBtn>
+                  </Link>
+                </div>
               </div>
             </div>
 

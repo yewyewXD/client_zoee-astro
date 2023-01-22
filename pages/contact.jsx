@@ -111,7 +111,7 @@ const contact = () => {
                   </div>
 
                   <button
-                    className="border-2 border-white px-12 py-3 hover:bg-white hover:text-black smooth text-xl"
+                    className="border-2 border-white px-12 py-3 hover:bg-white hover:text-black smooth lg:text-xl text-lg"
                     type="submit"
                   >
                     Send
