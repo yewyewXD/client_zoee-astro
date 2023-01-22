@@ -20,7 +20,7 @@ const contact = () => {
 
       <main className="text-white">
         <SectionHead title={"Contact Me"} />
-        <div className="bg-green py-20">
+        <div className="bg-green py-32">
           <div className="container-deep">
             <div className="grid grid-cols-3">
               <div className="col-span-1 text-lg font-semibold">
@@ -58,7 +58,13 @@ const contact = () => {
               </div>
 
               <div className="col-span-2 pl-40">
-                <form className="w-full">
+                <form
+                  name="contact"
+                  method="POST"
+                  data-netlify="true"
+                  className="w-full"
+                >
+                  <input type="hidden" name="form-name" value="contact" />
                   <div className="mb-4">
                     <label className="block font-semibold mb-2" htmlFor="name">
                       Name
@@ -80,7 +86,7 @@ const contact = () => {
                     <input
                       className="appearance-none outline-none border-2 border-white rounded w-full py-2 px-3 text-black leading-tight focus:border-gray-600"
                       id="email"
-                      type="text"
+                      type="email"
                       name="email"
                       placeholder="johndoe@example.com"
                       required
