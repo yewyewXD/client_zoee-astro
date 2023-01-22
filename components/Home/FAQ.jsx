@@ -17,7 +17,7 @@ const FAQ = () => {
           FAQ
         </h2>
 
-        <div className="grid grid-cols-2 gap-x-20 lg:text-xl text-lg font-semibold">
+        <div className="grid lg:grid-cols-2 gap-x-20 lg:text-xl text-lg font-semibold">
           {questions.map((question) => (
             <Collapsible
               openedClassName="rotateSvg"

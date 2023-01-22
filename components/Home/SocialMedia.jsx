@@ -8,8 +8,10 @@ const SocialMedia = () => {
   return (
     <div className="bg-purple text-white">
       <div className="lg:py-20 py-14">
-        <h2 className="text-5xl text-center font-bold">Social Media</h2>
-        <div className="text-center text mt-3 text-xl mb-20">
+        <h2 className="lg:text-5xl text-4xl text-center font-bold">
+          Social Media
+        </h2>
+        <div className="text-center text mt-3 lg:text-xl text-lg mb-20">
           Become a member of the{" "}
           <span className="font-bold">Easy Astrology by Zoee</span> community
           now!
@@ -19,12 +21,14 @@ const SocialMedia = () => {
           <div className="flex justify-between items-center">
             <div>
               <div>
-                <h3 className="text-4xl font-bold mt-6 mb-7">
+                <h3 className="lg:text-4xl text-3xl font-bold lg:mb-7 mb-4">
                   {socialMedias[0].name}
                 </h3>
-                <div className="text-xl w-8/12">{socialMedias[0].text}</div>
+                <div className="lg:text-xl text-lg w-8/12">
+                  {socialMedias[0].text}
+                </div>
 
-                <div className="mt-10">
+                <div className="lg:mt-10 mt-7">
                   <Link
                     href={socialMedias[0].link}
                     target="_blank"
@@ -56,12 +60,12 @@ const SocialMedia = () => {
         <div className="container-deep">
           <div className="flex flex-row-reverse justify-between items-center">
             <div className="w-5/12">
-              <h3 className="text-4xl font-bold mt-6 mb-7">
+              <h3 className="lg:text-4xl text-3xl font-bold lg:mb-7 mb-4">
                 {socialMedias[1].name}
               </h3>
-              <div className="text-xl">{socialMedias[1].text}</div>
+              <div className="lg:text-xl text-lg">{socialMedias[1].text}</div>
 
-              <div className="mt-10">
+              <div className="lg:mt-10 mt-7">
                 <Link
                   href={socialMedias[1].link}
                   target="_blank"
@@ -98,12 +102,14 @@ const SocialMedia = () => {
           <div className="flex justify-between items-center">
             <div>
               <div>
-                <h3 className="text-4xl font-bold mt-6 mb-7">
+                <h3 className="lg:text-4xl text-3xl font-bold lg:mb-7 mb-4">
                   {socialMedias[2].name}
                 </h3>
-                <div className="text-xl w-8/12">{socialMedias[2].text}</div>
+                <div className="lg:text-xl text-lg w-8/12">
+                  {socialMedias[2].text}
+                </div>
 
-                <div className="mt-10">
+                <div className="lg:mt-10 mt-7">
                   <Link
                     href={socialMedias[2].link}
                     target="_blank"
