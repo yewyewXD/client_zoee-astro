@@ -23,7 +23,7 @@ const Services = () => {
         <SectionHead title={"Services"} />
 
         <div className="bg-green lg:py-20 py-14">
-          <div className="container">
+          <div className="container lg:text-xl text-lg">
             <div className="mb-20">
               <CoachingAstrology />
             </div>

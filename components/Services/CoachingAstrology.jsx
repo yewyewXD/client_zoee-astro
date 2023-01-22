@@ -6,8 +6,8 @@ const CoachingAstrology = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="grid grid-cols-3">
-      <div className="flex items-center col-span-1">
+    <div className="lg:grid grid-cols-3 flex flex-col">
+      <div className="lg:flex hidden items-center justify-start col-span-1">
         <Image
           src="/images/service-coaching.jpg"
           className="rounded-xl"
@@ -16,13 +16,23 @@ const CoachingAstrology = () => {
           height={400}
         />
       </div>
-      <div className="flex items-center col-span-2 pl-40 text-xl">
+      <div className="lg:hidden flex justify-center">
+        <Image
+          src="/images/service-coaching.jpg"
+          className="rounded-xl"
+          alt=""
+          width={230}
+          height={230}
+        />
+      </div>
+
+      <div className="flex items-center col-span-2 lg:pl-40">
         <div>
           <div className="mt-6 mb-6">
-            <h3 className="text-4xl font-bold">
+            <h3 className="lg:text-4xl text-3xl font-bold">
               Coaching Astrology Consultation{" "}
             </h3>
-            <div className="text-xl font-semibold mt-3">150 USD</div>
+            <div className="font-semibold mt-3">150 USD</div>
           </div>
 
           <div>

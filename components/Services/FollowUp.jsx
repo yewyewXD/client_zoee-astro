@@ -6,12 +6,14 @@ const FollowUp = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="grid grid-cols-3">
-      <div className="flex items-center col-span-2 text-xl pr-40">
+    <div className="flex:grid grid-cols-3 flex flex-col-reverse">
+      <div className="flex items-center col-span-2 lg:pr-40">
         <div>
           <div className="mt-6 mb-6">
-            <h3 className="text-4xl font-bold">Follow-up Consultation</h3>
-            <div className="text-xl font-semibold mt-3">50 USD</div>
+            <h3 className="lg:text-4xl text-3xl font-bold">
+              Follow-up Consultation
+            </h3>
+            <div className="font-semibold mt-3">50 USD</div>
           </div>
 
           <div>
@@ -79,13 +81,23 @@ const FollowUp = () => {
         </div>
       </div>
 
-      <div className="flex items-center col-span-1">
+      <div className="lg:flex hidden items-center col-span-1">
         <Image
           src="/images/service-follow.jpg"
           className="rounded-xl"
           alt=""
           width={450}
           height={500}
+        />
+      </div>
+
+      <div className="lg:hidden flex justify-center">
+        <Image
+          src="/images/service-follow.jpg"
+          className="rounded-xl"
+          alt=""
+          width={230}
+          height={230}
         />
       </div>
     </div>
