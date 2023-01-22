@@ -1,7 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
 import React from "react";
-import BgOverlay from "../components/BgOverlay";
 import CallToAction from "../components/CallToAction";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";

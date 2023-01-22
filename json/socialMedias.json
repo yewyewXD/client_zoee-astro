@@ -2,19 +2,25 @@
   {
     "name": "Instagram",
     "link": "https://www.instagram.com/easy.astrology.by.zoee/",
-    "text": "Stay updated about my readings, follow my daily life, ask me questions, and learn astrology with interesting videos and post everyday!"
+    "text": "Stay updated about my readings, follow my daily life, ask me questions, and learn astrology with interesting videos and post everyday!",
+    "tag": "@easy.astrology.by.zoee",
+    "image": "/images/social/instagram.png"
   },
 
   {
     "name": "TikTok",
     "link": "https://www.tiktok.com/@easy.astrology.by.zoee",
     "text": "Learn astrology easily and in an entertaining way with daily short videos!",
-    "isReverse": true
+    "isReverse": true,
+    "tag": "@easy.astrology.by.zoee",
+    "image": "/images/social/tiktok.png"
   },
 
   {
     "name": "Twitter",
     "link": "https://twitter.com/easyastrobyzoee",
-    "text": "Find inspiring daily tweet: astrology quotes, my personal thoughts, debates and interesting astrology knowledge!"
+    "text": "Find inspiring daily tweet: astrology quotes, my personal thoughts, debates and interesting astrology knowledge!",
+    "tag": "@easyastrobyzoee",
+    "image": "/images/social/twitter.png"
   }
 ]
