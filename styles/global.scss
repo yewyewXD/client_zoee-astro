@@ -39,7 +39,8 @@ $brand-red: #ab3838;
 }
 
 .navItem {
-  &:hover {
+  &:hover,
+  &--active {
     background-color: $brand-gray;
   }
 }

@@ -2,8 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import navItems from "../json/navItems.json";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -42,7 +44,11 @@ const Navbar = () => {
           <div className={`ml-auto smooth ${isScrolled ? "mt-6" : "mt-10"}`}>
             {navItems.map((navItem) => (
               <Link href={navItem.link} key={navItem.id}>
-                <span className="text-lg font-semibold smooth navItem px-5 py-2 rounded-3xl">
+                <span
+                  className={`text-lg font-semibold smooth navItem ${
+                    router.pathname === navItem.link && "navItem--active"
+                  } px-5 py-2 rounded-3xl ml-1`}
+                >
                   {navItem.text}
                 </span>
               </Link>
