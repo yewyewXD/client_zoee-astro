@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import BgOverlay from "../BgOverlay";
+import BgOverlay from "../UI/BgOverlay";
 
 const Services = () => {
   return (

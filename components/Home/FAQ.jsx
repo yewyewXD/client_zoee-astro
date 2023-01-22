@@ -1,5 +1,5 @@
 import React from "react";
-import BgOverlay from "../BgOverlay";
+import BgOverlay from "../UI/BgOverlay";
 import Collapsible from "react-collapsible";
 import questions from "../../json/questions.json";
 

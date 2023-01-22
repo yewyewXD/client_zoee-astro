@@ -8,12 +8,22 @@ const settings = {
   speed: 500,
   slidesToShow: 3,
   slidesToScroll: 3,
+
+  responsive: [
+    {
+      breakpoint: 1280,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      },
+    },
+  ],
 };
 
 const Testimonial = () => {
   return (
     <div className="bg-brown text-white relative">
-      <div className="container py-20 relative">
+      <div className="xl:w-11/12 w-10/12 mx-auto py-20 relative">
         <h2 className="text-5xl text-center font-bold">Testimonials</h2>
         <div className="text-center text mt-3 mb-6 text-xl">
           See what others have to say...
@@ -28,7 +38,7 @@ const Testimonial = () => {
               >
                 <div className="bg-white rounded-xl overflow-hidden">
                   <div
-                    className="w-full h-44 bg-brown"
+                    className="w-full xl:h-44 h-40 bg-brown"
                     style={
                       review.image
                         ? {
@@ -37,12 +47,14 @@ const Testimonial = () => {
                         : {}
                     }
                   ></div>
-                  <div className="p-8 text-lg">
-                    <div className="h-36 mb-2">{`"${review.text}"`}</div>
-                    <div className="font-semibold leading-tight">
-                      {review.name}
+                  <div className="xl:p-8 p-6 2xl:text-lg text-base">
+                    <div className="2xl:h-36 h-32 xl:mb-5">{`"${review.text}"`}</div>
+                    <div>
+                      <div className="font-semibold leading-tight">
+                        {review.name}
+                      </div>
+                      <div className="text-base italic">{review.from}</div>
                     </div>
-                    <div className="text-base italic">{review.from}</div>
                   </div>
                 </div>
               </div>

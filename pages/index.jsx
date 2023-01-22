@@ -1,14 +1,14 @@
 import Head from "next/head";
 import { useRef } from "react";
-import CallToAction from "../components/CallToAction";
-import Footer from "../components/Footer";
+import CallToAction from "../components/UI/CallToAction";
+import Footer from "../components/UI/Footer";
 import AboutMe from "../components/Home/AboutMe";
 import FAQ from "../components/Home/FAQ";
 import Hero from "../components/Home/Hero";
 import Services from "../components/Home/Services";
 import SocialMedia from "../components/Home/SocialMedia";
 import Testimonial from "../components/Home/Testimonial";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/UI/Navbar";
 
 export default function Home() {
   const servicesRef = useRef();

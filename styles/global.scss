@@ -69,6 +69,12 @@ $brand-red: #ab3838;
   cursor: pointer;
   transition: 0.3s;
 
+  @media (max-width: 1279.98px) {
+    bottom: 20px;
+    height: 42px;
+    width: 24px;
+  }
+
   &:hover {
     opacity: 0.5;
   }

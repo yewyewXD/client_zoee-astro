@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import navItems from "../json/navItems.json";
+import navItems from "../../json/navItems.json";
 import { useRouter } from "next/router";
 
 const Navbar = () => {

@@ -1,9 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
 import React from "react";
-import CallToAction from "../components/CallToAction";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+import CallToAction from "../components/UI/CallToAction";
+import Footer from "../components/UI/Footer";
+import Navbar from "../components/UI/Navbar";
 import SectionHead from "../components/SectionHead";
 
 const About = () => {

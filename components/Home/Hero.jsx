@@ -1,13 +1,7 @@
 import React from "react";
-import BgOverlay from "../BgOverlay";
+import BgOverlay from "../UI/BgOverlay";
 
 const Hero = () => {
-  async function sendRequest() {
-    const res = await fetch("http://localhost:5000/oauth");
-    const data = await res.json();
-    console.log(data);
-  }
-
   return (
     <div
       className="h-screen w-full relative"
@@ -17,18 +11,18 @@ const Hero = () => {
     >
       <BgOverlay opacity={"0.4"} />
       <div className="container text-white flex flex-col items-center justify-center h-full relative text-center">
-        <h1 className="text-6xl font-bold" style={{ width: "700px" }}>
+        <h1
+          className="xl:text-6xl text-4xl font-bold"
+          style={{ width: "700px" }}
+        >
           Ready To Change Your Life With Astrology?
         </h1>
-        <div className="text-lg mt-6 font-semibold w-4/12 text-gray-100">
+        <div className="text-lg mt-6 font-semibold xl:w-4/12 w-6/12 text-gray-100">
           For self-discovery, relationships, or even self-growth, astrology
           guide you into your life in the best way.
         </div>
         <div className="flex items-center mt-10">
-          <button
-            className="btn text-xl font-semibold"
-            onClick={sendRequest}
-          ></button>
+          <button className="btn text-xl font-semibold"></button>
         </div>
       </div>
     </div>
