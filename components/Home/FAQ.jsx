@@ -13,9 +13,11 @@ const FAQ = () => {
     >
       <BgOverlay opacity={"0.6"} />
       <div className="py-20 container relative">
-        <h2 className="text-5xl text-center font-bold mb-20">FAQ</h2>
+        <h2 className="lg:text-5xl text-4xl text-center font-bold mb-20">
+          FAQ
+        </h2>
 
-        <div className="grid grid-cols-2 gap-x-20 text-xl font-semibold">
+        <div className="grid grid-cols-2 gap-x-20 lg:text-xl text-lg font-semibold">
           {questions.map((question) => (
             <Collapsible
               openedClassName="rotateSvg"

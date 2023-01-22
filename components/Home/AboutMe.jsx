@@ -6,12 +6,14 @@ const AboutMe = () => {
   return (
     <div className="bg-green text-white">
       <div className="py-20">
-        <h2 className="text-5xl text-center font-bold mb-20">Who am I?</h2>
+        <h2 className="lg:text-5xl text-4xl text-center font-bold mb-20">
+          Who am I?
+        </h2>
 
         <div className="container-deep">
           <div className="grid grid-cols-3">
-            <div className="col-span-2 flex pr-40 items-center">
-              <div className="2xl:text-2xl text-xl">
+            <div className="col-span-2 flex lg:pr-40 pr-20 items-center">
+              <div className="2xl:text-2xl lg:text-xl text-lg">
                 <div>
                   I’m Zoée, astrologer, consultant and content creator but not
                   only.
@@ -31,7 +33,7 @@ const AboutMe = () => {
               </div>
             </div>
 
-            <div className="col-span-1">
+            <div className="col-span-1 flex items-center">
               <Image
                 className="rounded-full"
                 src="/images/about-face.jpeg"

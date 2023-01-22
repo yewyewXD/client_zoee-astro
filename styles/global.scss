@@ -9,21 +9,29 @@ $brand-purple: #5e5a7b;
 $brand-red: #ab3838;
 
 .container {
-  width: 85%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  max-width: 85%;
+  margin: 0 auto;
+
+  @media (max-width: 1023.98px) {
+    max-width: 90%;
+  }
 }
 
 .container-deep {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  width: 100%;
 
   @media (min-width: 1536px) {
-    width: 65%;
+    max-width: 65%;
+  }
+
+  @media (min-width: 1023.98px) {
+    max-width: 75%;
   }
 
   @media (min-width: 0px) {
-    width: 75%;
+    max-width: 90%;
   }
 }
 
@@ -91,6 +99,10 @@ $brand-red: #ab3838;
     right: 0;
     top: 10px;
     width: 6px;
+  }
+
+  @media (max-width: 767.98px) {
+    display: none;
   }
 }
 
