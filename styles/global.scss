@@ -15,9 +15,16 @@ $brand-red: #ab3838;
 }
 
 .container-deep {
-  width: 65%;
   margin-left: auto;
   margin-right: auto;
+
+  @media (min-width: 1536px) {
+    width: 65%;
+  }
+
+  @media (min-width: 0px) {
+    width: 75%;
+  }
 }
 
 .bg {
