@@ -1,5 +1,6 @@
 import React from "react";
 import BgOverlay from "../UI/BgOverlay";
+import PrimaryBtn from "../UI/buttons/PrimaryBtn";
 
 const Hero = () => {
   return (
@@ -19,7 +20,7 @@ const Hero = () => {
           guide you into your life in the best way.
         </div>
         <div className="flex items-center mt-10">
-          <button className="btn text-xl font-semibold"></button>
+          <PrimaryBtn />
         </div>
       </div>
     </div>

@@ -26,13 +26,11 @@ $brand-red: #ab3838;
     max-width: 65%;
   }
 
-  @media (min-width: 1023.98px) {
+  @media (min-width: 1024px) {
     max-width: 75%;
   }
 
-  @media (min-width: 0px) {
-    max-width: 90%;
-  }
+  max-width: 90%;
 }
 
 .bg {
@@ -134,6 +132,11 @@ $brand-red: #ab3838;
   position: relative;
   transition: 0.3s;
 
+  @media (max-width: 1023.98px) {
+    width: 205px;
+    height: 56px;
+  }
+
   &::after,
   &::before {
     content: "Change your Life";
@@ -144,6 +147,10 @@ $brand-red: #ab3838;
     left: 0;
     transition: 0.3s;
     top: 0;
+
+    @media (max-width: 1023.98px) {
+      line-height: 3.15;
+    }
   }
 
   &:hover {

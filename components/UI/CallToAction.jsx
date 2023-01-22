@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import BgOverlay from "./BgOverlay";
+import PrimaryBtn from "./buttons/PrimaryBtn";
 
 const CallToAction = () => {
   return (
@@ -12,9 +13,11 @@ const CallToAction = () => {
     >
       <BgOverlay opacity={"0.4"} />
       <div className="relative py-24">
-        <div className="mb-8 text-5xl font-semibold">Work with me</div>
+        <div className="mb-8 lg:text-5xl text-4xl font-semibold">
+          Work with me
+        </div>
         <Link href="/services" passHref>
-          <button className="btn text-xl font-semibold"></button>
+          <PrimaryBtn />
         </Link>
       </div>
     </div>
