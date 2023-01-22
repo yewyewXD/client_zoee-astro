@@ -20,12 +20,14 @@ const About = () => {
       <main className="text-white">
         <SectionHead title={"About Me"} />
 
-        <div className="bg-green py-20">
+        <div className="bg-green lg:py-20 py-14">
           <div className="container relative">
-            <div className="grid grid-cols-3">
-              <div className="col-span-2 flex pr-20 items-center">
-                <div className="text-xl">
-                  <div className="mb-5 font-bold text-2xl">Who am I?</div>
+            <div className="lg:grid grid-cols-3 flex flex-col-reverse">
+              <div className="col-span-2 flex lg:pr-20 items-center">
+                <div className="lg:text-xl text-lg">
+                  <div className="mb-5 font-bold lg:text-2xl text-xl">
+                    Who am I?
+                  </div>
                   <div>
                     I’m Zoée, astrologer, consultant and content creator but not
                     only.
@@ -81,19 +83,29 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-span-1 flex items-center justify-end">
+              <div className="col-span-1 lg:flex hidden items-center justify-end">
                 <Image
                   className="rounded-full"
                   src="/images/about-face.jpeg"
                   alt=""
                   width={340}
                   height={400}
+                />
+              </div>
+
+              <div className="lg:hidden flex justify-center mb-10">
+                <Image
+                  className="rounded-full"
+                  src="/images/about-face.jpeg"
+                  alt=""
+                  width={200}
+                  height={200}
                 />
               </div>
             </div>
 
-            <div className="grid grid-cols-3 mt-32">
-              <div className="col-span-1 flex items-center">
+            <div className="lg:grid flex-col grid-cols-3 lg:mt-32 mt-14">
+              <div className="col-span-1 lg:flex hidden items-center">
                 <Image
                   className="rounded-full"
                   src="/images/about-face.jpeg"
@@ -102,10 +114,19 @@ const About = () => {
                   height={400}
                 />
               </div>
+              <div className="lg:hidden flex justify-center mb-10">
+                <Image
+                  className="rounded-full"
+                  src="/images/about-face.jpeg"
+                  alt=""
+                  width={200}
+                  height={200}
+                />
+              </div>
 
-              <div className="col-span-2 flex pl-20 items-center">
-                <div className="text-xl">
-                  <div className="mb-5 font-bold text-2xl">
+              <div className="col-span-2 flex lg:pl-20 items-center">
+                <div className="lg:text-xl text-lg">
+                  <div className="mb-5 font-bold lg:text-2xl text-xl">
                     My story with astrology
                   </div>
                   <div>
@@ -167,15 +188,15 @@ const About = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-3 mt-32">
-              <div className="col-span-2 flex pr-20 items-center">
-                <div className="text-xl">
-                  <div className="mb-5 font-bold text-2xl">
+            <div className="lg:grid grid-cols-3 flex flex-col-reverse lg:mt-32 mt-14">
+              <div className="col-span-2 flex lg:pr-20 items-center">
+                <div className="lg:text-xl text-lg">
+                  <div className="mb-5 font-bold lg:text-2xl text-xl">
                     Why did I choose astrology?{" "}
                   </div>
 
                   <div>
-                    <div className="font-bold mb-2 text-2xl">
+                    <div className="font-bold mb-2 lg:text-2xl text-xl">
                       #1 You never stop learning
                     </div>
                     <p>
@@ -191,7 +212,7 @@ const About = () => {
                   </div>
 
                   <div className="mt-5">
-                    <div className="font-bold mb-2 text-2xl">
+                    <div className="font-bold mb-2 lg:text-2xl text-xl">
                       #2 Understanding what’s hidden and complicated, people,
                       behaviors
                     </div>
@@ -208,7 +229,7 @@ const About = () => {
                   </div>
 
                   <div className="mt-5">
-                    <div className="font-bold mb-2 text-2xl">
+                    <div className="font-bold mb-2 lg:text-2xl text-xl">
                       #3 The magic side
                     </div>
                     <p>
@@ -222,7 +243,7 @@ const About = () => {
                   </div>
 
                   <div className="mt-5">
-                    <div className="font-bold mb-2 text-2xl">
+                    <div className="font-bold mb-2 lg:text-2xl text-xl">
                       #4 Complete discipline: maths, history, psychology, etc.
                     </div>
                     <p>
@@ -239,7 +260,7 @@ const About = () => {
                   </div>
 
                   <div className="mt-5">
-                    <div className="font-bold mb-2 text-2xl">
+                    <div className="font-bold mb-2 lg:text-2xl text-xl">
                       #5 Helping others
                     </div>
                     <p>
@@ -252,13 +273,23 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-span-1 flex items-center justify-end">
+              <div className="col-span-1 lg:flex hidden items-center justify-end">
                 <Image
                   className="rounded-full"
                   src="/images/about-face.jpeg"
                   alt=""
                   width={340}
                   height={400}
+                />
+              </div>
+
+              <div className="lg:hidden flex justify-center mb-10">
+                <Image
+                  className="rounded-full"
+                  src="/images/about-face.jpeg"
+                  alt=""
+                  width={200}
+                  height={200}
                 />
               </div>
             </div>

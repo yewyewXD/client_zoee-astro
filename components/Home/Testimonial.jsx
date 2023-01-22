@@ -31,7 +31,7 @@ const settings = {
 const Testimonial = () => {
   return (
     <div className="bg-brown text-white relative">
-      <div className="px-20 py-20 relative">
+      <div className="px-20 lg:py-20 py-14 relative">
         <h2 className="lg:text-5xl text-4xl text-center font-bold">
           Testimonials
         </h2>

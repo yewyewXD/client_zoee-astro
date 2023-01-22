@@ -5,7 +5,7 @@ import React from "react";
 const AboutMe = () => {
   return (
     <div className="bg-green text-white">
-      <div className="py-20">
+      <div className="lg:py-20 py-14">
         <h2 className="lg:text-5xl text-4xl text-center font-bold mb-20">
           Who am I?
         </h2>

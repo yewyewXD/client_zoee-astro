@@ -6,7 +6,7 @@ import Marquee from "react-fast-marquee";
 const SocialMedia = () => {
   return (
     <div className="bg-purple text-white">
-      <div className="py-20">
+      <div className="lg:py-20 py-14">
         <h2 className="text-5xl text-center font-bold">Social Media</h2>
         <div className="text-center text mt-3 text-xl mb-20">
           Become a member of the{" "}

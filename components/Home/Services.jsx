@@ -14,7 +14,7 @@ const Services = () => {
     >
       <BgOverlay opacity={"0.6"} />
 
-      <div className="container py-20 text-white relative">
+      <div className="container lg:py-20 py-14 text-white relative">
         <h2 className="lg:text-5xl text-4xl text-center font-bold mb-20">
           Services
         </h2>
