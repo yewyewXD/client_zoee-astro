@@ -4,7 +4,7 @@ import React from "react";
 import CallToAction from "../components/UI/CallToAction";
 import Footer from "../components/UI/Footer";
 import Navbar from "../components/UI/Navbar";
-import SectionHead from "../components/SectionHead";
+import SectionHead from "../components/UI/SectionHead";
 import socials from "../json/socialMedias.json";
 
 const contact = () => {

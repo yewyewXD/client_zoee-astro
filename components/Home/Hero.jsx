@@ -12,7 +12,7 @@ const Hero = () => {
       <BgOverlay opacity={"0.4"} />
       <div className="container text-white flex flex-col items-center justify-center h-full relative text-center">
         <h1
-          className="xl:text-6xl text-4xl font-bold"
+          className="xl:text-6xl text-5xl font-bold"
           style={{ width: "700px" }}
         >
           Ready To Change Your Life With Astrology?
