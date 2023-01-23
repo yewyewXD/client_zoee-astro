@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 const Navbar = () => {
   const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   useEffect(() => {
     function changeBgOnScroll() {
@@ -52,7 +53,7 @@ const Navbar = () => {
           </div>
 
           <div
-            className={`ml-auto smooth ${
+            className={`sm:block hidden ml-auto smooth ${
               isScrolled ? "lg:mt-6 mt-5" : "lg:mt-10 mt-8"
             }`}
           >
@@ -68,8 +69,63 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-7 h-7 mt-8 ml-auto cursor-pointer smooth hover:opacity-70"
+            onClick={() => setIsMobileNavOpen(true)}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
         </div>
       </nav>
+
+      {/* Mobile Nav Items */}
+      <div
+        className={`sm:hidden smooth text-white text-base font-semibold absolute top-0 ${
+          isMobileNavOpen ? "left-0" : "-left-full"
+        } bottom-0 w-full bg-purple z-50`}
+      >
+        <div className="p-4 pb-3 flex justify-end">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="w-7 h-7 smooth hover:opacity-70 cursor-pointer"
+            onClick={() => setIsMobileNavOpen(false)}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </div>
+
+        <div>
+          {navItems.map((navItem) => (
+            <Link href={navItem.link} key={navItem.id}>
+              <div
+                className={`lg:text-lg text-base font-semibold smooth navItem ${
+                  router.pathname === navItem.link && "navItem--active"
+                } px-5 py-3`}
+              >
+                {navItem.text}
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
     </header>
   );
 };
