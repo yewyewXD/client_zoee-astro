@@ -25,13 +25,22 @@ const settings = {
         slidesToScroll: 1,
       },
     },
+
+    {
+      breakpoint: 640,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+      },
+    },
   ],
 };
 
 const Testimonial = () => {
   return (
     <div className="bg-brown text-white relative">
-      <div className="px-20 lg:py-20 py-14 relative">
+      <div className="sm:px-20 px-4 lg:py-20 py-14 relative">
         <h2 className="lg:text-5xl text-4xl text-center font-bold">
           Testimonials
         </h2>
@@ -44,7 +53,7 @@ const Testimonial = () => {
             {testimonials.map((review) => (
               <div
                 key={`testimonial-${review.name}`}
-                className="text-black rounded lg:w-5/12 p-3"
+                className="text-black rounded lg:w-5/12 sm:p-3"
               >
                 <div className="bg-white rounded-xl overflow-hidden lg:max-w-none max-w-md lg:mx-0 mx-auto">
                   <div
