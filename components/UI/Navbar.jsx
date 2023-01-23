@@ -76,7 +76,7 @@ const Navbar = () => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-7 h-7 mt-8 ml-auto cursor-pointer smooth hover:opacity-70"
+            className="sm:hidden w-7 h-7 mt-8 ml-auto cursor-pointer smooth hover:opacity-70"
             onClick={() => setIsMobileNavOpen(true)}
           >
             <path
@@ -90,7 +90,7 @@ const Navbar = () => {
 
       {/* Mobile Nav Items */}
       <div
-        className={`sm:hidden smooth text-white text-base font-semibold absolute top-0 ${
+        className={`sm:hidden smooth text-white text-base font-semibold fixed top-0 ${
           isMobileNavOpen ? "left-0" : "-left-full"
         } bottom-0 w-full bg-purple z-50`}
       >

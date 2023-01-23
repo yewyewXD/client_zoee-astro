@@ -8,6 +8,11 @@ $brand-gray: #867c7d;
 $brand-purple: #5e5a7b;
 $brand-red: #ab3838;
 
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 .container {
   width: 100%;
   max-width: 85%;

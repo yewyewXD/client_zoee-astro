@@ -7,14 +7,14 @@ const AboutMe = () => {
   return (
     <div className="bg-green text-white">
       <div className="lg:py-20 py-14">
-        <h2 className="lg:text-5xl text-4xl text-center font-bold sm:mb-20 mb-10">
+        <h2 className="lg:text-5xl text-4xl text-center font-bold md:mb-20 mb-10">
           Who am I?
         </h2>
 
         <div className="container-deep">
-          <div className="sm:grid grid-cols-3 flex flex-col-reverse">
-            <div className="col-span-2 flex lg:pr-40 sm:pr-20 items-center">
-              <div className="2xl:text-2xl lg:text-xl text-lg sm:text-left text-center">
+          <div className="md:grid grid-cols-3 flex flex-col-reverse">
+            <div className="col-span-2 flex lg:pr-40 md:pr-20 items-center">
+              <div className="2xl:text-2xl lg:text-xl text-lg md:text-left text-center">
                 <div>
                   I’m Zoée, astrologer, consultant and content creator but not
                   only.
@@ -33,7 +33,7 @@ const AboutMe = () => {
               </div>
             </div>
 
-            <div className="col-span-1 sm:flex hidden items-center">
+            <div className="col-span-1 md:flex hidden items-center">
               <Image
                 className="rounded-full"
                 src="/images/about-face.jpeg"
@@ -43,7 +43,7 @@ const AboutMe = () => {
               />
             </div>
 
-            <div className="sm:hidden flex justify-center mb-8">
+            <div className="md:hidden flex justify-center mb-8">
               <Image
                 className="rounded-full"
                 src="/images/about-face.jpeg"

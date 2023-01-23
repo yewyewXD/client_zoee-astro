@@ -72,7 +72,7 @@ const Testimonial = () => {
                       <div className="font-semibold leading-tight">
                         {review.name}
                       </div>
-                      <div className="text-base italic">{review.from}</div>
+                      <div className="italic">{review.from}</div>
                     </div>
                   </div>
                 </div>
