@@ -50,7 +50,7 @@ const contact = () => {
                 <div className="md:mt-10 mt-4 flex flex-col md:items-start items-center">
                   <div className="text-xl font-bold mb-3">Others</div>
                   <a
-                    href={"mailto:yew6933@gmail.com"}
+                    href={"mailto:easy.astrology.by.zoee@gmail.com"}
                     className="flex items-center w-max smooth hover:opacity-70"
                   >
                     <Image
@@ -59,7 +59,9 @@ const contact = () => {
                       height={30}
                       width={30}
                     />
-                    <span className="ml-3">yew6933@gmail.com</span>
+                    <span className="ml-3">
+                      easy.astrology.by.zoee@gmail.com
+                    </span>
                   </a>
                 </div>
               </div>
@@ -81,7 +83,7 @@ const contact = () => {
                       id="name"
                       type="text"
                       name="name"
-                      placeholder="John Doe"
+                      placeholder="First Last"
                       required
                     />
                   </div>
@@ -95,7 +97,7 @@ const contact = () => {
                       id="email"
                       type="email"
                       name="email"
-                      placeholder="johndoe@example.com"
+                      placeholder="yourname@example.com"
                       required
                     />
                   </div>

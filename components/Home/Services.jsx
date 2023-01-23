@@ -24,6 +24,7 @@ const Services = () => {
           <div className="col-span-1 lg:flex justify-end">
             <div>
               <Image
+                className="rounded-xl"
                 src="/images/service-coaching.jpg"
                 alt=""
                 height={300}
