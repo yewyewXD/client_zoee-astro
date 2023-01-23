@@ -22,25 +22,32 @@ const contact = () => {
         <SectionHead title={"Contact Me"} />
         <div className="bg-green py-32">
           <div className="container-deep">
-            <div className="grid grid-cols-3">
+            <div className="md:grid grid-cols-3 flex flex-col">
               <div className="col-span-1 text-lg font-semibold">
-                <div>
+                <div className="flex flex-col md:items-start items-center">
                   <div className="text-xl font-bold mb-5">Social Media</div>
-                  {socials.map((social) => (
-                    <a
-                      href={social.link}
-                      target={"_blank"}
-                      rel="noreferrer noopener"
-                      className="flex items-center mb-5 w-max smooth hover:opacity-70"
-                      key={`contact-social-${social.name}`}
-                    >
-                      <Image src={social.image} alt="" height={30} width={30} />
-                      <span className="ml-3">{social.tag}</span>
-                    </a>
-                  ))}
+                  <div>
+                    {socials.map((social) => (
+                      <a
+                        href={social.link}
+                        target={"_blank"}
+                        rel="noreferrer noopener"
+                        className="flex items-center mb-5 w-max smooth hover:opacity-70"
+                        key={`contact-social-${social.name}`}
+                      >
+                        <Image
+                          src={social.image}
+                          alt=""
+                          height={30}
+                          width={30}
+                        />
+                        <span className="ml-3">{social.tag}</span>
+                      </a>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="mt-10">
+                <div className="md:mt-10 mt-4 flex flex-col md:items-start items-center">
                   <div className="text-xl font-bold mb-3">Others</div>
                   <a
                     href={"mailto:yew6933@gmail.com"}
@@ -57,7 +64,7 @@ const contact = () => {
                 </div>
               </div>
 
-              <div className="col-span-2 pl-40">
+              <div className="col-span-2 md:pl-40 md:mt-0 mt-10">
                 <form
                   name="contact"
                   method="POST"

@@ -36,13 +36,13 @@ const Services = () => {
               <h3 className="lg:text-4xl text-3xl font-bold mt-6 mb-7">
                 Coaching Astrology
               </h3>
-              <div className="lg:text-xl text-lg lg:w-7/12 w-9/12 lg:mx-0 mx-auto">
+              <div className="lg:text-xl text-lg lg:w-7/12 sm:w-9/12 lg:mx-0 mx-auto">
                 Give you the keys to reach your goals. In Coaching Astrology,
                 your birth chart describe who you should be to achieve
                 happiness, success and efficiency.
               </div>
 
-              <div className="flex items-center lg:justify-start justify-center mt-10 text-xl">
+              <div className="sm:flex items-center lg:justify-start justify-center mt-10 text-xl">
                 <Link passHref href="/services">
                   <SecondaryBtn>See all services</SecondaryBtn>
                 </Link>

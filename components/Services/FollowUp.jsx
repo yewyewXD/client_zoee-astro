@@ -68,14 +68,38 @@ const FollowUp = () => {
             </>
           )}
 
-          <div className="flex items-center mt-10">
+          <div className="flex sm:flex-row flex-col-reverse items-center sm:mt-10">
             <SecondaryBtn>Book now</SecondaryBtn>
 
             <span
               onClick={() => setIsExpanded((bool) => !bool)}
-              className="text-lg ml-10 underline cursor-pointer smooth hover:opacity-80"
+              className={`sm:text-lg text-sm sm:ml-10 sm:my-0 my-6 sm:underline cursor-pointer smooth hover:opacity-80 sm:inline-block flex ${
+                isExpanded ? "flex-col-reverse" : "flex-col"
+              } items-center`}
             >
               {isExpanded ? "Read less" : "Read more"}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6 sm:hidden"
+              >
+                {isExpanded ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  />
+                )}
+              </svg>
             </span>
           </div>
         </div>
