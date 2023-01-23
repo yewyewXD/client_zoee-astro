@@ -187,3 +187,11 @@ body {
 .rotateSvg .accordion {
   transform: rotate(180deg);
 }
+
+.HeroSection {
+  background: url(/images/hero-bg.jpg) no-repeat 50% 50% / cover;
+
+  @media (max-width: 639.98px) {
+    background: url(/images/hero-bg.jpg) no-repeat 10% 50% / cover;
+  }
+}
