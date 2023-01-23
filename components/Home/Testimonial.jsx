@@ -53,7 +53,7 @@ const Testimonial = () => {
             {testimonials.map((review) => (
               <div
                 key={`testimonial-${review.name}`}
-                className="text-black rounded lg:w-5/12 sm:p-3"
+                className="text-black rounded lg:w-5/12 sm:p-3 p-2"
               >
                 <div className="bg-white rounded-xl overflow-hidden lg:max-w-none max-w-md lg:mx-0 mx-auto">
                   <div
