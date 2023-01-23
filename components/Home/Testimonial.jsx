@@ -57,11 +57,11 @@ const Testimonial = () => {
               >
                 <div className="bg-white rounded-xl overflow-hidden lg:max-w-none max-w-md lg:mx-0 mx-auto">
                   <div
-                    className="w-full xl:h-44 h-40 bg-brown"
+                    className="w-full xl:h-44 h-40"
                     style={
                       review.image
                         ? {
-                            background: `url(${review.image}) no-repeat center center / cover`,
+                            background: `url(${review.image}) no-repeat ${review.imgPosition} / cover`,
                           }
                         : {}
                     }

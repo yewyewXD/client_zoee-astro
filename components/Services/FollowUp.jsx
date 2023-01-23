@@ -6,7 +6,7 @@ const FollowUp = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="flex:grid grid-cols-3 flex flex-col-reverse">
+    <div className="lg:grid grid-cols-3 flex flex-col-reverse">
       <div className="flex items-center col-span-2 lg:pr-40">
         <div>
           <div className="mt-6 mb-6">
