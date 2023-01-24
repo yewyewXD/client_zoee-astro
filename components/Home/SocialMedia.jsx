@@ -1,11 +1,22 @@
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import socialMedias from "../../json/socialMedias.json";
 import Marquee from "react-fast-marquee";
 import SecondaryBtn from "../UI/buttons/SecondaryBtn";
 import Image from "next/image";
 
 const SocialMedia = () => {
+  const [posts, setPosts] = useState();
+  useEffect(() => {
+    async function getIgPosts() {
+      const res = await fetch("/api/instagram");
+      const { data } = await res.json();
+      const newData = data.filter((item, index) => index % 2 === 0);
+      setPosts(newData.slice(0, 10));
+    }
+    getIgPosts();
+  }, []);
+
   return (
     <div className="bg-purple text-white">
       <div className="lg:py-20 py-14">
@@ -56,15 +67,27 @@ const SocialMedia = () => {
           </div>
         </div>
 
-        <Marquee gradient={false} speed={80} className="md:my-24 my-16">
-          <div className="h-60 w-60 bg-white mx-4"></div>
-          <div className="h-60 w-60 bg-white mx-4"></div>
-          <div className="h-60 w-60 bg-white mx-4"></div>
-          <div className="h-60 w-60 bg-white mx-4"></div>
-          <div className="h-60 w-60 bg-white mx-4"></div>
-          <div className="h-60 w-60 bg-white mx-4"></div>
-          <div className="h-60 w-60 bg-white mx-4"></div>
-        </Marquee>
+        {posts?.length > 0 && (
+          <Marquee
+            gradient={false}
+            speed={80}
+            className="md:my-18 my-10"
+            style={{ overflowX: "auto" }}
+          >
+            {posts.map((post) => (
+              <a
+                href={post.permalink}
+                target={"_blank"}
+                rel="noopener noreferrer"
+                className="h-60 w-60 mx-4 rounded-lg smooth hover:scale-110 cursor-pointer my-6 shadow-lg shadow-black hover:shadow-xl"
+                key={post.id}
+                style={{
+                  background: `url(${post.media_url}) no-repeat center center / cover`,
+                }}
+              ></a>
+            ))}
+          </Marquee>
+        )}
 
         {/* TikTok */}
         <div className="container-deep">
@@ -104,14 +127,14 @@ const SocialMedia = () => {
           direction="right"
           gradient={false}
           speed={80}
-          className="md:my-24 my-16"
+          className="md:my-18 my-10"
         >
           {socialMedias[1].marqueeImages.map((img) => (
             <a
               href={img.link}
               target={"_blank"}
               rel="noopener noreferrer"
-              className="h-72 w-60 mx-4 rounded smooth hover:scale-110 cursor-pointer"
+              className="h-72 w-60 mx-4 rounded-lg smooth hover:scale-110 cursor-pointer my-6 shadow-lg shadow-black hover:shadow-xl"
               key={img.src}
               style={{
                 background: `url(${img.src}) no-repeat center center / cover`,
