@@ -4,7 +4,8 @@
     "link": "https://www.instagram.com/easy.astrology.by.zoee/",
     "text": "Stay updated about my readings, follow my daily life, ask me questions, and learn astrology with interesting videos and post everyday!",
     "tag": "@easy.astrology.by.zoee",
-    "image": "/images/social/instagram.png"
+    "image": "/images/social/instagram.png",
+    "cover": "/images/social/3ig-feed.jpeg"
   },
 
   {
@@ -13,7 +14,44 @@
     "text": "Learn astrology easily and in an entertaining way with daily short videos!",
     "isReverse": true,
     "tag": "@easy.astrology.by.zoee",
-    "image": "/images/social/tiktok.png"
+    "image": "/images/social/tiktok.png",
+    "cover": "/images/social/3tiktok-feed.jpeg",
+    "marqueeImages": [
+      {
+        "src": "/images/marquee/tiktok-marquee-1.jpeg",
+        "link": "https://www.tiktok.com/@easy.astrology.by.zoee/video/7155820323558935834"
+      },
+
+      {
+        "src": "/images/marquee/tiktok-marquee-4.jpeg",
+        "link": "https://www.tiktok.com/@easy.astrology.by.zoee/video/7166225113350786330"
+      },
+
+      {
+        "src": "/images/marquee/tiktok-marquee-2.jpeg",
+        "link": "https://www.tiktok.com/@easy.astrology.by.zoee/video/7148312687942896922"
+      },
+
+      {
+        "src": "/images/marquee/tiktok-marquee-5.jpeg",
+        "link": "https://www.tiktok.com/@easy.astrology.by.zoee/video/7187363235820064027"
+      },
+
+      {
+        "src": "/images/marquee/tiktok-marquee-3.jpeg",
+        "link": "https://www.tiktok.com/@easy.astrology.by.zoee/video/7147255102070476058"
+      },
+
+      {
+        "src": "/images/marquee/tiktok-marquee-6.jfif",
+        "link": "https://www.tiktok.com/@easy.astrology.by.zoee/video/7188105403262192922"
+      },
+
+      {
+        "src": "/images/marquee/tiktok-marquee-7.jpeg",
+        "link": "https://www.tiktok.com/@easy.astrology.by.zoee/video/7190716898848410906"
+      }
+    ]
   },
 
   {

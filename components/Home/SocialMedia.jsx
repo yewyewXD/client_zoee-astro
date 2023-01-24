@@ -45,7 +45,7 @@ const SocialMedia = () => {
 
             <div className="md:mb-0 mb-6">
               <Image
-                src="/images/social/3ig-feed.jpeg"
+                src={socialMedias[0].cover}
                 className="rounded-2xl"
                 alt=""
                 width={400}
@@ -89,7 +89,7 @@ const SocialMedia = () => {
 
             <div className="md:mb-0 mb-6">
               <Image
-                src="/images/social/3tiktok-feed.jpeg"
+                src={socialMedias[1].cover}
                 className="rounded-2xl"
                 alt=""
                 width={320}
@@ -106,13 +106,18 @@ const SocialMedia = () => {
           speed={80}
           className="md:my-24 my-16"
         >
-          <div className="h-60 w-60 bg-white mx-4"></div>
-          <div className="h-60 w-60 bg-white mx-4"></div>
-          <div className="h-60 w-60 bg-white mx-4"></div>
-          <div className="h-60 w-60 bg-white mx-4"></div>
-          <div className="h-60 w-60 bg-white mx-4"></div>
-          <div className="h-60 w-60 bg-white mx-4"></div>
-          <div className="h-60 w-60 bg-white mx-4"></div>
+          {socialMedias[1].marqueeImages.map((img) => (
+            <a
+              href={img.link}
+              target={"_blank"}
+              rel="noopener noreferrer"
+              className="h-72 w-60 mx-4 rounded smooth hover:scale-110 cursor-pointer"
+              key={img.src}
+              style={{
+                background: `url(${img.src}) no-repeat center center / cover`,
+              }}
+            ></a>
+          ))}
         </Marquee>
 
         {/* Twitter */}
