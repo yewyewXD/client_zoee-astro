@@ -195,3 +195,9 @@ body {
     background: url(/images/hero-bg.jpg) no-repeat 10% 50% / cover;
   }
 }
+
+.sm-hidden {
+  @media (min-width: 640px) {
+    display: none !important;
+  }
+}

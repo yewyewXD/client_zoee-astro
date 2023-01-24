@@ -3,6 +3,7 @@ import React from "react";
 import socialMedias from "../../json/socialMedias.json";
 import Marquee from "react-fast-marquee";
 import SecondaryBtn from "../UI/buttons/SecondaryBtn";
+import Image from "next/image";
 
 const SocialMedia = () => {
   return (
@@ -42,8 +43,15 @@ const SocialMedia = () => {
               </div>
             </div>
 
-            <div>
-              <div className="md:h-96 h-72 md:w-80 w-60 bg-white mb:mb-0 mb-8"></div>
+            <div className="md:mb-0 mb-6">
+              <Image
+                src="/images/social/3ig-feed.jpeg"
+                className="rounded-2xl"
+                alt=""
+                width={400}
+                height={500}
+                quality={100}
+              />
             </div>
           </div>
         </div>
@@ -79,8 +87,15 @@ const SocialMedia = () => {
               </div>
             </div>
 
-            <div>
-              <div className="md:h-96 h-72 md:w-80 w-60 bg-white mb:mb-0 mb-8"></div>
+            <div className="md:mb-0 mb-6">
+              <Image
+                src="/images/social/3tiktok-feed.jpeg"
+                className="rounded-2xl"
+                alt=""
+                width={320}
+                height={500}
+                quality={100}
+              />
             </div>
           </div>
         </div>
@@ -125,8 +140,26 @@ const SocialMedia = () => {
               </div>
             </div>
 
-            <div>
-              <div className="md:h-96 h-72 md:w-80 w-60 bg-white mb:mb-0 mb-8"></div>
+            <div className="sm:block hidden md:mb-0 mb-6">
+              <a
+                className="twitter-timeline"
+                data-width="380"
+                data-height="500"
+                href="https://twitter.com/easyastrobyzoee?ref_src=twsrc%5Etfw"
+              >
+                Loading tweets...
+              </a>
+            </div>
+
+            <div className="sm:hidden mb-6">
+              <a
+                className="twitter-timeline"
+                data-width="280"
+                data-height="380"
+                href="https://twitter.com/easyastrobyzoee?ref_src=twsrc%5Etfw"
+              >
+                Loading tweets...
+              </a>
             </div>
           </div>
         </div>

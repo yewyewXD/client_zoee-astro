@@ -8,12 +8,11 @@ const Services = () => {
   return (
     <div
       style={{
-        background:
-          "url(/images/services-bg.jpg) no-repeat center center / cover",
+        background: "url(/images/hero-bg.jpg) no-repeat center center / cover",
       }}
       className="relative"
     >
-      <BgOverlay opacity={"0.6"} />
+      <BgOverlay opacity={"0.5"} />
 
       <div className="container lg:py-20 py-14 text-white relative">
         <h2 className="lg:text-5xl text-4xl text-center font-bold mb-20">
