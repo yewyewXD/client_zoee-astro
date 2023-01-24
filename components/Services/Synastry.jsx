@@ -10,7 +10,7 @@ const Synastry = () => {
       <div className="lg:flex hidden items-center col-span-1">
         <Image
           src="/images/service-synastry.jpg"
-          className="rounded-xl"
+          className="rounded-xl shadow-lg shadow-black"
           alt=""
           height={500}
           width={600}
@@ -19,7 +19,7 @@ const Synastry = () => {
       <div className="lg:hidden flex justify-center">
         <Image
           src="/images/service-synastry.jpg"
-          className="rounded-xl"
+          className="rounded-xl shadow-lg shadow-black"
           alt=""
           width={230}
           height={230}

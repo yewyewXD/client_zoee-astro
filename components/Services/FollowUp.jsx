@@ -108,7 +108,7 @@ const FollowUp = () => {
       <div className="lg:flex hidden items-center col-span-1">
         <Image
           src="/images/service-follow.jpg"
-          className="rounded-xl"
+          className="rounded-xl shadow-lg shadow-black"
           alt=""
           width={450}
           height={500}
@@ -118,7 +118,7 @@ const FollowUp = () => {
       <div className="lg:hidden flex justify-center">
         <Image
           src="/images/service-follow.jpg"
-          className="rounded-xl"
+          className="rounded-xl shadow-lg shadow-black"
           alt=""
           width={230}
           height={230}

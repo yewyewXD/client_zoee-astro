@@ -10,7 +10,7 @@ const CoachingAstrology = () => {
       <div className="lg:flex hidden items-center justify-start col-span-1">
         <Image
           src="/images/service-coaching.jpg"
-          className="rounded-xl"
+          className="rounded-xl shadow-lg shadow-black"
           alt=""
           width={500}
           height={400}
@@ -19,7 +19,7 @@ const CoachingAstrology = () => {
       <div className="lg:hidden flex justify-center">
         <Image
           src="/images/service-coaching.jpg"
-          className="rounded-xl"
+          className="rounded-xl shadow-lg shadow-black"
           alt=""
           width={230}
           height={230}
