@@ -10,7 +10,7 @@ const CoachingAstrology = () => {
       <div className="lg:flex hidden items-center justify-start col-span-1">
         <Image
           src="/images/service-coaching.jpg"
-          className="rounded-xl shadow-lg shadow-black"
+          className="rounded-xl shadow-md shadow-black"
           alt=""
           width={500}
           height={400}
@@ -19,7 +19,7 @@ const CoachingAstrology = () => {
       <div className="lg:hidden flex justify-center">
         <Image
           src="/images/service-coaching.jpg"
-          className="rounded-xl shadow-lg shadow-black"
+          className="rounded-xl shadow-md shadow-black"
           alt=""
           width={230}
           height={230}
@@ -29,8 +29,8 @@ const CoachingAstrology = () => {
       <div className="flex items-center col-span-2 lg:pl-40">
         <div>
           <div className="mt-6 mb-6">
-            <h3 className="lg:text-4xl text-3xl font-bold">
-              Coaching Astrology Consultation{" "}
+            <h3 className="lg:text-4xl text-3xl font-bold brand-underline">
+              Coaching Astrology Consultation
             </h3>
             <div className="font-semibold mt-3">150 USD</div>
           </div>

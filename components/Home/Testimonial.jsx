@@ -55,7 +55,7 @@ const Testimonial = () => {
                 key={`testimonial-${review.name}`}
                 className="text-black rounded lg:w-5/12 sm:p-3 p-2"
               >
-                <div className="bg-white rounded-xl overflow-hidden lg:max-w-none max-w-md lg:mx-0 mx-auto">
+                <div className="bg-white rounded-xl overflow-hidden lg:max-w-none max-w-md lg:mx-0 mx-auto shadow-md shadow-gray-600">
                   <div
                     className="w-full xl:h-44 h-40"
                     style={
