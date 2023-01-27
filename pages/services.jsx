@@ -24,15 +24,15 @@ const Services = () => {
 
         <div className="bg-green lg:py-20 py-14">
           <div className="container lg:text-xl text-lg">
-            <div className="mb-20">
+            <div id="coaching" className="mb-20">
               <CoachingAstrology />
             </div>
 
-            <div className="mb-20">
+            <div id="followup" className="mb-20">
               <FollowUp />
             </div>
 
-            <div className="mb-20">
+            <div id="synastry" className="mb-20">
               <Synastry />
             </div>
           </div>
