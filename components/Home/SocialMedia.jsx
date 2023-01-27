@@ -11,7 +11,10 @@ const SocialMedia = () => {
     async function getIgPosts() {
       const res = await fetch("/api/instagram");
       const { data } = await res.json();
-      const newData = data.filter((item, index) => index % 2 === 0);
+      console.log("Ig:", data);
+      const newData = data.filter(
+        (item) => item.media_type === "CAROUSEL_ALBUM"
+      );
       setPosts(newData.slice(0, 10));
     }
     getIgPosts();
@@ -82,7 +85,9 @@ const SocialMedia = () => {
                 className="h-60 w-60 mx-4 rounded-lg smooth hover:scale-110 cursor-pointer my-6 shadow-lg shadow-black hover:shadow-xl"
                 key={post.id}
                 style={{
-                  background: `url(${post.media_url}) no-repeat center center / cover`,
+                  background: `url(${
+                    post.thumbnail_url || post.media_url
+                  }) no-repeat center center / cover`,
                 }}
               ></a>
             ))}
