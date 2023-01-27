@@ -100,7 +100,7 @@ const Services = () => {
                     </div>
                   </div>
 
-                  <div className="md:mt-4 mt-2 md:text-xl sm:text-lg sm:w-9/12">
+                  <div className="md:mt-4 mt-2 md:text-xl sm:text-lg xl:w-7/12 sm:w-9/12">
                     {service.description}
                   </div>
                 </div>
