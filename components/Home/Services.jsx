@@ -17,9 +17,13 @@ const settings = {
     {
       breakpoint: 640,
       settings: {
+        dots: true,
+        infinite: true,
+        arrows: false,
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 2500,
       },
     },
   ],
@@ -77,7 +81,7 @@ const Services = () => {
               <div className="flex flex-col justify-center items-center">
                 <div>
                   <Image
-                    className="rounded-xl"
+                    className="rounded-xl shadow-md shadow-black"
                     src={service.image}
                     alt=""
                     height={230}
@@ -86,14 +90,17 @@ const Services = () => {
                 </div>
 
                 <div className="text-center mt-10 flex flex-col items-center">
-                  <div className="text-4xl font-bold relative flex justify-center items-center w-max">
+                  <div className="md:text-4xl sm:text-3xl text-2xl font-bold relative sm:flex justify-center items-center w-max">
                     {service.title}{" "}
-                    <span className="text-lg font-semibold absolute -right-20 top-3 leading-tight">
+                    <span className="text-lg font-semibold absolute -right-20 top-3 leading-tight sm:inline-block hidden">
                       - {service.price}
                     </span>
+                    <div className="font-semibold text-base sm:hidden">
+                      {`(${service.price})`}
+                    </div>
                   </div>
 
-                  <div className="mt-4 text-xl w-9/12">
+                  <div className="md:mt-4 mt-2 md:text-xl sm:text-lg sm:w-9/12">
                     {service.description}
                   </div>
                 </div>
