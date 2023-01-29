@@ -29,9 +29,12 @@ const Synastry = () => {
       <div className="flex items-center col-span-2 lg:pl-40">
         <div>
           <div className="mt-6 mb-6">
-            <h3 className="lg:text-4xl text-3xl  font-bold">
-              Synastry Consultation
-            </h3>
+            <div className="brand-underline-wrapper">
+              <span className="brand-underline"></span>
+              <h3 className="lg:text-4xl text-3xl  font-bold">
+                Synastry Consultation
+              </h3>
+            </div>
             <div className="font-semibold mt-3">200 USD</div>
           </div>
 

@@ -205,3 +205,24 @@ body {
 .marquee-container {
   overflow-x: auto !important;
 }
+
+.brand-underline-wrapper {
+  position: relative;
+  width: max-content;
+  display: flex;
+  justify-content: center;
+
+  h3 {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.brand-underline {
+  height: 40%;
+  width: 98%;
+  background: #000;
+  position: absolute;
+  z-index: 1;
+  bottom: 1px;
+}
