@@ -11,7 +11,6 @@ const SocialMedia = () => {
     async function getIgPosts() {
       const res = await fetch("/api/instagram");
       const { data } = await res.json();
-      console.log("Ig:", data);
       const newData = data.filter(
         (item) => item.media_type === "CAROUSEL_ALBUM"
       );
