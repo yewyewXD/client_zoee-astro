@@ -181,7 +181,7 @@ const SocialMedia = () => {
                 data-height="500"
                 href="https://twitter.com/easyastrobyzoee?ref_src=twsrc%5Etfw"
               >
-                Loading tweets...
+                Loading tweets... (refresh page if not showing)
               </a>
             </div>
 
@@ -192,7 +192,7 @@ const SocialMedia = () => {
                 data-height="380"
                 href="https://twitter.com/easyastrobyzoee?ref_src=twsrc%5Etfw"
               >
-                Loading tweets...
+                Loading tweets... (refresh page if not showing)
               </a>
             </div>
           </div>
