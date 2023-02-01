@@ -1,11 +1,7 @@
-import Image from "next/image";
-import React, { useState } from "react";
-import SecondaryBtn from "../UI/buttons/SecondaryBtn";
+import React from "react";
 import Tick from "../UI/Tick";
 
 const CoachingAstrology = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
   return (
     <div>
       <div>
