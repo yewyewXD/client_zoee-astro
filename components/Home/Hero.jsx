@@ -20,7 +20,7 @@ const Hero = () => {
           relationships and find the <u>happiest life path</u> for you.
         </div>
         <div className="flex items-center lg:mt-10 mt-6">
-          <PrimaryBtn />
+          <PrimaryBtn>Yes! I Want To Change My Life Now!</PrimaryBtn>
         </div>
       </div>
     </div>
