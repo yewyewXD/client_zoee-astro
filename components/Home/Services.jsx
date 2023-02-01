@@ -38,6 +38,7 @@ const SERVICE_ITEMS = [
     image: "/images/service-coaching.jpg",
     link: "/services#coaching",
     ctaText: "I Want To Change My Life Now",
+    alt: false,
   },
 
   {
@@ -48,6 +49,7 @@ const SERVICE_ITEMS = [
     image: "/images/service-follow.jpg",
     link: "/services#followup",
     ctaText: "I Want To Continue My Self-Growth Journey",
+    alt: true,
   },
 
   {
@@ -58,6 +60,7 @@ const SERVICE_ITEMS = [
     image: "/images/service-synastry.jpg",
     link: "/services#synastry",
     ctaText: "I Want To Improve My Relationship Now",
+    alt: false,
   },
 ];
 
@@ -73,43 +76,41 @@ const Services = () => {
     >
       <BgOverlay opacity={"0.5"} />
 
-      <div className="container lg:py-20 py-14 text-white relative">
+      <div className="container-deep lg:py-20 py-14 text-white relative">
         <h2 className="lg:text-5xl text-4xl text-center font-bold mb-20">
           Services
         </h2>
 
-        <Slider {...settings}>
-          {SERVICE_ITEMS.map((service) => (
-            <div key={`service-item-${service.title}`}>
-              <div className="flex flex-col justify-center items-center">
-                <div>
-                  <Image
-                    className="rounded-xl shadow-md shadow-black"
-                    src={service.image}
-                    alt=""
-                    height={230}
-                    width={230}
-                  />
+        {SERVICE_ITEMS.map((service) => (
+          <div key={`service-item-${service.title}`}>
+            <div
+              className={`flex ${
+                service.alt ? "md:flex-row-reverse" : "md:flex-row"
+              } flex-col justify-between items-center md:my-28 my-20`}
+            >
+              <Image
+                className="rounded-xl shadow-md shadow-black"
+                src={service.image}
+                alt=""
+                height={300}
+                width={300}
+              />
+
+              <div
+                className={`${
+                  service.alt ? "xl:pr-40 md:pr-20" : "xl:pl-40 md:pl-20"
+                } md:text-left text-center md:mt-0 mt-8`}
+              >
+                <div className="md:text-4xl sm:text-3xl text-2xl font-bold relative">
+                  {service.title} - {service.price}
                 </div>
 
-                <div className="text-center mt-10 flex flex-col items-center">
-                  <div className="md:text-4xl sm:text-3xl text-2xl font-bold relative sm:flex justify-center items-center w-max">
-                    {service.title}{" "}
-                    <span className="text-lg font-semibold absolute -right-20 top-3 leading-tight sm:inline-block hidden">
-                      - {service.price}
-                    </span>
-                    <div className="font-semibold text-base sm:hidden">
-                      {`(${service.price})`}
-                    </div>
-                  </div>
+                <div
+                  className="md:mt-5 mt-3 md:text-xl sm:text-lg"
+                  dangerouslySetInnerHTML={{ __html: service.description }}
+                ></div>
 
-                  <div
-                    className="md:mt-4 mt-2 md:text-xl sm:text-lg xl:w-7/12 sm:w-9/12"
-                    dangerouslySetInnerHTML={{ __html: service.description }}
-                  ></div>
-                </div>
-
-                <div className="mt-6">
+                <div className="mt-8">
                   <SecondaryBtn
                     onClick={() => {
                       router.push(service.link);
@@ -120,8 +121,8 @@ const Services = () => {
                 </div>
               </div>
             </div>
-          ))}
-        </Slider>
+          </div>
+        ))}
       </div>
     </div>
   );
