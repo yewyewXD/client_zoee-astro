@@ -52,7 +52,7 @@ export default function Home() {
         <CallToAction />
       </main>
 
-      <Footer />
+      <Footer hideBg={true} />
     </div>
   );
 }

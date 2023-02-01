@@ -299,7 +299,7 @@ const About = () => {
         <CallToAction />
       </main>
 
-      <Footer />
+      <Footer hideBg />
     </div>
   );
 };
