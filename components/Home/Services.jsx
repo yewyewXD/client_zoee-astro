@@ -34,27 +34,30 @@ const SERVICE_ITEMS = [
     title: "Coaching Astrology",
     price: "150 USD",
     description:
-      "Give you the keys to reach your goals. In Coaching Astrology, your birth chart describe who you should be to achieve happiness, success and efficiency.",
+      "You want to become a <i>better version of yourself</i>? If yes, this is exactly what do you need! Truly understand yourself, by knowing your <strong>strengths</strong>, discovering your <strong>hidden talents</strong>, knowing the challenges you need to face and how and what’s the <u>happiest life</u> path for you. All of this with <strong>practical advices</strong> to help you evolve and finally be proud of yourself. ",
     image: "/images/service-coaching.jpg",
     link: "/services#coaching",
+    ctaText: "I Want To Change My Life Now",
   },
 
   {
     title: "Follow-up Consultation",
     price: "50 USD",
     description:
-      "Follow-up your progress and assess the effectiveness of the previous consultation. Give you additional advices, answer any questions and bring you more guidance and support on your self-growth journey.",
+      "Wanna follow-up your <strong>progress</strong> on becoming the <u>best version of yourself</u>? This is the best option! You will get precious additional <strong>advices</strong>, get <strong>answers</strong> to any of your questions but also important <u>guidance and support</u> on your self-growth journey. All you doubts and worries will be away!",
     image: "/images/service-follow.jpg",
     link: "/services#followup",
+    ctaText: "I Want To Continue My Self-Growth Journey",
   },
 
   {
     title: "Synastry Consultation",
     price: "200 USD",
     description:
-      "Synastry is the part of astrology that study the interactions between 2 people and it’s not only for couples! It gives you the keys to understand any relationship and find ways to improve it and make the 2 people happier.",
+      "Do you want to be <strong>happier</strong> in your relationship? Here is the solution! <strong>Truly understand</strong> and improve <u>drastically</u> your relationships (for couple, friends, parent-child, coworkers and more). Become <strong>more tolerant</strong> towards each other. Discover what challenges you need to face and how but also the <u>strengths</u> of your union. No more sadness and annoying arguments!",
     image: "/images/service-synastry.jpg",
     link: "/services#synastry",
+    ctaText: "I Want To Improve My Relationship Now",
   },
 ];
 
@@ -100,9 +103,10 @@ const Services = () => {
                     </div>
                   </div>
 
-                  <div className="md:mt-4 mt-2 md:text-xl sm:text-lg xl:w-7/12 sm:w-9/12">
-                    {service.description}
-                  </div>
+                  <div
+                    className="md:mt-4 mt-2 md:text-xl sm:text-lg xl:w-7/12 sm:w-9/12"
+                    dangerouslySetInnerHTML={{ __html: service.description }}
+                  ></div>
                 </div>
 
                 <div className="mt-6">
