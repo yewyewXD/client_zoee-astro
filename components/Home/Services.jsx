@@ -116,7 +116,7 @@ const Services = () => {
                       router.push(service.link);
                     }}
                   >
-                    Learn More
+                    {service.ctaText}
                   </SecondaryBtn>
                 </div>
               </div>
