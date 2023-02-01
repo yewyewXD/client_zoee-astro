@@ -37,17 +37,25 @@ export default function Home() {
             }}
           ></div>
         </div>
-        <div ref={servicesRef}>
+        <div id="testimonials" ref={servicesRef}>
           <Testimonial />
         </div>
 
-        <Services />
+        <div id="services">
+          <Services />
+        </div>
 
-        <AboutMe />
+        <div>
+          <AboutMe />
+        </div>
 
-        <FAQ />
+        <div>
+          <FAQ />
+        </div>
 
-        <SocialMedia />
+        <div id="social">
+          <SocialMedia />
+        </div>
 
         <CallToAction />
       </main>
