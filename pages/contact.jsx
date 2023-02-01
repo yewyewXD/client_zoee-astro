@@ -133,7 +133,7 @@ const contact = () => {
         <CallToAction />
       </main>
 
-      <Footer />
+      <Footer hideBg />
     </div>
   );
 };
