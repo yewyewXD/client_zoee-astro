@@ -1,162 +1,177 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import SecondaryBtn from "../UI/buttons/SecondaryBtn";
+import Tick from "../UI/Tick";
 
 const CoachingAstrology = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="lg:grid grid-cols-3 flex flex-col">
-      <div className="lg:flex hidden items-center justify-start col-span-1">
-        <Image
-          src="/images/service-coaching.jpg"
-          className="rounded-xl shadow-md shadow-black"
-          alt=""
-          width={500}
-          height={400}
-        />
-      </div>
-      <div className="lg:hidden flex justify-center">
-        <Image
-          src="/images/service-coaching.jpg"
-          className="rounded-xl shadow-md shadow-black"
-          alt=""
-          width={230}
-          height={230}
-        />
-      </div>
-
-      <div className="flex items-center col-span-2 lg:pl-40">
+    <div>
+      <div>
         <div>
-          <div className="mt-6 mb-6">
-            <div className="brand-underline-wrapper">
-              <span className="brand-underline"></span>
-              <h3 className="lg:text-4xl text-3xl font-bold">
-                Coaching Astrology Consultation
-              </h3>
-            </div>
-            <div className="font-semibold mt-3">150 USD</div>
+          <div className="mb-5 md:text-4xl text-3xl font-bold">What is it?</div>
+          Coaching Astrology is an amazing <i>self-development</i> tool. In
+          coaching astrology, your birth chart describe who you should be and
+          what you should do to achieve <b>happiness</b>, <b>success</b> and{" "}
+          <b>self-growth</b>.
+          <div className="sm:mt-5 mt-3">
+            It will give you the keys to <b>reach your goals</b>, become a{" "}
+            <u>better version of yourself</u> and go on the <i>best</i> life
+            path for you.
+          </div>
+        </div>
+
+        <div className="mt-12">
+          <div className="mb-5 md:text-4xl text-3xl font-bold">
+            What I Do? (If You Know Astrology)
+          </div>
+          <div>I use your tropical birth chart with Placidus house system.</div>
+          <div className="sm:mt-5 mt-3">
+            I look at the positions of the 10 main planets (Sun, Moon, Mercury,
+            Venus, Mars, Jupiter, Saturn, Uranus, Neptune and Pluto) in signs
+            and houses, and their aspects (conjunction, sextile, square, trine,
+            opposition).
+          </div>
+          <div className="sm:mt-5 mt-3">
+            I use a special process to determinate the ones that have the most
+            impact on you.
+          </div>
+          <div className="sm:mt-5 mt-3">
+            I will also look at the quadrants, hemispheres, elements and
+            modalities.
+          </div>
+        </div>
+
+        <div className="mt-12">
+          <div className="mb-5 md:text-4xl text-3xl font-bold">
+            Is It For You?
           </div>
 
-          <div>
-            <div className="font-semibold mb-2">What is it?</div>
-            Coaching Astrology is a very efficient self-development tool. In
-            coaching astrology, we say that your birth chart describe who you
-            should be and what you should do to achieve happiness, success and
-            efficiency. It will give you the keys to reach your goals, then the
-            choice belongs to you to use it or not.
+          <div>Do you want to…</div>
+
+          <ul className="sm:mt-5 mt-3 italic">
+            <li>
+              <span className="mr-1 not-italic font-bold">
+                <Tick />
+              </span>{" "}
+              Truly understand yourself
+            </li>
+            <li>
+              <span className="mr-1 not-italic font-bold">
+                <Tick />
+              </span>{" "}
+              Evolve into a better version of yourself
+            </li>
+            <li>
+              <span className="mr-1 not-italic font-bold">
+                <Tick />
+              </span>{" "}
+              Clearly know what challenges you need to face
+            </li>
+            <li>
+              <span className="mr-1 not-italic font-bold">
+                <Tick />
+              </span>{" "}
+              Know how to face those challenges
+            </li>
+            <li>
+              <span className="mr-1 not-italic font-bold">
+                <Tick />
+              </span>{" "}
+              Find your hidden talents and strengths
+            </li>
+
+            <li>
+              <span className="mr-1 not-italic font-bold">
+                <Tick />
+              </span>{" "}
+              Know what’s the happiest life path for you
+            </li>
+
+            <li>
+              <span className="mr-1 not-italic font-bold">
+                <Tick />
+              </span>{" "}
+              Know how to reach happiness
+            </li>
+          </ul>
+
+          <div className="sm:mt-5 mt-3">
+            You have replied “yes” to at least one of those questions. Then the{" "}
+            <strong>
+              <i>Coaching Astrology Consultation</i>
+            </strong>{" "}
+            is for you.
           </div>
+        </div>
 
-          <div className="mt-5">
-            <div className="font-semibold mb-2">For who is it?</div>
-            <ul>
-              <li>
-                <span className="mr-1">•</span> You want to truly understand
-                yourself
-              </li>
-              <li>
-                <span className="mr-1">•</span> You want to evolve{" "}
-              </li>
-              <li>
-                <span className="mr-1">•</span> You want to know what challenges
-                you need to face{" "}
-              </li>
-              <li>
-                <span className="mr-1">•</span> You want to find your talents{" "}
-              </li>
-              <li>
-                <span className="mr-1">•</span> You want to know what’s the
-                happiest life path for you
-              </li>
-              <li>
-                <span className="mr-1">•</span> You want get advices to reach
-                this happiness state
-              </li>
-            </ul>
+        <div className="mt-12">
+          <div className="mb-5 md:text-4xl text-3xl font-bold">
+            What Will You Get?
           </div>
+          <ul>
+            <li>
+              <span className="mr-1 not-italic font-bold">
+                <Tick />
+              </span>{" "}
+              A <strong> 75 to 90</strong> min online consultation with me.
+            </li>
+            <li>
+              <span className="mr-1 not-italic font-bold">
+                <Tick />
+              </span>{" "}
+              <strong>1 to 2 hours</strong> of preparation time made by me
+              before the consultation.
+            </li>
+            <li>
+              <span className="mr-1 not-italic font-bold">
+                <Tick />
+              </span>
+              Bonus 1: A <strong>recording of the consultation</strong> sent
+              just after by email.
+            </li>
+            <li>
+              <span className="mr-1 not-italic font-bold">
+                <Tick />
+              </span>{" "}
+              Bonus 2: A <i>personalized document</i> with{" "}
+              <strong>practical actions</strong> for you to evolve.
+            </li>
+            <li>
+              <span className="mr-1 not-italic font-bold">
+                <Tick />
+              </span>{" "}
+              Bonus 3: <u>Unlimited</u> support and questions about your chart
+              by DM. (only for simple questions, if your questions are too
+              complicated to be answered my DM, I will recommend you take a
+              <strong>
+                <i> Follow-up Consultation</i>
+              </strong>{" "}
+              )
+            </li>
 
-          {isExpanded && (
-            <>
-              <div className="mt-5">
-                <div className="font-semibold mb-2">
-                  What I do? (for those that know astrology)
-                </div>
-                <div>
-                  I use your tropical birth chart with Placidus house system and
-                  I analyse the positions of the 10 main planets (Sun, Moon,
-                  Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune and
-                  Pluto), the Houses, and the Ptolemaic aspects (conjunction,
-                  sextile, square, trine, opposition). I use a special process
-                  to determinate the ones that have the most impact on you. I
-                  will also look at the quadrants, hemispheres, elements and
-                  modalities.
-                </div>
-              </div>
+            <li>
+              <span className="mr-1 not-italic font-bold">
+                <Tick />
+              </span>{" "}
+              Bonus 4: A{" "}
+              <strong>
+                <i>25% discount</i>
+              </strong>{" "}
+              on your next order! (except{" "}
+              <strong>
+                <i>the Follow-up Consultation</i>
+              </strong>
+              )
+            </li>
+          </ul>
+        </div>
 
-              <div className="mt-5">
-                <div className="font-semibold mb-2">What you will get?</div>
-                <ul>
-                  <li>
-                    <span className="mr-1">•</span> A 75 to 90 min online
-                    consultation with me.
-                  </li>
-                  <li>
-                    <span className="mr-1">•</span> A recording of the
-                    consultation sent just after.
-                  </li>
-                  <li>
-                    <span className="mr-1">•</span>A personalized document with
-                    practical steps for you to take to evolve.
-                  </li>
-                  <li>
-                    <span className="mr-1">•</span> Unlimited support and
-                    questions about your chart by DM. (as long as the questions
-                    are answerable by text and doesn’t necessitate an additional
-                    consultation)
-                  </li>
-                  <li>
-                    <span className="mr-1">•</span> A 25% discount on your next
-                    order!
-                  </li>
-                </ul>
-              </div>
-            </>
-          )}
-
-          <div className="flex sm:flex-row flex-col-reverse items-center sm:mt-10">
-            <SecondaryBtn>Book now</SecondaryBtn>
-
-            <span
-              onClick={() => setIsExpanded((bool) => !bool)}
-              className={`sm:text-lg text-sm sm:ml-10 sm:my-0 my-6 sm:underline cursor-pointer smooth hover:opacity-80 sm:inline-block flex ${
-                isExpanded ? "flex-col-reverse" : "flex-col"
-              } items-center`}
-            >
-              {isExpanded ? "Read less" : "Read more"}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6 sm:hidden"
-              >
-                {isExpanded ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4.5 15.75l7.5-7.5 7.5 7.5"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                  />
-                )}
-              </svg>
-            </span>
-          </div>
+        <div className="sm:mt-20 mt-10 flex justify-center">
+          <button className="sm:text-2xl text-xl sm:px-12 px-8 sm:py-6 py-4 border-2 border-white hover:bg-white hover:text-black sm:font-bold font-semibold smooth rounded-lg hover:scale-105">
+            I Want To Change My Life Now!
+          </button>
         </div>
       </div>
     </div>
