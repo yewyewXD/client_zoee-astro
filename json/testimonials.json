@@ -1,10 +1,10 @@
 [
   {
-    "name": "Théo",
-    "from": "from France",
-    "image": "/images/testimonial/testi-2.webp",
-    "imgPosition": "50% 40%",
-    "text": "Thank you so much for your serious and clarity 😁 [...] The rest is interesting also, but the way you explained my relationship to time and the events of the 20th december are the most impressive!"
+    "name": "Premalatha",
+    "from": "from Malaysia",
+    "image": "/images/testimonial/testi-9.jpg",
+    "imgPosition": "50% 12%",
+    "text": "Her explainations are easy to understand...get to learn more about myself in a different light and way to improve for betterment."
   },
 
   {
@@ -16,11 +16,19 @@
   },
 
   {
-    "name": "Premalatha",
-    "from": "from Malaysia",
-    "image": "/images/testimonial/testi-9.jpg",
-    "imgPosition": "50% 12%",
-    "text": "Her explanations are easy to understand...get to learn more about myself in a different light and way to improve for betterment."
+    "name": "Léa",
+    "from": "from France",
+    "image": "/images/testimonial/testi-prema.jpg",
+    "imgPosition": "50% 1%",
+    "text": "[…] it’s really crazy, you said so many things that are totally true about me! It’s amazing! It was so interesting and I really recognise myself. Really, you did an amazing job."
+  },
+
+  {
+    "name": "Théo",
+    "from": "from France",
+    "image": "/images/testimonial/testi-2.webp",
+    "imgPosition": "50% 40%",
+    "text": "Thank you so much for your serious and clarity 😁 […] The rest is also interesting but the way you explained my relationship to time and the events of the 20th December are the most impressive!"
   },
 
   {
@@ -28,14 +36,6 @@
     "from": "from Switzerland",
     "image": "/images/testimonial/testi-5.jpg",
     "imgPosition": "50% 10%",
-    "text": "Your reading was amazing! 👍 I loved to watch it and it was so well explained and detailed."
-  },
-
-  {
-    "name": "Léa",
-    "from": "from France",
-    "image": "/images/testimonial/testi-prema.jpg",
-    "imgPosition": "50% 1%",
-    "text": "[...] it’s really crazy but you said so many things that are totally true about me! It’s amazing! It was so interesting and I really recognize myself. Really, you did an amazing job."
+    "text": "Your reading was amazing! I loved to watch it and it was super well explained and detailed."
   }
 ]

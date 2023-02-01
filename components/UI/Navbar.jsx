@@ -62,7 +62,7 @@ const Navbar = () => {
                 <span
                   className={`lg:text-lg text-base font-semibold smooth navItem ${
                     router.pathname === navItem.link && "navItem--active"
-                  } px-5 py-2 rounded-3xl ml-1`}
+                  } px-5 py-2 rounded-lg ml-1`}
                 >
                   {navItem.text}
                 </span>

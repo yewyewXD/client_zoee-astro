@@ -25,7 +25,7 @@ const SocialMedia = () => {
         <h2 className="lg:text-5xl text-4xl text-center font-bold">
           Social Media
         </h2>
-        <div className="text-center text mt-3 lg:text-xl sm:text-lg md:mb-20 mb-10">
+        <div className="text-center text mt-3 lg:text-2xl sm:text-xl md:mb-20 mb-10">
           Become a member of the{" "}
           <span className="font-bold">Easy Astrology by Zoee</span> community
           now!
