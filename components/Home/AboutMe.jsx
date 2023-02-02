@@ -8,7 +8,7 @@ const AboutMe = () => {
     <div className="bg-green text-white">
       <div className="lg:py-20 py-14">
         <h2 className="lg:text-5xl text-4xl text-center font-bold md:mb-20 mb-10">
-          Who am I?
+          About Me
         </h2>
 
         <div className="container-deep">
@@ -20,15 +20,15 @@ const AboutMe = () => {
                   only.
                 </div>
                 <div className="2xl:mt-5 mt-3">
-                  Well, I&apos;ll say it again (better too much than not
-                  enough): I help people truly understand themselves with
-                  astrology to reach happiness. And all of this using multiples
-                  ancient and moderns astrology techniques.
+                  I help people to <u>truly</u> understand themselves and{" "}
+                  <i> change their life</i> with astrology and give them{" "}
+                  <b>practical keys</b> to reach happiness. All of this using
+                  multiples ancient and moderns astrology techniques.
                 </div>
 
                 <div className="2xl:mt-10 mt-7"></div>
                 <Link passHref href="/about">
-                  <SecondaryBtn>Read more</SecondaryBtn>
+                  <SecondaryBtn>Discover Who Am I</SecondaryBtn>
                 </Link>
               </div>
             </div>

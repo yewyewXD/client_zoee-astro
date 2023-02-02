@@ -6,6 +6,17 @@ import Footer from "../components/UI/Footer";
 import Navbar from "../components/UI/Navbar";
 import SectionHead from "../components/UI/SectionHead";
 
+const OutBoundLink = ({ children, href }) => (
+  <a
+    className="font-bold underline smooth hover:opacity-80 cursor-pointer"
+    target={"_blank"}
+    rel="noreferrer noopener"
+    href={href}
+  >
+    {children}
+  </a>
+);
+
 const About = () => {
   return (
     <div>
@@ -22,6 +33,7 @@ const About = () => {
 
         <div className="bg-green lg:py-20 py-14">
           <div className="container relative">
+            {/* Section 1 */}
             <div className="lg:grid grid-cols-3 flex flex-col-reverse">
               <div className="col-span-2 flex lg:pr-20 items-center">
                 <div className="lg:text-xl text-lg">
@@ -33,53 +45,58 @@ const About = () => {
                     only.
                   </div>
                   <div className="mt-5">
-                    Well, I&apos;ll say it again (better too much than not
-                    enough): I help people truly understand themselves with
-                    astrology to reach happiness. And all of this using
+                    I help people to <u>truly</u> understand themselves and{" "}
+                    <i> change their life</i> with astrology and give them{" "}
+                    <b>practical keys</b> to reach happiness. All of this using
                     multiples ancient and moderns astrology techniques.
                   </div>
 
                   <div className="mt-5">
-                    Well, apart from that I love reading books on many subjects!
-                    Psychology, holistic medicines, spirituality but mainly
-                    astrology. Simply, I LOVE learning and deepening my
-                    astrology knowledge and skills! Because my passion for it
-                    constantly motivates me to progress and learn.
+                    What I am doing outside of astrology? So many things! For
+                    example, I love reading books on many subjects: psychology,
+                    holistic medicines, spirituality (but mainly astrology).
                   </div>
 
                   <div className="mt-5">
-                    Fun fact: I did breakdance for 6 years (yes you read it
-                    right, it&apos;s the dance you turn on your head haha). But
-                    you are going to tell me “what does that have to do with
-                    astrology?”. Well, I learned discipline and tenacity. Never
-                    give up until you have achieved your goals. It’s why I chose
-                    to follow my passion and take the challenging way of
+                    Simply, I love <i>learning and deepening</i> my astrology
+                    knowledge and skills! Because my passion for it constantly
+                    motivates me to progress and learn.
+                  </div>
+
+                  <div className="mt-5">
+                    Fun fact: I did breakdance for 6 years (it&apos;s the dance
+                    you spin on your head). But you probably wonder tell me
+                    “what does that have to do with astrology?”.
+                  </div>
+
+                  <div className="mt-5">
+                    Well, I learned <b>discipline</b> and <b>tenacity</b>.
+                    “Never give up until you have achieved your goals”. It’s why
+                    I chose to follow my passion and take the challenging way of
                     becoming an astrologer.
                   </div>
 
                   <div className="mt-5">
-                    Otherwise, I am also passionate about cooking. I love
-                    cooking for my family and friends. Simply because I love
-                    serving others. But what I love more than anything is making
-                    them happy and satisfied (like my clients).
+                    Oh, and I am also passionate about cooking. I love cooking
+                    for my family and friends. I just love serving others. But
+                    what I love more than anything is to make them happy and
+                    satisfied (just like my clients).
                   </div>
 
                   <div className="mt-5">
-                    Come on, a last passion (I have too much of it lol)… I love
-                    art! Painting in particular. I put myself in the place of
-                    those who observe the painting and I try to understand the
-                    influence of colors, lines, and shapes on the observators.
-                    And in astrology? Well I try to understand the influence of
-                    the celestial bodies on humans behaviors, traits, health and
-                    emotions.
+                    Come on, a last passion… I love art! Painting in particular.
+                    I try to understand the influence of colors, lines, and
+                    shapes on others. And in astrology? I try to understand the
+                    influence of the celestial bodies on humans behaviors,
+                    traits, health and emotions and on the world.
                   </div>
 
                   <div className="mt-5">
-                    One last thing (after I stop talking about myself), honesty
-                    is one of the most important values in my opinion. So if I
-                    see that I can&apos;t help you, I will NEVER sell you my
-                    services (not like those manipulators who just want to make
-                    money). I only work with people I know I can help.
+                    One last thing, <b>honesty</b> is one of my most important
+                    values. So if I see that I can&apos;t help you, I will NEVER
+                    sell you my services (I really hate those manipulators who
+                    just want to make money). I only work with people I know I
+                    can help.
                   </div>
                 </div>
               </div>
@@ -104,6 +121,7 @@ const About = () => {
               </div>
             </div>
 
+            {/* Section 2 */}
             <div className="lg:grid flex-col grid-cols-3 lg:mt-32 mt-14">
               <div className="col-span-1 lg:flex hidden items-center">
                 <Image
@@ -127,149 +145,192 @@ const About = () => {
               <div className="col-span-2 flex lg:pl-20 items-center">
                 <div className="lg:text-xl text-lg">
                   <div className="mb-5 font-bold lg:text-2xl text-xl">
-                    My story with astrology
+                    My Story With Astrology
                   </div>
                   <div>
-                    I will never forget the first time I discovered my sun sign.
-                    I was 8 years old. My mom gave me a little paper calendar
-                    with my zodiac sign. I discovered my sign was a bull. I told
-                    myself “What why I’m a bull?” But she also bought calendar
-                    for the her, my little brother and my dad. I was thinking
-                    “Why do i have the same than my mom?” and “My brother’s one
-                    looks much cooler, he’s a water-bearer wow” “And why my dad
-                    is a virgin, i don’t understand”.
+                    Everything started when I was 8 years old. My mom gave me a
+                    little paper calendar. It was the first time I discovered my
+                    Sun sign. I immediately thought “What?! Why I’m a bull?”
+                    (yes, I’m a Taurus haha).
+                  </div>
+
+                  <div className="mt-5 font-bold">
+                    It was the first time of my life I heard about astrology.
                   </div>
 
                   <div className="mt-5">
-                    Later in my life I discovered again astrology throught
-                    popular social media sun-sign astrology post. I was trying
-                    find a logic in the zodiac signs compatibilities. “Why this
-                    sign gets allong well with this sign and not this one?”. My
-                    mind was restless. I couldn’t stop thinking about it.
+                    Then I kept on <u>trying to understand</u> the other Sun
+                    signs of my family. How do they behave? Why do they get
+                    along well? Why they don’t?
                   </div>
 
                   <div className="mt-5">
-                    But it’s only one day, when I was 16 years old, I met
-                    someone that changed my vision of astrology. She explained
-                    to me that we have few planets signs. Since this day I never
-                    stop thinking about astrology. I always wanted to get the
-                    birth info of someone to look at his/her birth chart (we all
-                    did this lol). I couldn’t stop to want to understand who are
-                    my friends, family and other with astrology. I had
-                    discovered a magic tool that made me able to understand
-                    deeply the behavior of others.
+                    At around 14 years old, I discovered again astrology. Like
+                    most of the people, it was through those stupid{" "}
+                    <i>Sun sign astrology</i> social media post (I’m sure you
+                    know what I’m talking about).
                   </div>
 
                   <div className="mt-5">
-                    Few years passed and I was at high school and i kept talking
-                    to others about astrology. My friends, my family, my
-                    boyfriend. I explained to them “Oh it’s why you get allong
-                    well with her, you are compatible with her about this”.
-                    Until them they even got annoyed of me for talking too much
-                    about it. But my passion for astrology was too strong. I
-                    ended up quitting high school in my last year. I had the
-                    feeling i was loosing my time learning things I don’t like
-                    and being with people i don’t want too. So I moved to
-                    Malaysia at 17.
+                    Again, I was trying find a logic in the zodiac signs
+                    compatibilities. My mind was restless.{" "}
+                    <b>I couldn’t stop thinking about it.</b>
                   </div>
 
                   <div className="mt-5">
-                    Here I became the happiest person ever but I didn’t know
-                    what to do. I had so many passion but i always ended up
-                    changing after few moths. After thinking, my boyfriend told
-                    me “What about astrology, you keep talking about it all the
-                    time?”. I was thinking that i can’t make a living of it. But
-                    he reminded me that it’s my passion and it’s what i’m gonna
-                    do for 80% of my time. So it’s how I decided to go to learn
-                    astrology seriously and become an astrologer to help others
-                    becoming happy.
+                    But everything changed one day, when I was 16 years old. I
+                    met someone that <b>completely</b> changed my vision of
+                    astrology. She explained to me that we have a whole birth
+                    chart and not just a Sun sign.
+                  </div>
+
+                  <div className="mt-5">
+                    I became <b>obsessed</b> with astrology and I always wanted
+                    to get the birth info of people to look at their birth chart
+                    (we all did this lol). I had discovered a magic tool that
+                    made me able to truly understand myself and others.
+                  </div>
+
+                  <div className="mt-5">
+                    At this time I was at high school and I was talking{" "}
+                    <u>all the time</u> to my friends, my family and my
+                    boyfriend about astrology (they even got annoyed at some
+                    points lol). But the truth was that I just loved{" "}
+                    <b>help them with astrology.</b>
+                  </div>
+
+                  <div className="mt-5">
+                    At this time, I was very depressed. I hated high school. I
+                    had the feeling to lose my time learning things I don’t care
+                    about. I was isolated in my friends group. To make it
+                    simple, I was feeling at the <i>wrong place</i>.
+                  </div>
+
+                  <div className="mt-5">
+                    So, I ended up quitting high school overnight in my last
+                    year and <i>I moved from Switzerland to Malaysia at 17</i>{" "}
+                    (thanks to my boyfriend for his help).
+                  </div>
+
+                  <div className="mt-5">
+                    Here I became <b>happy</b> like never. But… I was still{" "}
+                    <b>lost</b> about what to do. I had so many passion but I
+                    always ended up give up all of them.
+                  </div>
+
+                  <div className="mt-5">
+                    One day, I had a discussion with my boyfriend about{" "}
+                    <i>what should I do in my life</i>. And he told me: “What
+                    about astrology? You keep talking about it to me all the
+                    time”.
+                  </div>
+
+                  <div className="mt-5">
+                    I realised astrology has always been{" "}
+                    <b>my biggest passion</b>. So it’s how I decided to go all
+                    in learning astrology. And finally become an astrologer to
+                    help others becoming <i>happy</i>
+                    and <i>changing their life</i>.
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="lg:grid grid-cols-3 flex flex-col-reverse lg:mt-32 mt-14">
+            {/* Section 3 */}
+            <div className="lg:grid grid-cols-3 flex flex-col-reverse">
               <div className="col-span-2 flex lg:pr-20 items-center">
                 <div className="lg:text-xl text-lg">
                   <div className="mb-5 font-bold lg:text-2xl text-xl">
-                    Why did I choose astrology?{" "}
+                    My Learning & Journey
                   </div>
-
                   <div>
-                    <div className="font-bold mb-2 lg:text-2xl text-xl">
-                      #1 You never stop learning
-                    </div>
-                    <p>
-                      One of the things I love the most about astrology is that
-                      you never stop learning (for real). The amount of
-                      available knowledge is just TOO HUGE. Even if I would put
-                      my whole life in reading all the astrology books, watch
-                      all the videos and take all the courses, I wouldn’t even
-                      learn half of it!. I just love learning, feeling like an
-                      eternal student. Never stopping to discover new things
-                      about astrology makes the fire inside me burn even more!
-                    </p>
+                    Everyone that start learning astrology will feel this: there
+                    is a <b>crazy huge</b> amount of data to learn and
+                    understand about astrology. Without surprise, I felt the
+                    same.
                   </div>
 
                   <div className="mt-5">
-                    <div className="font-bold mb-2 lg:text-2xl text-xl">
-                      #2 Understanding what’s hidden and complicated, people,
-                      behaviors
-                    </div>
-                    <p>
-                      What made me fall in love for astrology is really this one
-                      thing: being able to understand humain behaviors,
-                      emotional reactions, their taste, their fears and more.
-                      Let’s say it’s the psychological side of it that seduce
-                      me. Seriously, astrology is really the most amazing tool
-                      for understanding ourselves and others! Psychology is
-                      really fascinating but astrology makes it clearer, easier
-                      and more accurate in my opinion!
-                    </p>
+                    But I was so passionate that it didn’t stopped me. So, after
+                    few years of intensive learning,<b> I made it</b>. I
+                    mastered enough the symbols and techniques of astrology
+                    (even if we never really master it completely lol) and
+                    became an <i>astrologer</i>.
                   </div>
 
                   <div className="mt-5">
-                    <div className="font-bold mb-2 lg:text-2xl text-xl">
-                      #3 The magic side
-                    </div>
-                    <p>
-                      Another fascinating thing about astrology is its magic and
-                      mysterious side. We don’t really know what makes it work.
-                      Nowadays we haven’t found “scientific explaination” for
-                      astrology. We can’t explain it in a rational way. Well,
-                      that’s why I love it! Astrology is a discipline that go
-                      beyond “science”.
-                    </p>
+                    I know, you probably wonder: “what did you do to achieve
+                    this??”
                   </div>
 
                   <div className="mt-5">
-                    <div className="font-bold mb-2 lg:text-2xl text-xl">
-                      #4 Complete discipline: maths, history, psychology, etc.
-                    </div>
-                    <p>
-                      If you practice astrology you can’t just limit yourself to
-                      it. To understand it you must learn astronomy, and its
-                      calculation (maths, physics and geometry).To understand
-                      the zodiac signs, planets and houses you must learn
-                      mythology and go back to the history of it. To make it
-                      simple, astrology is a really complete discipline:
-                      psychology, mathematics, mythology, history, and more. As
-                      a very versatile and touch to everything person, I really
-                      found my pleasure doing astrology!
-                    </p>
+                    The answer is simple: I didn’t rest lol.
                   </div>
 
                   <div className="mt-5">
-                    <div className="font-bold mb-2 lg:text-2xl text-xl">
-                      #5 Helping others
-                    </div>
-                    <p>
-                      My biggest satisfaction if when I can truly help someone.
-                      Seeing people improving and become who they truly want to
-                      be it’s just filling my heart with happiness. It’s one of
-                      the biggest reason I wanted to start practicing astrology
-                      professionally.
-                    </p>
+                    No seriously, I had to go through{" "}
+                    <b>+300 hours of podcasts and videos</b>. Dozens of French
+                    and English <b>astrology books</b>. Many{" "}
+                    <b>online courses</b> like The Professional Astrologer
+                    Course by Chris Brennan and the{" "}
+                    <i>Career and Life Direction in Astrology</i> course by
+                    Kelly Surtees.
+                  </div>
+
+                  <div className="mt-5">
+                    You think that’s a lot? That’s not finish! (it would be too
+                    easy)
+                  </div>
+
+                  <div className="mt-5">
+                    I had also to go through{" "}
+                    <b>hundreds of hours of practice</b> by reading{" "}
+                    <b>+100 charts</b> for people around the world (but also my
+                    family and friends) before doing it professionally.
+                  </div>
+
+                  <div className="mt-5">
+                    But honestly, what taught me the most was…
+                  </div>
+
+                  <div className="mt-5">
+                    Applying astrology in my <i>daily life</i>. Anytime I wanted
+                    to understand a situation, I looked at my transits,
+                    someone’s birth chart, the synastry chart and whatever thing
+                    that could help me understand what was going on…
+                  </div>
+
+                  <div className="mt-5">
+                    To make it simple, I truly learned astrology by my own{" "}
+                    <b>everyday observations</b> on myself and others.
+                  </div>
+
+                  <div className="mt-5">
+                    My main influences in my astrology learning are:{" "}
+                    <OutBoundLink href="https://www.chrisbrennanastrologer.com/">
+                      Chris Brennan
+                    </OutBoundLink>
+                    ,{" "}
+                    <OutBoundLink href="https://www.sebastien-michel.com/">
+                      Sebastien Michel
+                    </OutBoundLink>
+                    ,{" "}
+                    <OutBoundLink href="https://www.forrestastrology.com/">
+                      Steven Forrest
+                    </OutBoundLink>
+                    ,{" "}
+                    <OutBoundLink href="https://loureinnobrac.fr/astrologie/">
+                      Lou Reinnobrac
+                    </OutBoundLink>
+                    ,{" "}
+                    <OutBoundLink href="https://www.kellysastrology.com/">
+                      Kelly Surtees
+                    </OutBoundLink>{" "}
+                    and{" "}
+                    <OutBoundLink href="https://francois-barthomeuf.com/">
+                      François Barthomeuf
+                    </OutBoundLink>
+                    .
                   </div>
                 </div>
               </div>
@@ -291,6 +352,92 @@ const About = () => {
                   width={200}
                   height={200}
                 />
+              </div>
+            </div>
+
+            {/* Section 4 */}
+            <div className="lg:mt-32 mt-14">
+              <div className="lg:text-xl text-lg">
+                <div className="mb-5 font-bold lg:text-2xl text-xl">
+                  Why did I choose astrology?{" "}
+                </div>
+
+                <div>
+                  <div className="font-bold mb-2 lg:text-2xl text-xl">
+                    #1 You never stop learning
+                  </div>
+                  <p>
+                    One of the things I love the most about astrology is that
+                    you never stop learning (for real). The amount of available
+                    knowledge is just TOO HUGE. Even if I would put my whole
+                    life in reading all the astrology books, watch all the
+                    videos and take all the courses, I wouldn’t even learn half
+                    of it!. I just love learning, feeling like an eternal
+                    student. Never stopping to discover new things about
+                    astrology makes the fire inside me burn even more!
+                  </p>
+                </div>
+
+                <div className="mt-5">
+                  <div className="font-bold mb-2 lg:text-2xl text-xl">
+                    #2 Understanding what’s hidden and complicated, people,
+                    behaviors
+                  </div>
+                  <p>
+                    What made me fall in love for astrology is really this one
+                    thing: being able to understand humain behaviors, emotional
+                    reactions, their taste, their fears and more. Let’s say it’s
+                    the psychological side of it that seduce me. Seriously,
+                    astrology is really the most amazing tool for understanding
+                    ourselves and others! Psychology is really fascinating but
+                    astrology makes it clearer, easier and more accurate in my
+                    opinion!
+                  </p>
+                </div>
+
+                <div className="mt-5">
+                  <div className="font-bold mb-2 lg:text-2xl text-xl">
+                    #3 The magic side
+                  </div>
+                  <p>
+                    Another fascinating thing about astrology is its magic and
+                    mysterious side. We don’t really know what makes it work.
+                    Nowadays we haven’t found “scientific explaination” for
+                    astrology. We can’t explain it in a rational way. Well,
+                    that’s why I love it! Astrology is a discipline that go
+                    beyond “science”.
+                  </p>
+                </div>
+
+                <div className="mt-5">
+                  <div className="font-bold mb-2 lg:text-2xl text-xl">
+                    #4 Complete discipline: maths, history, psychology, etc.
+                  </div>
+                  <p>
+                    If you practice astrology you can’t just limit yourself to
+                    it. To understand it you must learn astronomy, and its
+                    calculation (maths, physics and geometry).To understand the
+                    zodiac signs, planets and houses you must learn mythology
+                    and go back to the history of it. To make it simple,
+                    astrology is a really complete discipline: psychology,
+                    mathematics, mythology, history, and more. As a very
+                    versatile and touch to everything person, I really found my
+                    pleasure doing astrology!
+                  </p>
+                </div>
+
+                <div className="mt-5">
+                  <div className="font-bold mb-2 lg:text-2xl text-xl">
+                    #5 Helping others
+                  </div>
+                  <p>
+                    My biggest satisfaction if when I can truly help someone.
+                    Seeing people improving and become who they truly want to be
+                    it’s just filling my heart with happiness. It’s one of the
+                    biggest reason I wanted to start practicing astrology
+                    professionally.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
