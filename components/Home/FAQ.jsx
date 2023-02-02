@@ -60,14 +60,14 @@ const FAQ = () => {
             href="https://www.instagram.com/direct/t/340282366841710300949128133717595046627"
             rel="noreferrer noopener"
             target={"_blank"}
-            className="underline font-bold"
+            className="underline font-bold smooth hover:opacity-80"
           >
             DM
           </a>{" "}
           Or{" "}
           <a
             href={"mailto:easy.astrology.by.zoee@gmail.com"}
-            className="underline font-bold"
+            className="underline font-bold smooth hover:opacity-80"
           >
             Email
           </a>{" "}
