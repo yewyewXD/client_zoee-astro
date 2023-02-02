@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import SecondaryBtn from "../components/UI/buttons/SecondaryBtn";
 import CallToAction from "../components/UI/CallToAction";
 import Footer from "../components/UI/Footer";
 import Navbar from "../components/UI/Navbar";
@@ -22,8 +24,13 @@ const contact = () => {
         <SectionHead title={"Contact Me"} />
         <div className="bg-green py-32">
           <div className="container-deep">
+            <div className="text-center text mb-20 lg:text-2xl text-xl font-semibold">
+              A Question? Need To Contact Me? No Problem! Just Fulfil The Form
+              Below.
+            </div>
+
             <div className="md:grid grid-cols-3 flex flex-col">
-              <div className="col-span-1 text-lg font-semibold">
+              <div className="col-span-1 lg:text-xl text-lg font-semibold">
                 <div className="flex flex-col md:items-start items-center">
                   <div className="text-xl font-bold mb-5">Social Media</div>
                   <div>
@@ -79,7 +86,7 @@ const contact = () => {
                       Name
                     </label>
                     <input
-                      className="appearance-none outline-none border-2 border-white rounded w-full py-2 px-3 text-black leading-tight focus:border-gray-600"
+                      className="appearance-none outline-none border-2 border-white rounded-md shadow-md w-full py-2 px-3 text-black leading-tight focus:border-gray-600"
                       id="name"
                       type="text"
                       name="name"
@@ -93,7 +100,7 @@ const contact = () => {
                       E-mail
                     </label>
                     <input
-                      className="appearance-none outline-none border-2 border-white rounded w-full py-2 px-3 text-black leading-tight focus:border-gray-600"
+                      className="appearance-none outline-none border-2 border-white rounded-md shadow-md w-full py-2 px-3 text-black leading-tight focus:border-gray-600"
                       id="email"
                       type="email"
                       name="email"
@@ -110,7 +117,7 @@ const contact = () => {
                       Message
                     </label>
                     <textarea
-                      className="appearance-none outline-none border-2 border-white rounded w-full py-2 px-3 text-black leading-tight focus:border-gray-600"
+                      className="appearance-none outline-none border-2 border-white rounded-md shadow-md w-full py-2 px-3 text-black leading-tight focus:border-gray-600"
                       id="message"
                       name="message"
                       placeholder="Type your message here..."
@@ -119,12 +126,19 @@ const contact = () => {
                     />
                   </div>
 
-                  <button
-                    className="border-2 border-white px-12 py-3 hover:bg-white hover:text-black smooth lg:text-xl text-lg sm:w-auto w-full"
-                    type="submit"
-                  >
-                    Send
-                  </button>
+                  <div className="mb-6 text-lg">
+                    Make sure you have look in the{" "}
+                    <Link
+                      className="font-bold underline smooth hover:opacity-80"
+                      href="/#faq"
+                    >
+                      FAQ section
+                    </Link>{" "}
+                    before DM or emailing me! (To see if I have already answered
+                    your question).
+                  </div>
+
+                  <SecondaryBtn type="submit">Send</SecondaryBtn>
                 </form>
               </div>
             </div>

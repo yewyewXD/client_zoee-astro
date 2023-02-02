@@ -49,7 +49,7 @@ export default function Home() {
           <AboutMe />
         </div>
 
-        <div>
+        <div id="faq">
           <FAQ />
         </div>
 
