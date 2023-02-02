@@ -41,10 +41,10 @@ const Testimonial = () => {
   return (
     <div className="bg-brown text-white relative">
       <div className="sm:px-20 px-4 lg:py-20 py-14 relative">
-        <h2 className="lg:text-5xl text-4xl text-center font-bold">
+        <h2 className="xl:text-5xl text-4xl text-center font-bold">
           Testimonials
         </h2>
-        <div className="text-center text mt-3 mb-6 lg:text-2xl text-xl font-semibold">
+        <div className="text-center text mt-3 mb-6 xl:text-2xl text-xl font-semibold">
           Read What Other Happy Clients Have To Say…
         </div>
 

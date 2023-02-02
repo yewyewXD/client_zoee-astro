@@ -6,8 +6,8 @@
   },
   {
     "id": "nav-item-2",
-    "text": "About Me",
-    "link": "/about"
+    "text": "Testimonial",
+    "link": "/#services"
   },
   {
     "id": "nav-item-3",
@@ -16,7 +16,18 @@
   },
   {
     "id": "nav-item-4",
+    "text": "About Me",
+    "link": "/about"
+  },
+
+  {
+    "id": "nav-item-5",
     "text": "Contact Me",
     "link": "/contact"
+  },
+  {
+    "id": "nav-item-6",
+    "text": "Disclaimers & Policies",
+    "link": "/disclaimer"
   }
 ]

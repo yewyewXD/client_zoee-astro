@@ -10,7 +10,7 @@ const Hero = () => {
         <div className="xl:text-xl sm:text-lg mb-3">
           For People Who Want To Become The Best Version Of Themselves…
         </div>
-        <h1 className="xl:text-6xl md:text-5xl text-3xl font-bold lg:w-7/12">
+        <h1 className="xl:text-6xl md:text-4xl text-3xl font-bold lg:w-7/12">
           How Would You Like To Drastically Change Your Life With Astrology?
         </h1>
         <div className="xl:text-xl sm:text-lg md:mt-6 mt-4 font-semibold xl:w-5/12 lg:w-7/12 md:w-9/12 text-gray-100">

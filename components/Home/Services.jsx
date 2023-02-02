@@ -77,7 +77,7 @@ const Services = () => {
       <BgOverlay opacity={"0.5"} />
 
       <div className="container-deep lg:py-20 py-14 text-white relative">
-        <h2 className="lg:text-5xl text-4xl text-center font-bold mb-20">
+        <h2 className="xl:text-5xl text-4xl text-center font-bold mb-20">
           Services
         </h2>
 
@@ -101,12 +101,12 @@ const Services = () => {
                   service.alt ? "xl:pr-40 md:pr-20" : "xl:pl-40 md:pl-20"
                 } md:text-left text-center md:mt-0 mt-8`}
               >
-                <div className="md:text-4xl sm:text-3xl text-2xl font-bold relative">
+                <div className="xl:text-4xl sm:text-3xl text-2xl font-bold relative">
                   {service.title} - {service.price}
                 </div>
 
                 <div
-                  className="md:mt-5 mt-3 md:text-xl sm:text-lg"
+                  className="md:mt-5 mt-3 xl:text-xl sm:text-lg"
                   dangerouslySetInnerHTML={{ __html: service.description }}
                 ></div>
 

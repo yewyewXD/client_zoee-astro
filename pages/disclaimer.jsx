@@ -11,7 +11,7 @@ const AccordRight = () => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-6 h-6 mb-1 inline"
+    className="xl:w-6 w-5 xl:h-6 h-5 mb-1 inline"
   >
     <path
       strokeLinecap="round"
@@ -56,9 +56,9 @@ const Disclaimer = () => {
         <SectionHead title={"Disclaimers & Policies"} />
 
         <div className="bg-gray lg:py-20 py-14">
-          <div className="container-deep lg:text-2xl sm:text-xl text-lg">
+          <div className="container-deep xl:text-2xl sm:text-xl text-lg">
             <div>
-              <div className="text-center mb-14 lg:text-3xl text-xl font-semibold">
+              <div className="text-center mb-14 xl:text-3xl sm:text-2xl text-xl font-semibold">
                 Make Sure To Read This Before Booking A Consultation…
               </div>
 
@@ -180,7 +180,7 @@ const Disclaimer = () => {
             </div>
 
             <div>
-              <div className="text-center mt-28 mb-14 lg:text-3xl text-xl font-semibold">
+              <div className="text-center mt-28 mb-14 xl:text-3xl sm:text-2xl text-xl font-semibold">
                 Consultation Disclaimer
               </div>
 

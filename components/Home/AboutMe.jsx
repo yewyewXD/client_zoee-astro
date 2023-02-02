@@ -7,14 +7,14 @@ const AboutMe = () => {
   return (
     <div className="bg-green text-white">
       <div className="lg:py-20 py-14">
-        <h2 className="lg:text-5xl text-4xl text-center font-bold md:mb-20 mb-10">
+        <h2 className="xl:text-5xl text-4xl text-center font-bold md:mb-20 mb-10">
           About Me
         </h2>
 
         <div className="container-deep">
           <div className="md:grid grid-cols-3 flex flex-col-reverse">
             <div className="col-span-2 flex lg:pr-40 md:pr-20 items-center">
-              <div className="2xl:text-2xl lg:text-xl sm:text-lg md:text-left text-center">
+              <div className="2xl:text-2xl xl:text-xl sm:text-lg md:text-left text-center">
                 <div>
                   I’m Zoée, astrologer, consultant and content creator but not
                   only.
