@@ -25,11 +25,6 @@
   },
 
   {
-    "title": "Is your birth data public? What does your chart look like?",
-    "description": "No my birth data are not public! Why? Because I simply want to keep some privacy. A birth chart is showing the depth of someone (for real). It is something very private in my opinion. So I will always be careful about confidentiality of your birth data :)"
-  },
-
-  {
     "title": "Could you tell me how to interpret a placement in my chart?",
     "description": "No sorry, I get too many questions about personal placements. However, you can find plenty of articles on Internet about all the placements. I’m sure you will find the answer to your question :) And remember there isn’t only one correct interpretation of a placement!"
   },
@@ -41,6 +36,16 @@
 
   {
     "title": "What if I don’t know my birth time?",
-    "description": "<div>Don’t worry! There is many things to do to find your birth time:<br/><div class='mt-3'><b>1. Ask your parents.</b><p>Normally they should now when you’re born (logic they are your parents right?). What if they don’t know the exact time? It’s ok! At least they may be able to give you what part of the day it was, which is a good beginning.</p></div> <br/><div><b>2. Look in your baby book.</b><p>Many parents keep a baby book. Why not your parents? Just ask your parents for it. If they have one, the time of birth should be recorded in there.</p></div> <br/><div><b>3. Look on your birth certificate. </b><p>This one is most of the time reliable. But be careful… the birth time recorded on your birth certificate might not be completely accurate. Why? The clock in the hospital may not be showing the right time for example. Sometimes the birth time is not even recorded at all.</p></div> <br/><div><b>4. Look at your newspaper birth announcement.</b><p>This one is more complicated to get depending on the country you’re born. If you can get it, the birth time will sometimes be there.</p></div> <br/><div><b>5. Birth time rectification.</b><p>Can’t find you’re birth certificate or want to be really sure about your birth time? The best option is a birth time rectification. An astrologer will use many important dates in your life you will give him and some techniques to find the time that matches the best.</p></div></div>"
+    "description": "<div><b>1. Ask your parents.</b><p>Normally they should now when you’re born (logic right?). What if they don’t know the exact time? It’s ok! At least they may be able to tell you what part of the day it was.</p></div> <br/><div><b>2. Look in your baby book.</b><p>Many parents keep a baby book. Why not yours parents? Just ask them! If they have one, the time of birth should be written inside.</p></div> <br/><div><b>3. Look on your birth certificate. </b><p> This is the most accurate way to get your birth time. But be careful! The birth time recorded might not be completely accurate. Why? The clock in the hospital may not be showing the right time for example. And sometimes the birth time is not even recorded at all.</p></div> <br/><div><b>4. Look at your newspaper birth announcement.</b><p>This one is a bit more tricky to get depending on the country you were born in. If you can get it, the birth time will sometimes be there.</p></div> <br/><div><b>5. Birth time rectification.</b><p>You really can’t find you’re birth certificate or you wish to be really sure about your birth time? Here is the last and the best option: birth time rectification. <div class='mt-3' /> An astrologer will use many important dates in your life you will give him and some techniques to find the time that matches the best (yes, it’s like a detective haha). </p></div></div>"
+  },
+
+  {
+    "title": "Can I still get a consultation if I don’t know my birth time?",
+    "description": "Of course! Okay, my reading will be less accurate and less insightful but, you will still get a lot of information about yourself. There is still so much things to say even without the birth time!"
+  },
+
+  {
+    "title": "How will you do to change my life with astrology",
+    "description": "Basically, I will use different astrology techniques to get to know yourself deeply. I will look and tell you about your hidden talents, strengths, weaknesses, fears, soul path, family, career, passions, and more depending on your request. <div class='mt-3' /> Then, I will give you some advices and practical steps to take (according to your potential) to reach your goals and transform your life!"
   }
 ]

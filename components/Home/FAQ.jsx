@@ -19,7 +19,6 @@ const FAQ = () => {
             You Still Hesitate? Find The Answer To Your Question Just Below…
           </div>
         </div>
-
         <div className="grid lg:grid-cols-2 gap-x-20 lg:text-xl sm:text-lg font-semibold">
           {questions.map((question) => (
             <Collapsible
