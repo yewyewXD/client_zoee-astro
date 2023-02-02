@@ -4,11 +4,7 @@
     "text": "Home",
     "link": "/"
   },
-  {
-    "id": "nav-item-2",
-    "text": "Testimonial",
-    "link": "/#services"
-  },
+
   {
     "id": "nav-item-3",
     "text": "Services",
@@ -19,6 +15,11 @@
     "text": "About Me",
     "link": "/about"
   },
+  {
+    "id": "nav-item-4",
+    "text": "FAQ",
+    "link": "/#faq"
+  },
 
   {
     "id": "nav-item-5",
@@ -27,7 +28,7 @@
   },
   {
     "id": "nav-item-6",
-    "text": "Disclaimers & Policies",
+    "text": "Disclaimers",
     "link": "/disclaimer"
   }
 ]

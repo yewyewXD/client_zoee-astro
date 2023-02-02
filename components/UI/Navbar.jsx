@@ -61,7 +61,7 @@ const Navbar = () => {
               <Link href={navItem.link} key={navItem.id}>
                 <span
                   className={`lg:text-lg text-base font-semibold smooth navItem ${
-                    router.pathname === navItem.link && "navItem--active"
+                    router.asPath === navItem.link && "navItem--active"
                   } px-5 py-2 rounded-lg ml-1`}
                 >
                   {navItem.text}
@@ -121,7 +121,7 @@ const Navbar = () => {
             >
               <div
                 className={`lg:text-lg text-base font-semibold smooth navItem ${
-                  router.pathname === navItem.link && "navItem--active"
+                  router.asPath === navItem.link && "navItem--active"
                 } px-5 py-3`}
               >
                 {navItem.text}
