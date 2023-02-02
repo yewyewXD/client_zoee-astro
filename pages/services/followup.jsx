@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import React from "react";
 import Footer from "../../components/UI/Footer";
 import Navbar from "../../components/UI/Navbar";
@@ -120,6 +121,17 @@ const Followup = () => {
                 <button className="sm:text-2xl text-xl sm:px-12 px-8 sm:py-6 py-4 border-2 border-white hover:bg-white hover:text-black sm:font-bold font-semibold smooth rounded-lg hover:scale-105">
                   I Want To Continue My Self-Growth Journey
                 </button>
+              </div>
+
+              <div className="mt-6 xl:text-xl text-lg text-center">
+                Please read the{" "}
+                <Link
+                  href="/disclaimer"
+                  className="underline font-bold hover:opacity-80 smooth"
+                >
+                  disclaimers
+                </Link>{" "}
+                before booking a consultation.
               </div>
             </div>
           </div>

@@ -216,6 +216,17 @@ const Synastry = () => {
                   I Want To Improve My Relationship Now
                 </button>
               </div>
+
+              <div className="mt-6 xl:text-xl text-lg text-center">
+                Please read the{" "}
+                <Link
+                  href="/disclaimer"
+                  className="underline font-bold hover:opacity-80 smooth"
+                >
+                  disclaimers
+                </Link>{" "}
+                before booking a consultation.
+              </div>
             </div>
           </div>
         </div>
