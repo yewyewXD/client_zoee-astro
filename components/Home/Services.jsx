@@ -102,7 +102,7 @@ const Services = () => {
                 } md:text-left text-center md:mt-0 mt-8`}
               >
                 <div className="xl:text-4xl sm:text-3xl text-2xl font-bold relative">
-                  {service.title} - {service.price}
+                  {service.title} ({service.price})
                 </div>
 
                 <div

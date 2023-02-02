@@ -10,7 +10,7 @@ const SectionHead = ({ title }) => {
       }}
     >
       <BgOverlay opacity={"0.4"} />
-      <h2 className="lg:text-5xl text-4xl text-center font-bold relative mt-5">
+      <h2 className="xl:text-5xl text-4xl text-center font-bold relative mt-5">
         {title}
       </h2>
     </div>

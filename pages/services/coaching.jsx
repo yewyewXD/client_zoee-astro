@@ -18,13 +18,13 @@ const Coaching = () => {
       <Navbar />
 
       <main className="text-white">
-        <SectionHead title={"Coaching Astrology Consultation - 150 USD"} />
+        <SectionHead title={"Coaching Astrology Consultation (150 USD)"} />
 
         <div className="bg-green lg:py-20 py-14">
-          <div className="container-deep lg:text-2xl sm:text-xl text-lg">
+          <div className="container-deep xl:text-2xl sm:text-xl text-lg">
             <div>
               <div>
-                <div className="mb-5 md:text-4xl text-3xl font-bold">
+                <div className="mb-5 xl:text-4xl text-3xl font-bold">
                   What is it?
                 </div>
                 Coaching Astrology is an amazing <i>self-development</i> tool.
@@ -39,7 +39,7 @@ const Coaching = () => {
               </div>
 
               <div className="mt-12">
-                <div className="mb-5 md:text-4xl text-3xl font-bold">
+                <div className="mb-5 xl:text-4xl text-3xl font-bold">
                   What I Do? (If You Know Astrology)
                 </div>
                 <div>
@@ -62,7 +62,7 @@ const Coaching = () => {
               </div>
 
               <div className="mt-12">
-                <div className="mb-5 md:text-4xl text-3xl font-bold">
+                <div className="mb-5 xl:text-4xl text-3xl font-bold">
                   Is It For You?
                 </div>
 
@@ -126,7 +126,7 @@ const Coaching = () => {
               </div>
 
               <div className="mt-12">
-                <div className="mb-5 md:text-4xl text-3xl font-bold">
+                <div className="mb-5 xl:text-4xl text-3xl font-bold">
                   What Will You Get?
                 </div>
                 <ul>
@@ -200,10 +200,21 @@ const Coaching = () => {
                 to know when I open new spots!
               </div>
 
-              <div className="sm:mt-20 mt-10 flex justify-center">
+              <div className="sm:mt-20 mt-10 flex flex-col items-center">
                 <button className="sm:text-2xl text-xl sm:px-12 px-8 sm:py-6 py-4 border-2 border-white hover:bg-white hover:text-black sm:font-bold font-semibold smooth rounded-lg hover:scale-105">
                   I Want To Change My Life Now!
                 </button>
+
+                <div className="mt-6 xl:text-xl text-lg">
+                  Please read the{" "}
+                  <Link
+                    href="/disclaimer"
+                    className="underline font-bold hover:opacity-80 smooth"
+                  >
+                    disclaimers
+                  </Link>{" "}
+                  before booking a consultation.
+                </div>
               </div>
             </div>
           </div>
