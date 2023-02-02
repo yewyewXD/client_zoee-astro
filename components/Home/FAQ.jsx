@@ -13,9 +13,12 @@ const FAQ = () => {
     >
       <BgOverlay opacity={"0.6"} />
       <div className="lg:py-20 py-14 container relative">
-        <h2 className="lg:text-5xl text-4xl text-center font-bold mb-20">
-          FAQ
-        </h2>
+        <div className="mb-20">
+          <h2 className="lg:text-5xl text-4xl text-center font-bold">FAQ</h2>
+          <div className="text-center text mt-3 lg:text-2xl text-xl font-semibold">
+            You Still Hesitate? Find The Answer To Your Question Just Below…
+          </div>
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-x-20 lg:text-xl sm:text-lg font-semibold">
           {questions.map((question) => (
