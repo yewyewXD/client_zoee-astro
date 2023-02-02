@@ -13,7 +13,7 @@ const FAQ = () => {
     >
       <BgOverlay opacity={"0.6"} />
       <div className="lg:py-20 py-14 container relative">
-        <div className="mb-20">
+        <div className="sm:mb-20 mb-14">
           <h2 className="lg:text-5xl text-4xl text-center font-bold">FAQ</h2>
           <div className="text-center text mt-3 lg:text-2xl text-xl font-semibold">
             You Still Hesitate? Find The Answer To Your Question Just Below…
@@ -52,6 +52,26 @@ const FAQ = () => {
               />
             </Collapsible>
           ))}
+        </div>
+
+        <div className="text-center text mt-6 lg:text-2xl text-xl font-semibold">
+          You Got Another Question? Just{" "}
+          <a
+            href="https://www.instagram.com/direct/t/340282366841710300949128133717595046627"
+            rel="noreferrer noopener"
+            target={"_blank"}
+            className="underline font-bold"
+          >
+            DM
+          </a>{" "}
+          Or{" "}
+          <a
+            href={"mailto:easy.astrology.by.zoee@gmail.com"}
+            className="underline font-bold"
+          >
+            Email
+          </a>{" "}
+          Me!
         </div>
       </div>
     </div>
