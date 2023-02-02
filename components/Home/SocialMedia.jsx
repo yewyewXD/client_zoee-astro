@@ -25,7 +25,7 @@ const SocialMedia = () => {
         <h2 className="lg:text-5xl text-4xl text-center font-bold">
           Social Media
         </h2>
-        <div className="text-center text mt-3 lg:text-2xl sm:text-xl md:mb-20 mb-10">
+        <div className="capitalize text-center text mt-3 lg:text-2xl sm:text-xl md:mb-20 mb-10">
           Become a member of the{" "}
           <span className="font-bold">Easy Astrology by Zoee</span> community
           now!
@@ -40,7 +40,10 @@ const SocialMedia = () => {
                   {socialMedias[0].name}
                 </h3>
                 <div className="lg:text-xl sm:text-lg md:w-8/12">
-                  {socialMedias[0].text}
+                  The best way to know when I open{" "}
+                  <b>spots for consultations</b>! Follow my daily life, ask me
+                  questions, and learn a <i>unique</i> vision of astrology with
+                  interesting videos and post <u>everyday</u>!
                 </div>
 
                 <div className="lg:mt-10 sm:mt-7 mt-5">
@@ -50,7 +53,9 @@ const SocialMedia = () => {
                     rel="noreferrer noopener"
                     passHref
                   >
-                    <SecondaryBtn>Check it Out</SecondaryBtn>
+                    <SecondaryBtn>
+                      I Want To Stay Tuned About Consultations
+                    </SecondaryBtn>
                   </Link>
                 </div>
               </div>
@@ -59,7 +64,7 @@ const SocialMedia = () => {
             <div className="md:mb-0 mb-6">
               <Image
                 src={socialMedias[0].cover}
-                className="rounded-2xl"
+                className="rounded-2xl shadow-md shadow-black"
                 alt=""
                 width={400}
                 height={500}
@@ -101,7 +106,10 @@ const SocialMedia = () => {
                 {socialMedias[1].name}
               </h3>
               <div className="lg:text-xl sm:text-lg">
-                {socialMedias[1].text}
+                You prefer videos? No problem! Learn astrology in an{" "}
+                <i>easy and entertaining</i> way with short funny videos! No
+                bullshit Sun sign astrology, just{" "}
+                <b>real astrology knowledge</b>.
               </div>
 
               <div className="lg:mt-10 sm:mt-7 mt-5">
@@ -111,7 +119,7 @@ const SocialMedia = () => {
                   rel="noreferrer noopener"
                   passHref
                 >
-                  <SecondaryBtn>Check it Out</SecondaryBtn>
+                  <SecondaryBtn>I Want To Learn Astrology Easily</SecondaryBtn>
                 </Link>
               </div>
             </div>
@@ -119,7 +127,7 @@ const SocialMedia = () => {
             <div className="md:mb-0 mb-6">
               <Image
                 src={socialMedias[1].cover}
-                className="rounded-2xl"
+                className="rounded-2xl shadow-md shadow-black"
                 alt=""
                 width={320}
                 height={500}
@@ -158,7 +166,11 @@ const SocialMedia = () => {
                   {socialMedias[2].name}
                 </h3>
                 <div className="lg:text-xl sm:text-lg md:w-8/12">
-                  {socialMedias[2].text}
+                  You have been lied to about astrology. I’m here to change
+                  that. Find <i>true</i> and <i>exclusive</i> astrology{" "}
+                  <b>advices</b> and <b>knowledge</b>, learn astrology{" "}
+                  <i>easily</i>, participate to debates and stay updated about
+                  my consultations!
                 </div>
 
                 <div className="lg:mt-10 sm:mt-7 mt-5">
@@ -168,13 +180,15 @@ const SocialMedia = () => {
                     rel="noreferrer noopener"
                     passHref
                   >
-                    <SecondaryBtn>Check it Out</SecondaryBtn>
+                    <SecondaryBtn>
+                      I Want To Get Exclusive Astrology Knowledge
+                    </SecondaryBtn>
                   </Link>
                 </div>
               </div>
             </div>
 
-            <div className="sm:block hidden md:mb-0 mb-6">
+            <div className="sm:block hidden md:mb-0 mb-6 shadow-md shadow-black rounded-xl">
               <a
                 className="twitter-timeline"
                 data-width="380"
@@ -185,7 +199,7 @@ const SocialMedia = () => {
               </a>
             </div>
 
-            <div className="sm:hidden mb-6">
+            <div className="sm:hidden mb-6 shadow-md shadow-black rounded-xl">
               <a
                 className="twitter-timeline"
                 data-width="280"
