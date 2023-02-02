@@ -18,9 +18,9 @@ const Synastry = () => {
       <Navbar />
 
       <main className="text-white">
-        <SectionHead title={"Coaching Astrology Consultation - 150 USD"} />
+        <SectionHead title={"Synastry Consultation - 200 USD"} />
 
-        <div className="bg-green lg:py-20 py-14">
+        <div className="bg-red lg:py-20 py-14">
           <div className="container-deep lg:text-2xl sm:text-xl text-lg">
             <div>
               <div>
