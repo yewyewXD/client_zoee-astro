@@ -8,7 +8,24 @@
   {
     "id": "nav-item-3",
     "text": "Services",
-    "link": "/#services"
+    "link": "/#services",
+    "subItems": [
+      {
+        "id": "service-sub-item-1",
+        "text": "Coaching Astrology Consultation",
+        "link": "/services/coaching"
+      },
+      {
+        "id": "service-sub-item-2",
+        "text": "Follow-up Consultation",
+        "link": "/services/followup"
+      },
+      {
+        "id": "service-sub-item-3",
+        "text": "Synastry Consultation",
+        "link": "/services/synastry"
+      }
+    ]
   },
   {
     "id": "nav-item-4",

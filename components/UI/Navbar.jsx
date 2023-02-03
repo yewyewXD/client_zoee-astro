@@ -52,24 +52,68 @@ const Navbar = () => {
             />
           </div>
 
+          {/* Desktop Nav Items */}
           <div
-            className={`xl:block hidden ml-auto smooth ${
+            className={`xl:flex hidden ml-auto smooth ${
               isScrolled ? "lg:mt-6 mt-5" : "lg:mt-10 mt-8"
             }`}
           >
-            {navItems.map((navItem) => (
-              <Link href={navItem.link} key={navItem.id}>
-                <span
-                  className={`lg:text-lg text-base font-semibold smooth navItem ${
-                    (router.asPath === navItem.link ||
-                      router.asPath.includes(navItem.text.toLowerCase())) &&
-                    "navItem--active"
-                  } px-5 py-2 rounded-lg ml-1`}
+            {navItems.map((navItem) => {
+              const hasSubItem = navItem.subItems?.length > 0;
+              return (
+                <Link
+                  className="navItemWrapper"
+                  href={navItem.link}
+                  key={navItem.id}
                 >
-                  {navItem.text}
-                </span>
-              </Link>
-            ))}
+                  <span
+                    className={`lg:text-lg text-base font-semibold smooth ${
+                      !hasSubItem ? "navItem" : "navItemWithSub"
+                    } ${
+                      (router.asPath === navItem.link ||
+                        router.asPath.includes(navItem.text.toLowerCase())) &&
+                      "navItem--active"
+                    } px-5 py-2 rounded-lg ml-1 relative flex items-center`}
+                  >
+                    <span>{navItem.text}</span>
+
+                    {hasSubItem && (
+                      <>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="currentColor"
+                          className="ml-2 w-5 h-5 navDropdownAccord smooth"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                          />
+                        </svg>
+
+                        <div className="navDropdown smooth absolute left-0 top-10 bg-gray rounded-lg">
+                          {navItem.subItems.map((subItem) => (
+                            <Link href={subItem.link} passHref key={subItem.id}>
+                              <div
+                                className={`px-5 py-2 whitespace-nowrap first:rounded-t-lg last:rounded-b-lg smooth hover:bg-white hover:text-black ${
+                                  router.asPath === subItem.link &&
+                                  "bg-white text-black"
+                                }`}
+                              >
+                                {subItem.text}
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </>
+                    )}
+                  </span>
+                </Link>
+              );
+            })}
           </div>
 
           <svg
@@ -90,7 +134,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Nav Items */}
+      {/* Mobile Menu */}
       <div
         className={`xl:hidden smooth text-white text-base font-semibold fixed top-0 ${
           isMobileNavOpen ? "left-0" : "-left-full"
@@ -114,6 +158,7 @@ const Navbar = () => {
           </svg>
         </div>
 
+        {/* Mobile Nav Items */}
         <div>
           {navItems.map((navItem) => (
             <Link

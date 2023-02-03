@@ -31,7 +31,7 @@ const settings = {
 
 const SERVICE_ITEMS = [
   {
-    title: "Coaching Astrology",
+    title: "Coaching Astrology Consultation",
     price: "150 USD",
     description:
       "You want to become a <i>better version of yourself</i>? If yes, this is exactly what do you need! Truly understand yourself, by knowing your <strong>strengths</strong>, discovering your <strong>hidden talents</strong>, knowing the challenges you need to face and how and what’s the <u>happiest life</u> path for you. All of this with <strong>practical advices</strong> to help you evolve and finally be proud of yourself. ",
