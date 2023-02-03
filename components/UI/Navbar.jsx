@@ -54,7 +54,7 @@ const Navbar = () => {
 
           {/* Desktop Nav Items */}
           <div
-            className={`xl:flex hidden ml-auto smooth ${
+            className={`2xl:flex hidden ml-auto smooth ${
               isScrolled ? "lg:mt-6 mt-5" : "lg:mt-10 mt-8"
             }`}
           >
@@ -122,7 +122,7 @@ const Navbar = () => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="xl:hidden w-7 h-7 mt-6 ml-auto cursor-pointer smooth hover:opacity-70"
+            className="2xl:hidden w-7 h-7 mt-6 ml-auto cursor-pointer smooth hover:opacity-70"
             onClick={() => setIsMobileNavOpen(true)}
           >
             <path
@@ -136,7 +136,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`xl:hidden smooth text-white text-base font-semibold fixed top-0 ${
+        className={`2xl:hidden smooth text-white text-base font-semibold fixed top-0 ${
           isMobileNavOpen ? "left-0" : "-left-full"
         } bottom-0 w-full bg-purple z-50`}
       >

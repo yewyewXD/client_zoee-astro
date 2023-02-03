@@ -14,12 +14,12 @@ const FAQ = () => {
       <BgOverlay opacity={"0.6"} />
       <div className="lg:py-20 py-14 container relative">
         <div className="sm:mb-20 mb-14">
-          <h2 className="xl:text-5xl text-4xl text-center font-bold">FAQ</h2>
-          <div className="text-center mt-3 xl:text-2xl text-xl font-semibold">
+          <h2 className="2xl:text-5xl text-4xl text-center font-bold">FAQ</h2>
+          <div className="text-center mt-3 2xl:text-2xl text-xl font-semibold">
             You Still Hesitate? Find The Answer To Your Question Just Below…
           </div>
         </div>
-        <div className="grid lg:grid-cols-2 gap-x-20 xl:text-xl sm:text-lg font-semibold">
+        <div className="grid lg:grid-cols-2 gap-x-20 2xl:text-xl sm:text-lg font-semibold">
           {questions.map((question) => (
             <Collapsible
               openedClassName="rotateSvg"
@@ -54,7 +54,7 @@ const FAQ = () => {
           ))}
         </div>
 
-        <div className="text-center text mt-6 xl:text-2xl text-xl font-semibold">
+        <div className="text-center text mt-6 2xl:text-2xl text-xl font-semibold">
           You Got Another Question? Just{" "}
           <a
             href="https://www.instagram.com/direct/t/340282366841710300949128133717595046627"

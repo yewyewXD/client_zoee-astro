@@ -36,7 +36,7 @@ const About = () => {
             {/* Section 1 */}
             <div className="lg:grid grid-cols-3 flex flex-col-reverse">
               <div className="col-span-2 flex lg:pr-20 items-center">
-                <div className="xl:text-xl text-lg">
+                <div className="2xl:text-xl text-lg">
                   <div className="mb-5 font-bold lg:text-3xl text-xl">
                     Who am I?
                   </div>
@@ -143,7 +143,7 @@ const About = () => {
               </div>
 
               <div className="col-span-2 flex lg:pl-20 items-center">
-                <div className="xl:text-xl text-lg">
+                <div className="2xl:text-xl text-lg">
                   <div className="mb-5 font-bold lg:text-3xl text-xl">
                     My Story With Astrology
                   </div>
@@ -239,7 +239,7 @@ const About = () => {
             {/* Section 3 */}
             <div className="lg:grid grid-cols-3 flex flex-col-reverse lg:mt-32 mt-14">
               <div className="col-span-2 flex lg:pr-20 items-center">
-                <div className="xl:text-xl text-lg">
+                <div className="2xl:text-xl text-lg">
                   <div className="mb-5 font-bold lg:text-3xl text-xl">
                     My Learning Journey
                   </div>
@@ -357,7 +357,7 @@ const About = () => {
 
             {/* Section 4 */}
             <div className="lg:mt-32 mt-14">
-              <div className="xl:text-xl text-lg">
+              <div className="2xl:text-xl text-lg">
                 <div className="mb-8 font-bold lg:text-3xl text-xl">
                   The 5 Reasons Why I Chose Astrology
                 </div>

@@ -21,10 +21,10 @@ const Coaching = () => {
         <SectionHead title={"Coaching Astrology Consultation (150 USD)"} />
 
         <div className="bg-green lg:py-20 py-14">
-          <div className="container-deep xl:text-2xl sm:text-xl text-lg">
+          <div className="container-deep 2xl:text-2xl sm:text-xl text-lg">
             <div>
               <div>
-                <div className="mb-5 xl:text-4xl text-3xl font-bold">
+                <div className="mb-5 2xl:text-4xl text-3xl font-bold">
                   What is it?
                 </div>
                 Coaching Astrology is an amazing <i>self-development</i> tool.
@@ -39,7 +39,7 @@ const Coaching = () => {
               </div>
 
               <div className="mt-12">
-                <div className="mb-5 xl:text-4xl text-3xl font-bold">
+                <div className="mb-5 2xl:text-4xl text-3xl font-bold">
                   What I Do? (If You Know Astrology)
                 </div>
                 <div>
@@ -62,7 +62,7 @@ const Coaching = () => {
               </div>
 
               <div className="mt-12">
-                <div className="mb-5 xl:text-4xl text-3xl font-bold">
+                <div className="mb-5 2xl:text-4xl text-3xl font-bold">
                   Is It For You?
                 </div>
 
@@ -126,7 +126,7 @@ const Coaching = () => {
               </div>
 
               <div className="mt-12">
-                <div className="mb-5 xl:text-4xl text-3xl font-bold">
+                <div className="mb-5 2xl:text-4xl text-3xl font-bold">
                   What Will You Get?
                 </div>
                 <ul>
@@ -205,7 +205,7 @@ const Coaching = () => {
                   I Want To Change My Life Now!
                 </button>
 
-                <div className="mt-6 xl:text-xl text-lg">
+                <div className="mt-6 2xl:text-xl text-lg">
                   Please read the{" "}
                   <Link
                     href="/disclaimer"

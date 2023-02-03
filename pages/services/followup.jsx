@@ -21,10 +21,10 @@ const Followup = () => {
         <SectionHead title={"Follow-up Consultation (50 USD)"} />
 
         <div className="bg-gray lg:py-20 py-14">
-          <div className="container-deep xl:text-2xl sm:text-xl text-lg">
+          <div className="container-deep 2xl:text-2xl sm:text-xl text-lg">
             <div>
               <div>
-                <div className="mb-5 xl:text-4xl text-3xl font-bold">
+                <div className="mb-5 2xl:text-4xl text-3xl font-bold">
                   What is it?
                 </div>
 
@@ -51,7 +51,7 @@ const Followup = () => {
               </div>
 
               <div className="mt-12">
-                <div className="mb-5 xl:text-4xl text-3xl font-bold">
+                <div className="mb-5 2xl:text-4xl text-3xl font-bold">
                   Is It For You?
                 </div>
 
@@ -95,7 +95,7 @@ const Followup = () => {
               </div>
 
               <div className="mt-12">
-                <div className="mb-5 xl:text-4xl text-3xl font-bold">
+                <div className="mb-5 2xl:text-4xl text-3xl font-bold">
                   What Will You Get?
                 </div>
                 <ul>
@@ -123,7 +123,7 @@ const Followup = () => {
                 </button>
               </div>
 
-              <div className="mt-6 xl:text-xl text-lg text-center">
+              <div className="mt-6 2xl:text-xl text-lg text-center">
                 Please read the{" "}
                 <Link
                   href="/disclaimer"

@@ -22,10 +22,10 @@ const SocialMedia = () => {
   return (
     <div className="bg-purple text-white">
       <div className="lg:py-20 py-14">
-        <h2 className="xl:text-5xl text-4xl text-center font-bold">
+        <h2 className="2xl:text-5xl text-4xl text-center font-bold">
           Social Media
         </h2>
-        <div className="capitalize text-center text mt-3 xl:text-2xl sm:text-xl md:mb-20 mb-10">
+        <div className="capitalize text-center text mt-3 2xl:text-2xl sm:text-xl md:mb-20 mb-10">
           Become a member of the{" "}
           <span className="font-bold">Easy Astrology by Zoee</span> community
           now!
@@ -36,17 +36,17 @@ const SocialMedia = () => {
           <div className="flex md:flex-row flex-col-reverse justify-between items-center">
             <div className="md:text-left text-center">
               <div>
-                <h3 className="xl:text-4xl sm:text-3xl text-2xl font-bold xl:mb-7 sm:mb-4 mb-3">
+                <h3 className="2xl:text-4xl sm:text-3xl text-2xl font-bold 2xl:mb-7 sm:mb-4 mb-3">
                   {socialMedias[0].name}
                 </h3>
-                <div className="xl:text-xl sm:text-lg md:w-8/12">
+                <div className="2xl:text-xl sm:text-lg md:w-8/12">
                   The best way to know when I open{" "}
                   <b>spots for consultations</b>! Follow my daily life, ask me
                   questions, and learn a <i>unique</i> vision of astrology with
                   interesting videos and post <u>everyday</u>!
                 </div>
 
-                <div className="xl:mt-10 sm:mt-7 mt-5">
+                <div className="2xl:mt-10 sm:mt-7 mt-5">
                   <Link
                     href={socialMedias[0].link}
                     target="_blank"
@@ -102,17 +102,17 @@ const SocialMedia = () => {
         <div className="container-deep">
           <div className="flex md:flex-row-reverse flex-col-reverse justify-between items-center">
             <div className="md:w-5/12 md:text-left text-center">
-              <h3 className="xl:text-4xl sm:text-3xl text-2xl font-bold xl:mb-7 sm:mb-4 mb-3">
+              <h3 className="2xl:text-4xl sm:text-3xl text-2xl font-bold 2xl:mb-7 sm:mb-4 mb-3">
                 {socialMedias[1].name}
               </h3>
-              <div className="xl:text-xl sm:text-lg">
+              <div className="2xl:text-xl sm:text-lg">
                 You prefer videos? No problem! Learn astrology in an{" "}
                 <i>easy and entertaining</i> way with short funny videos! No
                 bullshit Sun sign astrology, just{" "}
                 <b>real astrology knowledge</b>.
               </div>
 
-              <div className="xl:mt-10 sm:mt-7 mt-5">
+              <div className="2xl:mt-10 sm:mt-7 mt-5">
                 <Link
                   href={socialMedias[1].link}
                   target="_blank"
@@ -162,10 +162,10 @@ const SocialMedia = () => {
           <div className="flex md:flex-row flex-col-reverse justify-between items-center">
             <div className="md:text-left text-center">
               <div>
-                <h3 className="xl:text-4xl sm:text-3xl text-2xl font-bold xl:mb-7 sm:mb-4 mb-3">
+                <h3 className="2xl:text-4xl sm:text-3xl text-2xl font-bold 2xl:mb-7 sm:mb-4 mb-3">
                   {socialMedias[2].name}
                 </h3>
-                <div className="xl:text-xl sm:text-lg md:w-8/12">
+                <div className="2xl:text-xl sm:text-lg md:w-8/12">
                   You have been lied to about astrology. I’m here to change
                   that. Find <i>true</i> and <i>exclusive</i> astrology{" "}
                   <b>advices</b> and <b>knowledge</b>, learn astrology{" "}
@@ -173,7 +173,7 @@ const SocialMedia = () => {
                   my consultations!
                 </div>
 
-                <div className="xl:mt-10 sm:mt-7 mt-5">
+                <div className="2xl:mt-10 sm:mt-7 mt-5">
                   <Link
                     href={socialMedias[2].link}
                     target="_blank"

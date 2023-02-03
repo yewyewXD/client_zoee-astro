@@ -41,10 +41,10 @@ const Testimonial = () => {
   return (
     <div className="bg-brown text-white relative">
       <div className="sm:px-20 px-4 lg:py-20 py-14 relative">
-        <h2 className="xl:text-5xl text-4xl text-center font-bold">
+        <h2 className="2xl:text-5xl text-4xl text-center font-bold">
           Testimonials
         </h2>
-        <div className="text-center text mt-3 mb-6 xl:text-2xl text-xl font-semibold">
+        <div className="text-center text mt-3 mb-6 2xl:text-2xl text-xl font-semibold">
           Read What Other Happy Clients Have To Say…
         </div>
 
@@ -57,7 +57,7 @@ const Testimonial = () => {
               >
                 <div className="bg-white rounded-xl overflow-hidden lg:max-w-none max-w-md lg:mx-0 mx-auto shadow-md shadow-gray-600">
                   <div
-                    className="w-full xl:h-44 h-40"
+                    className="w-full 2xl:h-44 h-40"
                     style={
                       review.image
                         ? {
@@ -66,7 +66,7 @@ const Testimonial = () => {
                         : {}
                     }
                   ></div>
-                  <div className="xl:p-8 p-6 2xl:text-lg text-base">
+                  <div className="2xl:p-8 p-6 2xl:text-lg text-base">
                     <div className="2xl:h-36 lg:h-28 mb-4">{`"${review.text}"`}</div>
                     <div>
                       <div className="font-semibold leading-tight">
