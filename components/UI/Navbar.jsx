@@ -160,23 +160,57 @@ const Navbar = () => {
 
         {/* Mobile Nav Items */}
         <div>
-          {navItems.map((navItem) => (
-            <Link
-              href={navItem.link}
-              key={navItem.id}
-              onClick={() => setIsMobileNavOpen(false)}
-            >
-              <div
-                className={`lg:text-lg text-base font-semibold smooth navItem ${
-                  (router.asPath === navItem.link ||
-                    router.asPath.includes(navItem.text.toLowerCase())) &&
-                  "navItem--active"
-                } px-5 py-3`}
-              >
-                {navItem.text}
-              </div>
-            </Link>
-          ))}
+          {navItems.map((navItem) => {
+            const hasSubItem = navItem.subItems?.length > 0;
+
+            return (
+              <>
+                <Link
+                  href={navItem.link}
+                  key={navItem.id}
+                  onClick={() => setIsMobileNavOpen(false)}
+                >
+                  <div
+                    className={`lg:text-lg text-base px-5 py-3 font-semibold smooth ${
+                      router.asPath === navItem.link && "navItem--active"
+                    } navItem`}
+                  >
+                    {navItem.text}
+                  </div>
+                </Link>
+
+                {hasSubItem && (
+                  <div className="smooth">
+                    {navItem.subItems.map((subItem) => (
+                      <Link href={subItem.link} passHref key={subItem.id}>
+                        <div
+                          className={`px-5 py-3 pl-8 whitespace-nowrap navItem ${
+                            router.asPath === subItem.link && "navItem--active"
+                          } flex items-center`}
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-4 h-4 mr-1"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                            />
+                          </svg>
+                          {subItem.text}
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </>
+            );
+          })}
         </div>
       </div>
     </header>

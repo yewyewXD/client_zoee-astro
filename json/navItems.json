@@ -33,18 +33,18 @@
     "link": "/about"
   },
   {
-    "id": "nav-item-4",
+    "id": "nav-item-5",
     "text": "FAQ",
     "link": "/#faq"
   },
 
   {
-    "id": "nav-item-5",
+    "id": "nav-item-6",
     "text": "Contact Me",
     "link": "/contact"
   },
   {
-    "id": "nav-item-6",
+    "id": "nav-item-7",
     "text": "Disclaimers",
     "link": "/disclaimer"
   }
