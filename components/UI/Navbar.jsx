@@ -138,7 +138,7 @@ const Navbar = () => {
       <div
         className={`2xl:hidden smooth text-white text-base font-semibold fixed top-0 ${
           isMobileNavOpen ? "left-0" : "-left-full"
-        } bottom-0 w-full bg-purple z-50`}
+        } bottom-0 w-full bg-purple z-50 max-h-screen overflow-y-auto`}
       >
         <div className="p-4 pb-3 flex justify-end">
           <svg
