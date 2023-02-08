@@ -174,13 +174,7 @@ const Synastry = () => {
                       <Tick />
                     </span>{" "}
                     Bonus 3: <u>Unlimited</u> support and questions about your
-                    chart by DM. (only for simple questions, if your questions
-                    are too complicated to be answered my DM, I will recommend
-                    you to take a
-                    <strong>
-                      <i> Follow-up Consultation</i>
-                    </strong>{" "}
-                    )
+                    chart by DM.*
                   </li>
 
                   <li>
@@ -198,6 +192,17 @@ const Synastry = () => {
                     )
                   </li>
                 </ul>
+
+                <div className="text-base mt-5 flex flex-wrap">
+                  <span className="mr-1">
+                    * Only for simple questions, if your questions are too
+                    complicated to be answered my DM, I will recommend you take
+                    a
+                  </span>
+                  <strong>
+                    <i> Follow-up Consultation</i>.
+                  </strong>{" "}
+                </div>
               </div>
 
               <div className="mt-12">

@@ -6,7 +6,7 @@ import Navbar from "../../components/UI/Navbar";
 import SectionHead from "../../components/UI/SectionHead";
 import Tick from "../../components/UI/Tick";
 
-const Coaching = () => {
+const Coaching = ({ openPaymentModal }) => {
   return (
     <div>
       <Head>
@@ -163,13 +163,7 @@ const Coaching = () => {
                       <Tick />
                     </span>{" "}
                     Bonus 3: <u>Unlimited</u> support and questions about your
-                    chart by DM. (only for simple questions, if your questions
-                    are too complicated to be answered my DM, I will recommend
-                    you take a
-                    <strong>
-                      <i> Follow-up Consultation</i>
-                    </strong>{" "}
-                    )
+                    chart by DM.*
                   </li>
 
                   <li>
@@ -187,6 +181,17 @@ const Coaching = () => {
                     )
                   </li>
                 </ul>
+
+                <div className="text-base mt-5 flex flex-wrap">
+                  <span className="mr-1">
+                    * Only for simple questions, if your questions are too
+                    complicated to be answered my DM, I will recommend you take
+                    a
+                  </span>
+                  <strong>
+                    <i> Follow-up Consultation</i>.
+                  </strong>{" "}
+                </div>
               </div>
 
               <div className="mt-12">
@@ -201,7 +206,16 @@ const Coaching = () => {
               </div>
 
               <div className="sm:mt-20 mt-10 flex flex-col items-center">
-                <button className="sm:text-2xl text-xl sm:px-12 px-8 sm:py-6 py-4 border-2 border-white hover:bg-white hover:text-black sm:font-bold font-semibold smooth rounded-lg hover:scale-105">
+                <button
+                  onClick={() =>
+                    openPaymentModal({
+                      price: 150,
+                      image: "/images/service-coaching.jpg",
+                      title: "Coaching Astrology Consultation",
+                    })
+                  }
+                  className="sm:text-2xl text-xl sm:px-12 px-8 sm:py-6 py-4 border-2 border-white hover:bg-white hover:text-black sm:font-bold font-semibold smooth rounded-lg hover:scale-105"
+                >
                   I Want To Change My Life Now!
                 </button>
 
