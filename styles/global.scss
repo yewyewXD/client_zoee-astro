@@ -201,3 +201,14 @@ body {
     }
   }
 }
+
+button:disabled {
+  cursor: not-allowed !important;
+  background: rgba(0, 0, 0, 0.1);
+  color: rgb(220, 220, 220);
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: none;
+    color: rgb(220, 220, 220);
+  }
+}
