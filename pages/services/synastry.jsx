@@ -1,12 +1,33 @@
 import Head from "next/head";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../../components/UI/Footer";
 import Navbar from "../../components/UI/Navbar";
 import SectionHead from "../../components/UI/SectionHead";
 import Tick from "../../components/UI/Tick";
+import { isSlotAvailable } from "../../utils";
+import { SyncLoader } from "react-spinners";
 
-const Synastry = () => {
+const Synastry = ({ openPaymentModal }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isOk, setIsOk] = useState(true);
+
+  async function handleBooking() {
+    setIsLoading(true);
+    const isOpen = await isSlotAvailable();
+    setIsLoading(false);
+
+    if (isOpen) {
+      openPaymentModal({
+        price: 200,
+        image: "/images/service-synastry.jpg",
+        title: "Synastry Consultation",
+      });
+    } else {
+      setIsOk(false);
+    }
+  }
+
   return (
     <div>
       <Head>
@@ -216,21 +237,46 @@ const Synastry = () => {
                 to know when I open new spots!
               </div>
 
-              <div className="sm:mt-20 mt-10 flex justify-center">
-                <button className="sm:text-2xl text-xl sm:px-12 px-8 sm:py-6 py-4 border-2 border-white hover:bg-white hover:text-black sm:font-bold font-semibold smooth rounded-lg hover:scale-105">
-                  I Want To Improve My Relationship Now
-                </button>
-              </div>
-
-              <div className="mt-6 2xl:text-xl text-lg text-center">
-                Please read the{" "}
-                <Link
-                  href="/disclaimer"
-                  className="underline font-bold hover:opacity-80 smooth"
+              <div className="sm:mt-20 mt-10 flex flex-col items-center">
+                <button
+                  onClick={handleBooking}
+                  disabled={!isOk}
+                  className={`sm:text-2xl text-xl sm:px-12 px-8 sm:py-6 py-4 border-2 border-white ${
+                    !isLoading &&
+                    "hover:bg-white hover:text-black hover:scale-105"
+                  } sm:font-bold font-semibold smooth rounded-lg relative flex items-center justify-center`}
                 >
-                  disclaimers
-                </Link>{" "}
-                before booking a consultation.
+                  <span className="absolute">
+                    <SyncLoader color={"white"} loading={isLoading} size={12} />
+                  </span>
+                  {!isOk ? (
+                    <div>
+                      No spots available now... Go follow me on{" "}
+                      <Link
+                        href="/#social"
+                        className="underline font-bold hover:opacity-80 smooth"
+                      >
+                        social media
+                      </Link>{" "}
+                      to know when I open new spots!
+                    </div>
+                  ) : (
+                    <span className={isLoading ? "text-transparent" : ""}>
+                      I Want To Improve My Relationship Now
+                    </span>
+                  )}
+                </button>
+
+                <div className="mt-6 2xl:text-xl text-lg">
+                  Please read the{" "}
+                  <Link
+                    href="/disclaimer"
+                    className="underline font-bold hover:opacity-80 smooth"
+                  >
+                    disclaimers
+                  </Link>{" "}
+                  before booking a consultation.
+                </div>
               </div>
             </div>
           </div>
