@@ -6,3 +6,9 @@ export async function isSlotAvailable() {
   }
   return false;
 }
+
+export async function getClients() {
+  const res = await fetch("/api/customer");
+  const data = await res.json();
+  return data;
+}

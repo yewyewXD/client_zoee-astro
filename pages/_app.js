@@ -15,10 +15,11 @@ function MyApp({ Component, pageProps }) {
   const [modalProps, setModalProps] = useState({});
 
   function openPaymentModal(anyProps) {
-    console.log("open");
     setIsModalOpened(true);
     if (anyProps) {
       setModalProps(anyProps);
+    } else {
+      setModalProps({});
     }
   }
 

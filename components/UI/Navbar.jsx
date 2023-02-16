@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import navItems from "../../json/navItems.json";
 import { useRouter } from "next/router";
 
@@ -164,7 +164,7 @@ const Navbar = () => {
             const hasSubItem = navItem.subItems?.length > 0;
 
             return (
-              <>
+              <Fragment key={navItem.id}>
                 <Link
                   href={navItem.link}
                   key={navItem.id}
@@ -208,7 +208,7 @@ const Navbar = () => {
                     ))}
                   </div>
                 )}
-              </>
+              </Fragment>
             );
           })}
         </div>

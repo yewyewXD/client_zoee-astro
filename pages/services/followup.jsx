@@ -1,12 +1,29 @@
 import Head from "next/head";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../../components/UI/Footer";
 import Navbar from "../../components/UI/Navbar";
 import SectionHead from "../../components/UI/SectionHead";
 import Tick from "../../components/UI/Tick";
+import { getClients } from "../../utils";
+import { SyncLoader } from "react-spinners";
 
-const Followup = () => {
+const Followup = ({ openPaymentModal }) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  async function handleBooking() {
+    setIsLoading(true);
+    const clients = await getClients();
+    setIsLoading(false);
+
+    openPaymentModal({
+      price: 50,
+      image: "/images/service-follow.jpg",
+      title: "Follow-up Consultation",
+      clients,
+    });
+  }
+
   return (
     <div>
       <Head>
@@ -117,21 +134,33 @@ const Followup = () => {
                 </ul>
               </div>
 
-              <div className="sm:mt-20 mt-10 flex justify-center">
-                <button className="sm:text-2xl text-xl sm:px-12 px-8 sm:py-6 py-4 border-2 border-white hover:bg-white hover:text-black sm:font-bold font-semibold smooth rounded-lg hover:scale-105">
-                  I Want To Continue My Self-Growth Journey
-                </button>
-              </div>
-
-              <div className="mt-6 2xl:text-xl text-lg text-center">
-                Please read the{" "}
-                <Link
-                  href="/disclaimer"
-                  className="underline font-bold hover:opacity-80 smooth"
+              <div className="sm:mt-20 mt-10 flex flex-col items-center">
+                <button
+                  onClick={handleBooking}
+                  className={`sm:text-2xl text-xl sm:px-12 px-8 sm:py-6 py-4 border-2 border-white ${
+                    !isLoading &&
+                    "hover:bg-white hover:text-black hover:scale-105"
+                  } sm:font-bold font-semibold smooth rounded-lg relative flex items-center justify-center`}
                 >
-                  disclaimers
-                </Link>{" "}
-                before booking a consultation.
+                  <span className="absolute">
+                    <SyncLoader color={"white"} loading={isLoading} size={12} />
+                  </span>
+
+                  <span className={isLoading ? "text-transparent" : ""}>
+                    I Want To Continue My Self-Growth Journey
+                  </span>
+                </button>
+
+                <div className="mt-6 2xl:text-xl text-lg">
+                  Please read the{" "}
+                  <Link
+                    href="/disclaimer"
+                    className="underline font-bold hover:opacity-80 smooth"
+                  >
+                    disclaimers
+                  </Link>{" "}
+                  before booking a consultation.
+                </div>
               </div>
             </div>
           </div>
