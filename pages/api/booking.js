@@ -1,10 +1,17 @@
+const headers = {
+  Authorization: `Bearer ${process.env.AIRTABLE_TOKEN}`,
+  "Content-Type": "application/json",
+};
+
 export default async function handler(req, res) {
-  const headers = {
-    Authorization: `Bearer ${process.env.AIRTABLE_TOKEN}`,
-    "Content-Type": "application/json",
-  };
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).send({ message: "Student email is missing" });
+  }
 
   try {
+    // Step 1: Minus 1 available slot
     const slotRes = await fetch(
       `https://api.airtable.com/v0/appwdcuTEadLSlTYH/tblUPvGgiPIUh3dhT`,
       {
@@ -14,28 +21,37 @@ export default async function handler(req, res) {
     );
     const slotData = await slotRes.json();
     const latestCount = slotData.records[0].fields.count;
-
     if (latestCount <= 0) {
-      res.status(401).send({ message: "Slot is not available" });
+      return res.status(401).send({ message: "Slot is not available" });
     }
-
-    const editBody = JSON.stringify({
-      fields: {
-        count: latestCount - 1,
-      },
-    });
-
-    const editRes = await fetch(
+    await fetch(
       `https://api.airtable.com/v0/appwdcuTEadLSlTYH/tblUPvGgiPIUh3dhT/recxOYvQ7fiQ7sPPv`,
       {
         method: "PUT",
         headers,
-        body: editBody,
+        body: JSON.stringify({
+          fields: {
+            count: latestCount - 1,
+          },
+        }),
       }
     );
-    const editData = await editRes.json();
 
-    res.status(200).json(editData);
+    // Step 2: Add email to student database
+    await fetch(
+      `https://api.airtable.com/v0/appwdcuTEadLSlTYH/tbleZN2ejVkPUMW7l`,
+      {
+        method: "POST",
+        headers,
+        body: JSON.stringify({
+          fields: {
+            students: email,
+          },
+        }),
+      }
+    );
+
+    res.status(200).json({ message: "Booking success!" });
   } catch (err) {
     res.status(500).send(err);
   }
