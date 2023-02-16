@@ -60,7 +60,7 @@ const PaymentModal = ({ onClose, price, image, title }) => {
 
             <div className="flex justify-between items-center font-semibold">
               <span>Total</span>
-              <span className="text-2xl">150.00 USD</span>
+              <span className="text-2xl">{price}.00 USD</span>
             </div>
           </div>
 
