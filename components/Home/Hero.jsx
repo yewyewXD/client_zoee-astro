@@ -1,6 +1,7 @@
 import React from "react";
 import BgOverlay from "../UI/BgOverlay";
 import PrimaryBtn from "../UI/buttons/PrimaryBtn";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -20,7 +21,9 @@ const Hero = () => {
           relationships and find the <u>happiest life path</u> for you.
         </div>
         <div className="flex items-center lg:mt-10 mt-6">
-          <PrimaryBtn>Yes! I Want To Change My Life Now!</PrimaryBtn>
+          <Link href="/#services" passHref>
+            <PrimaryBtn>Yes! I Want To Change My Life Now!</PrimaryBtn>
+          </Link>
         </div>
       </div>
     </div>

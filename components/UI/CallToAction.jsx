@@ -17,7 +17,7 @@ const CallToAction = () => {
           Are You Ready To Drastically Change Your Life With Astrology? Here Is
           What To Do Next…
         </div>
-        <Link href="/services" passHref>
+        <Link href="/#services" passHref>
           <PrimaryBtn>Book A Consultation With Me</PrimaryBtn>
         </Link>
       </div>
