@@ -1,13 +1,18 @@
 import Image from "next/image";
 import React, { useRef, useState } from "react";
 import PaymentBtn from "../buttons/PaymentBtn";
-import { useCalendlyEventListener, InlineWidget } from "react-calendly";
+import DatePicker from "react-datepicker";
+
+import { DateTime } from "luxon";
+const INITIAL_DATE = DateTime.fromObject({
+  year: 2023,
+  month: 4,
+  day: 1,
+  hour: 11,
+  minute: 0,
+});
 
 const PaymentModal = ({ onClose, price, image, title, clients }) => {
-  useCalendlyEventListener({
-    onEventScheduled: (e) => console.log(e.data.payload),
-  });
-
   // configs for Followup Consultation
   const followupEmailRef = useRef();
   const [isNotEligible, setIsNotEligible] = useState(false);
@@ -15,6 +20,8 @@ const PaymentModal = ({ onClose, price, image, title, clients }) => {
 
   const [clientConfig, setClientConfig] = useState({});
   const [isPaymentMade, setIsPaymentMade] = useState(false);
+  const [isPickingDate, setIsPickingDate] = useState(true);
+  const [pickedDate, setPickedDate] = useState(INITIAL_DATE.toJSDate());
 
   async function handleCheckFollowup(e) {
     e.preventDefault();
@@ -32,15 +39,15 @@ const PaymentModal = ({ onClose, price, image, title, clients }) => {
     setIsPaymentMade(true);
   }
 
+  async function onConfirmBookingDate() {}
+
   return (
     <div
       className="fixed h-screen w-screen bg-opacity-40 bg-black flex justify-center items-center"
       style={{ zIndex: "99999" }}
     >
       <div
-        className={`${
-          !isPaymentMade && "max-w-lg"
-        }  p-8 w-11/12 overflow-y-auto bg-white rounded-lg shadow-xl shadow-gray-800 flex flex-col justify-between relative`}
+        className={`max-w-lg p-8 w-11/12 overflow-y-auto bg-white rounded-lg shadow-xl shadow-gray-800 flex flex-col justify-between relative`}
         style={{ maxHeight: "80vh" }}
       >
         <span
@@ -93,19 +100,66 @@ const PaymentModal = ({ onClose, price, image, title, clients }) => {
 
         {(!clients || isPassedCheck) && (
           <>
-            {isPaymentMade && (
-              <div className="px-5">
-                <InlineWidget
-                  prefill={{
-                    email: clientConfig.email,
-                    name: clientConfig.name,
-                  }}
-                  url="https://calendly.com/easyastrologybyzoee/consultation"
-                />
+            {!isPaymentMade && (
+              <div style={{ minHeight: "400px" }}>
+                <div className="text-xl mb-5">
+                  Please select the <u>date & time</u> for the consultation.
+                </div>
+
+                <div className="relative">
+                  <input
+                    className="border border-gray-500 rounded w-full p-3"
+                    type="email"
+                    placeholder="example@mail.com"
+                    required
+                    onClick={() => {
+                      setIsPickingDate((bool) => !bool);
+                    }}
+                    value={DateTime.fromJSDate(pickedDate)
+                      .toFormat("dd MMMM yyyy @ hh:mm a")
+                      .toString()}
+                  />
+                  <span className="text-base">
+                    (Consultation is open for a range of 1 month only)
+                  </span>
+
+                  {isPickingDate && (
+                    <div className="sm:block flex justify-center">
+                      <DatePicker
+                        inline
+                        selected={pickedDate}
+                        onChange={(date) => {
+                          setPickedDate(date);
+                        }}
+                        showTimeSelect
+                        minDate={INITIAL_DATE.toJSDate()}
+                        maxDate={INITIAL_DATE.plus({ month: 1 })
+                          .minus({ day: 1 })
+                          .toJSDate()}
+                        minTime={DateTime.now()
+                          .set({ hour: "11", minute: "0" })
+                          .toMillis()}
+                        maxTime={DateTime.now()
+                          .set({ hour: "19", minute: "0" })
+                          .toMillis()}
+                      />
+                    </div>
+                  )}
+                </div>
+
+                <button
+                  className="bg-gray text-white py-2 px-6 rounded-md mt-5 hover:opacity-80 smooth mb-8 sm:w-max w-full"
+                  onClick={onConfirmBookingDate}
+                >
+                  Confirm -{" "}
+                  {DateTime.fromJSDate(pickedDate)
+                    .toFormat("dd MMMM yyyy @ hh:mm a")
+                    .toString()}
+                </button>
               </div>
             )}
 
-            {!isPaymentMade && (
+            {isPaymentMade && (
               <div>
                 <div className="mt-2">
                   <div className="flex items-center justify-between">

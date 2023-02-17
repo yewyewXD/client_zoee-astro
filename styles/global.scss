@@ -212,3 +212,69 @@ button:disabled {
     color: rgb(220, 220, 220);
   }
 }
+
+.react-datepicker {
+  font-family: unset !important;
+  margin-top: 20px;
+  font-size: 16px;
+  display: flex;
+  width: max-content;
+
+  &__navigation--next {
+    right: 122px !important;
+  }
+
+  &__time-container {
+    width: 120px !important;
+  }
+
+  @media (max-width: 639.98px) {
+    flex-direction: column;
+
+    &__month-container {
+      border-bottom: 1px solid #aeaeae;
+    }
+
+    &__time-container {
+      width: 100% !important;
+    }
+
+    &__navigation--next {
+      right: 0 !important;
+    }
+  }
+
+  &__time-box {
+    width: 100% !important;
+  }
+
+  &__day--selected {
+    background-color: $brand-green !important;
+  }
+
+  &__time-list {
+    &-item {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      padding: 25px 5px !important;
+    }
+
+    &-item--selected {
+      background-color: $brand-green !important;
+    }
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+}
