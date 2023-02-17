@@ -1,11 +1,20 @@
 import Image from "next/image";
 import React, { useRef, useState } from "react";
 import PaymentBtn from "../buttons/PaymentBtn";
+import { useCalendlyEventListener, InlineWidget } from "react-calendly";
 
 const PaymentModal = ({ onClose, price, image, title, clients }) => {
+  useCalendlyEventListener({
+    onEventScheduled: (e) => console.log(e.data.payload),
+  });
+
+  // configs for Followup Consultation
   const followupEmailRef = useRef();
   const [isNotEligible, setIsNotEligible] = useState(false);
   const [isPassedCheck, setIsPassedCheck] = useState(false);
+
+  const [clientConfig, setClientConfig] = useState({});
+  const [isPaymentMade, setIsPaymentMade] = useState(false);
 
   async function handleCheckFollowup(e) {
     e.preventDefault();
@@ -19,7 +28,8 @@ const PaymentModal = ({ onClose, price, image, title, clients }) => {
   }
 
   async function handleAfterBuy({ id, email, name, date }) {
-    console.log({ id, email, name, date });
+    setClientConfig({ id, email, name, date });
+    setIsPaymentMade(true);
   }
 
   return (
@@ -28,7 +38,9 @@ const PaymentModal = ({ onClose, price, image, title, clients }) => {
       style={{ zIndex: "99999" }}
     >
       <div
-        className="max-w-lg p-8 w-11/12 overflow-y-auto bg-white rounded-lg shadow-xl shadow-gray-800 flex flex-col justify-between relative"
+        className={`${
+          !isPaymentMade && "max-w-lg"
+        }  p-8 w-11/12 overflow-y-auto bg-white rounded-lg shadow-xl shadow-gray-800 flex flex-col justify-between relative`}
         style={{ maxHeight: "80vh" }}
       >
         <span
@@ -52,8 +64,7 @@ const PaymentModal = ({ onClose, price, image, title, clients }) => {
         </span>
 
         {/* Content */}
-
-        {clients && !isPassedCheck ? (
+        {clients && !isPassedCheck && (
           <div>
             <form onSubmit={handleCheckFollowup}>
               <div className="text-xl mb-5">
@@ -78,42 +89,63 @@ const PaymentModal = ({ onClose, price, image, title, clients }) => {
               </button>
             </form>
           </div>
-        ) : (
-          <div>
-            <div className="mt-2">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <Image
-                    className="rounded-md"
-                    src={image}
-                    alt=""
-                    height={70}
-                    width={70}
-                  />
+        )}
 
-                  <div className="ml-4">
-                    <div className="font-semibold">{title}</div>
-                    <div className="text-gray-500 font-semibold">
-                      22 February 2023 (04.30am PST)
+        {(!clients || isPassedCheck) && (
+          <>
+            {isPaymentMade && (
+              <div className="px-5">
+                <InlineWidget
+                  prefill={{
+                    email: clientConfig.email,
+                    name: clientConfig.name,
+                  }}
+                  url="https://calendly.com/easyastrologybyzoee/consultation"
+                />
+              </div>
+            )}
+
+            {!isPaymentMade && (
+              <div>
+                <div className="mt-2">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <Image
+                        className="rounded-md"
+                        src={image}
+                        alt=""
+                        height={70}
+                        width={70}
+                      />
+
+                      <div className="ml-4">
+                        <div className="font-semibold">{title}</div>
+                        <div className="text-gray-500 font-semibold">
+                          22 February 2023 (04.30am PST)
+                        </div>
+                      </div>
                     </div>
+
+                    <div className="font-semibold">{price}.00 USD</div>
+                  </div>
+
+                  <div className="w-full border-b my-6 border-gray-500"></div>
+
+                  <div className="flex justify-between items-center font-semibold">
+                    <span>Total</span>
+                    <span className="text-2xl">{price}.00 USD</span>
                   </div>
                 </div>
 
-                <div className="font-semibold">{price}.00 USD</div>
+                <div className="w-10/12 mx-auto mt-10">
+                  <PaymentBtn
+                    amount={price}
+                    onPaymentSuccess={handleAfterBuy}
+                  />
+                </div>
               </div>
-
-              <div className="w-full border-b my-6 border-gray-500"></div>
-
-              <div className="flex justify-between items-center font-semibold">
-                <span>Total</span>
-                <span className="text-2xl">{price}.00 USD</span>
-              </div>
-            </div>
-
-            <div className="w-10/12 mx-auto mt-10">
-              <PaymentBtn amount={price} onPaymentSuccess={handleAfterBuy} />
-            </div>
-          </div>
+            )}
+          </>
         )}
       </div>
     </div>
