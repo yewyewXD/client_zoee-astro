@@ -18,6 +18,10 @@ const PaymentModal = ({ onClose, price, image, title, clients }) => {
     }
   }
 
+  async function handleAfterBuy({ id, email, name, date }) {
+    console.log({ id, email, name, date });
+  }
+
   return (
     <div
       className="fixed h-screen w-screen bg-opacity-40 bg-black flex justify-center items-center"
@@ -107,7 +111,7 @@ const PaymentModal = ({ onClose, price, image, title, clients }) => {
             </div>
 
             <div className="w-10/12 mx-auto mt-10">
-              <PaymentBtn amount={price} />
+              <PaymentBtn amount={price} onPaymentSuccess={handleAfterBuy} />
             </div>
           </div>
         )}

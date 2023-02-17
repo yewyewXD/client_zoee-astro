@@ -2,25 +2,40 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 export default function PaymentBtn({ amount, onPaymentSuccess }) {
   return (
-    <PayPalScriptProvider
-      options={{
-        "client-id":
-          "AQDq__BKLcKmIebNUR0AgSA4GktK0npPQpz2lvPHmze1NY3PZ1F5elCwQKqZue4K1XxsNC13ZfnImBSH",
-        currency: "USD",
-      }}
-    >
-      <PayPalButtons
-        createOrder={(_, actions) => {
-          return actions.order.create({
-            purchase_units: [{ amount: { value: amount } }],
-          });
+    <div>
+      <PayPalScriptProvider
+        options={{
+          "client-id":
+            "AaHPnKzlfK8m-naYbmXtODff6G7X5HwMGezszVPJnlUDvHv37qHS2WFW4Bjp8npByf9w0a0r8oP2o3FY",
+          currency: "USD",
         }}
-        onApprove={(data, actions) => {
-          return actions.order.capture().then((details) => {
-            alert("Transaction completed by " + details.payer.name.given_name);
-          });
-        }}
-      />
-    </PayPalScriptProvider>
+      >
+        <PayPalButtons
+          createOrder={(_, actions) => {
+            return actions.order.create({
+              purchase_units: [{ amount: { value: amount } }],
+              application_context: {
+                shipping_preference: "NO_SHIPPING",
+              },
+            });
+          }}
+          onApprove={(data, actions) => {
+            return actions.order.capture().then((details) => {
+              const {
+                email_address,
+                name: { given_name, surname },
+              } = details.payer;
+              onPaymentSuccess({
+                id: details.id,
+                name: `${given_name} ${surname}`,
+                email: email_address,
+                date: details.update_time,
+              });
+            });
+          }}
+          onError={() => {}}
+        />
+      </PayPalScriptProvider>
+    </div>
   );
 }
