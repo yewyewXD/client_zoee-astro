@@ -14,6 +14,13 @@ export default function PaymentBtn({ amount, onPaymentSuccess }) {
           createOrder={(_, actions) => {
             return actions.order.create({
               purchase_units: [{ amount: { value: amount } }],
+              payer: {
+                phone: {
+                  phone_number: {
+                    national_number: "4543433243",
+                  },
+                },
+              },
               application_context: {
                 shipping_preference: "NO_SHIPPING",
               },
