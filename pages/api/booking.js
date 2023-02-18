@@ -78,12 +78,14 @@ export default async function handler(req, res) {
       // }
     });
     await fetch("https://api.sendinblue.com/v3/smtp/email", {
+      method: "POST",
       headers: sibHeaders,
       body: emailBody,
     });
 
     // Step 4: Add user to email list
     await fetch("https://api.sendinblue.com/v3/contacts", {
+      method: "POST",
       headers: sibHeaders,
       body: JSON.stringify({ email: email }),
     });
