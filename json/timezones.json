@@ -1,0 +1,450 @@
+[
+  {
+    "name": "Midway Island",
+    "iana": "Pacific/Midway"
+  },
+  {
+    "name": "Samoa",
+    "iana": "US/Samoa"
+  },
+  {
+    "name": "Hawaii",
+    "iana": "US/Hawaii"
+  },
+  {
+    "name": "Alaska",
+    "iana": "US/Alaska"
+  },
+  {
+    "name": "Pacific Time (US & Canada)",
+    "iana": "US/Pacific"
+  },
+  {
+    "name": "Tijuana",
+    "iana": "America/Tijuana"
+  },
+  {
+    "name": "Arizona",
+    "iana": "US/Arizona"
+  },
+  {
+    "name": "Mountain Time (US & Canada)",
+    "iana": "US/Mountain"
+  },
+  {
+    "name": "Chihuahua",
+    "iana": "America/Chihuahua"
+  },
+  {
+    "name": "Mazatlan",
+    "iana": "America/Mazatlan"
+  },
+  {
+    "name": "Mexico City",
+    "iana": "America/Mexico_City"
+  },
+  {
+    "name": "Monterrey",
+    "iana": "America/Monterrey"
+  },
+  {
+    "name": "Saskatchewan",
+    "iana": "Canada/Saskatchewan"
+  },
+  {
+    "name": "Central Time (US & Canada)",
+    "iana": "US/Central"
+  },
+  {
+    "name": "Eastern Time (US & Canada)",
+    "iana": "US/Eastern"
+  },
+  {
+    "name": "Indiana (East)",
+    "iana": "US/East-Indiana"
+  },
+  {
+    "name": "Bogota",
+    "iana": "America/Bogota"
+  },
+  {
+    "name": "Lima",
+    "iana": "America/Lima"
+  },
+  {
+    "name": "Caracas",
+    "iana": "America/Caracas"
+  },
+  {
+    "name": "Atlantic Time (Canada)",
+    "iana": "Canada/Atlantic"
+  },
+  {
+    "name": "La Paz",
+    "iana": "America/La_Paz"
+  },
+  {
+    "name": "Santiago",
+    "iana": "America/Santiago"
+  },
+  {
+    "name": "Newfoundland",
+    "iana": "Canada/Newfoundland"
+  },
+  {
+    "name": "Buenos Aires",
+    "iana": "America/Buenos_Aires"
+  },
+  {
+    "name": "Greenland",
+    "iana": "Greenland"
+  },
+  {
+    "name": "Stanley",
+    "iana": "Atlantic/Stanley"
+  },
+  {
+    "name": "Azores",
+    "iana": "Atlantic/Azores"
+  },
+  {
+    "name": "Cape Verde Is.",
+    "iana": "Atlantic/Cape_Verde"
+  },
+  {
+    "name": "(GMT) Casablanca",
+    "iana": "Africa/Casablanca"
+  },
+  {
+    "name": "(GMT) Dublin",
+    "iana": "Europe/Dublin"
+  },
+  {
+    "name": "(GMT) Lisbon",
+    "iana": "Europe/Lisbon"
+  },
+  {
+    "name": "(GMT) London",
+    "iana": "Europe/London"
+  },
+  {
+    "name": "(GMT) Monrovia",
+    "iana": "Africa/Monrovia"
+  },
+  {
+    "name": "Amsterdam",
+    "iana": "Europe/Amsterdam"
+  },
+  {
+    "name": "Belgrade",
+    "iana": "Europe/Belgrade"
+  },
+  {
+    "name": "Berlin",
+    "iana": "Europe/Berlin"
+  },
+  {
+    "name": "Bratislava",
+    "iana": "Europe/Bratislava"
+  },
+  {
+    "name": "Brussels",
+    "iana": "Europe/Brussels"
+  },
+  {
+    "name": "Budapest",
+    "iana": "Europe/Budapest"
+  },
+  {
+    "name": "Copenhagen",
+    "iana": "Europe/Copenhagen"
+  },
+  {
+    "name": "Ljubljana",
+    "iana": "Europe/Ljubljana"
+  },
+  {
+    "name": "Madrid",
+    "iana": "Europe/Madrid"
+  },
+  {
+    "name": "Paris",
+    "iana": "Europe/Paris"
+  },
+  {
+    "name": "Prague",
+    "iana": "Europe/Prague"
+  },
+  {
+    "name": "Rome",
+    "iana": "Europe/Rome"
+  },
+  {
+    "name": "Sarajevo",
+    "iana": "Europe/Sarajevo"
+  },
+  {
+    "name": "Skopje",
+    "iana": "Europe/Skopje"
+  },
+  {
+    "name": "Stockholm",
+    "iana": "Europe/Stockholm"
+  },
+  {
+    "name": "Vienna",
+    "iana": "Europe/Vienna"
+  },
+  {
+    "name": "Warsaw",
+    "iana": "Europe/Warsaw"
+  },
+  {
+    "name": "Zagreb",
+    "iana": "Europe/Zagreb"
+  },
+  {
+    "name": "Athens",
+    "iana": "Europe/Athens"
+  },
+  {
+    "name": "Bucharest",
+    "iana": "Europe/Bucharest"
+  },
+  {
+    "name": "Cairo",
+    "iana": "Africa/Cairo"
+  },
+  {
+    "name": "Harare",
+    "iana": "Africa/Harare"
+  },
+  {
+    "name": "Helsinki",
+    "iana": "Europe/Helsinki"
+  },
+  {
+    "name": "Istanbul",
+    "iana": "Europe/Istanbul"
+  },
+  {
+    "name": "Jerusalem",
+    "iana": "Asia/Jerusalem"
+  },
+  {
+    "name": "Kyiv",
+    "iana": "Europe/Kiev"
+  },
+  {
+    "name": "Minsk",
+    "iana": "Europe/Minsk"
+  },
+  {
+    "name": "Riga",
+    "iana": "Europe/Riga"
+  },
+  {
+    "name": "Sofia",
+    "iana": "Europe/Sofia"
+  },
+  {
+    "name": "Tallinn",
+    "iana": "Europe/Tallinn"
+  },
+  {
+    "name": "Vilnius",
+    "iana": "Europe/Vilnius"
+  },
+  {
+    "name": "Baghdad",
+    "iana": "Asia/Baghdad"
+  },
+  {
+    "name": "Kuwait",
+    "iana": "Asia/Kuwait"
+  },
+  {
+    "name": "Nairobi",
+    "iana": "Africa/Nairobi"
+  },
+  {
+    "name": "Riyadh",
+    "iana": "Asia/Riyadh"
+  },
+  {
+    "name": "Moscow",
+    "iana": "Europe/Moscow"
+  },
+  {
+    "name": "Tehran",
+    "iana": "Asia/Tehran"
+  },
+  {
+    "name": "Baku",
+    "iana": "Asia/Baku"
+  },
+  {
+    "name": "Volgograd",
+    "iana": "Europe/Volgograd"
+  },
+  {
+    "name": "Muscat",
+    "iana": "Asia/Muscat"
+  },
+  {
+    "name": "Tbilisi",
+    "iana": "Asia/Tbilisi"
+  },
+  {
+    "name": "Yerevan",
+    "iana": "Asia/Yerevan"
+  },
+  {
+    "name": "Kabul",
+    "iana": "Asia/Kabul"
+  },
+  {
+    "name": "Karachi",
+    "iana": "Asia/Karachi"
+  },
+  {
+    "name": "Tashkent",
+    "iana": "Asia/Tashkent"
+  },
+  {
+    "name": "Kolkata",
+    "iana": "Asia/Kolkata"
+  },
+  {
+    "name": "(GMT+05:45) Kathmandu",
+    "iana": "Asia/Kathmandu"
+  },
+  {
+    "name": "Ekaterinburg",
+    "iana": "Asia/Yekaterinburg"
+  },
+  {
+    "name": "Almaty",
+    "iana": "Asia/Almaty"
+  },
+  {
+    "name": "Dhaka",
+    "iana": "Asia/Dhaka"
+  },
+  {
+    "name": "Novosibirsk",
+    "iana": "Asia/Novosibirsk"
+  },
+  {
+    "name": "Bangkok",
+    "iana": "Asia/Bangkok"
+  },
+  {
+    "name": "Jakarta",
+    "iana": "Asia/Jakarta"
+  },
+  {
+    "name": "Krasnoyarsk",
+    "iana": "Asia/Krasnoyarsk"
+  },
+  {
+    "name": "Chongqing",
+    "iana": "Asia/Chongqing"
+  },
+  {
+    "name": "Hong Kong",
+    "iana": "Asia/Hong_Kong"
+  },
+  {
+    "name": "Kuala Lumpur",
+    "iana": "Asia/Kuala_Lumpur"
+  },
+  {
+    "name": "Perth",
+    "iana": "Australia/Perth"
+  },
+  {
+    "name": "Singapore",
+    "iana": "Asia/Singapore"
+  },
+  {
+    "name": "Taipei",
+    "iana": "Asia/Taipei"
+  },
+  {
+    "name": "Ulaan Bataar",
+    "iana": "Asia/Ulaanbaatar"
+  },
+  {
+    "name": "Urumqi",
+    "iana": "Asia/Urumqi"
+  },
+  {
+    "name": "Irkutsk",
+    "iana": "Asia/Irkutsk"
+  },
+  {
+    "name": "Seoul",
+    "iana": "Asia/Seoul"
+  },
+  {
+    "name": "Tokyo",
+    "iana": "Asia/Tokyo"
+  },
+  {
+    "name": "Adelaide",
+    "iana": "Australia/Adelaide"
+  },
+  {
+    "name": "Darwin",
+    "iana": "Australia/Darwin"
+  },
+  {
+    "name": "Yakutsk",
+    "iana": "Asia/Yakutsk"
+  },
+  {
+    "name": "Brisbane",
+    "iana": "Australia/Brisbane"
+  },
+  {
+    "name": "Canberra",
+    "iana": "Australia/Canberra"
+  },
+  {
+    "name": "Guam",
+    "iana": "Pacific/Guam"
+  },
+  {
+    "name": "Hobart",
+    "iana": "Australia/Hobart"
+  },
+  {
+    "name": "Melbourne",
+    "iana": "Australia/Melbourne"
+  },
+  {
+    "name": "Port Moresby",
+    "iana": "Pacific/Port_Moresby"
+  },
+  {
+    "name": "Sydney",
+    "iana": "Australia/Sydney"
+  },
+  {
+    "name": "Vladivostok",
+    "iana": "Asia/Vladivostok"
+  },
+  {
+    "name": "Magadan",
+    "iana": "Asia/Magadan"
+  },
+  {
+    "name": "Auckland",
+    "iana": "Pacific/Auckland"
+  },
+  {
+    "name": "Fiji",
+    "iana": "Pacific/Fiji"
+  }
+]

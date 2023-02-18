@@ -2,15 +2,34 @@ import Image from "next/image";
 import React, { useRef, useState } from "react";
 import PaymentBtn from "../buttons/PaymentBtn";
 import DatePicker from "react-datepicker";
-
 import { DateTime } from "luxon";
-const INITIAL_DATE = DateTime.fromObject({
-  year: 2023,
-  month: 4,
-  day: 1,
-  hour: 11,
-  minute: 0,
-});
+import moment from "moment-timezone";
+import timezones from "../../../json/timezones.json";
+
+const INITIAL_DATE = DateTime.fromObject(
+  {
+    year: 2023,
+    month: 4,
+    day: 1,
+    hour: 11,
+    minute: 0,
+  },
+  { zone: "Asia/Singapore" }
+);
+
+const INITIAL_DATE_END = DateTime.fromObject(
+  {
+    year: 2023,
+    month: 4,
+    day: 30,
+    hour: 18,
+    minute: 0,
+  },
+  { zone: "Asia/Singapore" }
+);
+
+const TODAY = DateTime.now();
+const USER_TIMEZONE = moment.tz.guess();
 
 const PaymentModal = ({ onClose, price, image, title, clients }) => {
   // configs for Followup Consultation
@@ -20,6 +39,8 @@ const PaymentModal = ({ onClose, price, image, title, clients }) => {
 
   const [clientConfig, setClientConfig] = useState({});
   const [isPaymentMade, setIsPaymentMade] = useState(false);
+
+  const [newZone, setNewZone] = useState(USER_TIMEZONE || "Asia/Singapore");
   const [isPickingDate, setIsPickingDate] = useState(true);
   const [pickedDate, setPickedDate] = useState(INITIAL_DATE.toJSDate());
 
@@ -108,20 +129,28 @@ const PaymentModal = ({ onClose, price, image, title, clients }) => {
 
                 <div className="relative">
                   <input
-                    className="border border-gray-500 rounded w-full p-3"
+                    className="border border-gray-500 rounded w-full p-3 cursor-pointer"
                     type="email"
                     placeholder="example@mail.com"
                     required
                     onClick={() => {
                       setIsPickingDate((bool) => !bool);
                     }}
-                    value={DateTime.fromJSDate(pickedDate)
-                      .toFormat("dd MMMM yyyy @ hh:mm a")
+                    readOnly
+                    value={DateTime.fromJSDate(pickedDate, {
+                      zone: newZone,
+                    })
+                      .toFormat("dd MMMM yyyy @ hh:mm a (ZZZZ)")
                       .toString()}
                   />
-                  <span className="text-base">
-                    (Consultation is open for a range of 1 month only)
-                  </span>
+
+                  <div className="text-base leading-tight mt-1">
+                    <span className="font-semibold">Note:</span> Available
+                    date/time is shown in
+                    <span className="font-semibold"> GMT+8</span> and converted
+                    to your <u>local timezone above</u>. You can re-select your
+                    timezone below.
+                  </div>
 
                   {isPickingDate && (
                     <div className="sm:block flex justify-center">
@@ -133,18 +162,29 @@ const PaymentModal = ({ onClose, price, image, title, clients }) => {
                         }}
                         showTimeSelect
                         minDate={INITIAL_DATE.toJSDate()}
-                        maxDate={INITIAL_DATE.plus({ month: 1 })
-                          .minus({ day: 1 })
-                          .toJSDate()}
-                        minTime={DateTime.now()
-                          .set({ hour: "11", minute: "0" })
-                          .toMillis()}
-                        maxTime={DateTime.now()
-                          .set({ hour: "19", minute: "0" })
-                          .toMillis()}
+                        maxDate={INITIAL_DATE_END.toJSDate()}
+                        minTime={INITIAL_DATE.toMillis()}
+                        maxTime={INITIAL_DATE_END.toMillis()}
                       />
                     </div>
                   )}
+                </div>
+
+                <div className="mt-5">
+                  <div>Your timezone:</div>
+                  <select
+                    className="border rounded p-2 border-gray-500 cursor-pointer"
+                    value={newZone}
+                    onChange={(e) => {
+                      setNewZone(e.target.value);
+                    }}
+                  >
+                    {timezones.map((tz) => (
+                      <option value={tz.iana} key={tz.iana}>
+                        {TODAY.setZone(tz.iana).toFormat("(ZZZZ)")} {tz.name}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 <button
@@ -152,8 +192,10 @@ const PaymentModal = ({ onClose, price, image, title, clients }) => {
                   onClick={onConfirmBookingDate}
                 >
                   Confirm -{" "}
-                  {DateTime.fromJSDate(pickedDate)
-                    .toFormat("dd MMMM yyyy @ hh:mm a")
+                  {DateTime.fromJSDate(pickedDate, {
+                    zone: newZone,
+                  })
+                    .toFormat("dd MMMM yyyy @ hh:mm a (ZZZZ)")
                     .toString()}
                 </button>
               </div>
