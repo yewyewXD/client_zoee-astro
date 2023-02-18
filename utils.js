@@ -13,8 +13,14 @@ export async function getClients() {
   return data;
 }
 
-export async function submitBooking() {
-  const res = await fetch("/api/booking");
+export async function submitBooking({ email, name, emailParams }) {
+  const res = await fetch("/api/booking", {
+    method: "POST",
+    body: JSON.stringify({ email, name, emailParams }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
   const data = await res.json();
   console.log(data);
   return;

@@ -17,6 +17,7 @@ const Followup = ({ openPaymentModal }) => {
     setIsLoading(false);
 
     openPaymentModal({
+      productId: 8,
       price: 50,
       image: "/images/service-follow.jpg",
       title: "Follow-up Consultation",

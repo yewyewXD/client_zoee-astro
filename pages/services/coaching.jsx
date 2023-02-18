@@ -19,6 +19,7 @@ const Coaching = ({ openPaymentModal }) => {
 
     if (isOpen) {
       openPaymentModal({
+        productId: 1,
         price: 150,
         image: "/images/service-coaching.jpg",
         title: "Coaching Astrology Consultation",

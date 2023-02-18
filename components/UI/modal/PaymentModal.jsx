@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import { DateTime } from "luxon";
 import moment from "moment-timezone";
 import timezones from "../../../json/timezones.json";
+import { submitBooking } from "../../../utils";
 
 const INITIAL_DATE = DateTime.fromObject(
   {
@@ -31,7 +32,7 @@ const INITIAL_DATE_END = DateTime.fromObject(
 const TODAY = DateTime.now();
 const USER_TIMEZONE = moment.tz.guess();
 
-const PaymentModal = ({ onClose, price, image, title, clients }) => {
+const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
   // configs for Followup Consultation
   const followupEmailRef = useRef();
   const [isNotEligible, setIsNotEligible] = useState(false);
@@ -61,9 +62,22 @@ const PaymentModal = ({ onClose, price, image, title, clients }) => {
     }
   }
 
-  async function handleAfterBuy({ id, email, name, date }) {
-    setClientConfig({ id, email, name, date });
+  async function handleAfterBuy({ orderId, orderDate, email, name }) {
+    setClientConfig({ email, name });
     setIsPaymentMade(true);
+    const emailParams = {
+      id: productId,
+      orderId,
+      orderDate: DateTime.fromISO(orderDate, {
+        zone: newZone,
+      })
+        .toFormat("dd MMMM yyyy @ hh:mm a (ZZZZ)")
+        .toString(),
+      date: clientLocalDate,
+    };
+    console.log(emailParams);
+    return;
+    const data = await submitBooking({ email, name, emailParams });
   }
 
   async function onConfirmBookingDate() {

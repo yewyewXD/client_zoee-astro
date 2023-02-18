@@ -19,6 +19,7 @@ const Synastry = ({ openPaymentModal }) => {
 
     if (isOpen) {
       openPaymentModal({
+        productId: 7,
         price: 200,
         image: "/images/service-synastry.jpg",
         title: "Synastry Consultation",

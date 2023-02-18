@@ -26,10 +26,10 @@ export default function PaymentBtn({ amount, onPaymentSuccess }) {
                 name: { given_name, surname },
               } = details.payer;
               onPaymentSuccess({
-                id: details.id,
+                orderId: details.id,
+                orderDate: details.update_time,
                 name: `${given_name} ${surname}`,
                 email: email_address,
-                date: details.update_time,
               });
             });
           }}

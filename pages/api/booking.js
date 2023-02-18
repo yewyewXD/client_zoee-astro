@@ -4,7 +4,7 @@ const headers = {
 };
 
 export default async function handler(req, res) {
-  const { email } = req.body;
+  const { email, name, emailParams } = req.body;
 
   if (!email) {
     return res.status(400).send({ message: "Student email is missing" });
@@ -50,6 +50,23 @@ export default async function handler(req, res) {
         }),
       }
     );
+
+    // Step 3: Send email to recipient & owner
+    const emailBody = JSON.stringify({
+      to: [
+        {
+          email: email,
+          name: name,
+        },
+      ],
+      templateId: emailParams.id,
+      params: emailParams,
+      // {
+      //     "orderId": "21739218749832",
+      //     "orderDate": "23 Feb 2023 @ 9pm (GMT +11)"
+      //     "date": "23 Feb 2023 @ 9pm (GMT +11)"
+      // }
+    });
 
     res.status(200).json({ message: "Booking success!" });
   } catch (err) {
