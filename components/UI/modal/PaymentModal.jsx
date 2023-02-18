@@ -338,26 +338,28 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
             )}
 
             {!hasError && (
-              <div className="text-xl mb-5">
-                {isBookingDone ? (
-                  <span>
-                    Booking done! An order confirmation is sent to your email (
-                    {userEmail}).
-                  </span>
-                ) : (
-                  <span>
-                    Confirming your booking. Please{" "}
-                    <span className="font-semibold"> do not</span> close the
-                    tab.
-                  </span>
-                )}
+              <>
+                <div className="text-xl mb-5">
+                  {isBookingDone ? (
+                    <span>
+                      Booking done! An order confirmation is sent to your email
+                      ({userEmail}).
+                    </span>
+                  ) : (
+                    <span>
+                      Confirming your booking. Please{" "}
+                      <span className="font-semibold"> do not</span> close the
+                      tab.
+                    </span>
+                  )}
+                </div>
 
                 <MoonLoader
                   color={"black"}
                   loading={!isBookingDone}
                   size={90}
                 />
-              </div>
+              </>
             )}
 
             {isBookingDone && (
