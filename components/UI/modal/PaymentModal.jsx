@@ -89,8 +89,14 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
         .toString(),
       date: clientLocalDate,
     };
+    const ownerLocalDate = DateTime.fromJSDate(pickedDate, {
+      zone: "Asia/Singapore",
+    })
+      .toFormat("dd MMMM yyyy @ hh:mm a (ZZZZ)")
+      .toString();
     const bookingConfig = {
       title: title,
+      ownerDate: ownerLocalDate,
       email: clientConfig.email,
       name: clientConfig.name,
       emailParams,

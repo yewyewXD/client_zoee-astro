@@ -10,10 +10,10 @@ const sibHeaders = {
 };
 
 export default async function handler(req, res) {
-  const { email, name, emailParams, title } = req.body;
+  const { email, name, emailParams, title, ownerDate } = req.body;
 
-  if (!email) {
-    return res.status(400).send({ message: "Customer email is missing" });
+  if (!email || !name || !emailParams || !title || !ownerDate) {
+    return res.status(400).send({ message: "Required field is missing" });
   }
 
   try {
@@ -54,7 +54,7 @@ export default async function handler(req, res) {
             email: email,
             name: name,
             consultation: title,
-            date: emailParams.date,
+            date: ownerDate,
           },
         }),
       }
@@ -66,10 +66,6 @@ export default async function handler(req, res) {
         {
           email: email,
           name: name,
-        },
-        {
-          email: "easy.astrology.by.zoee@gmail.com",
-          name: "Easy Astrology Owner",
         },
       ],
       templateId: emailParams.id,
