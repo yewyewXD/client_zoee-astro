@@ -69,7 +69,8 @@ const Disclaimer = () => {
                 It counts as a <i>no-show</i> and you will{" "}
                 <u>not be refunded</u>. However, you can reschedule the
                 consultation
-                <b> once</b> without needing to pay again.
+                <b> once</b> (by sending me an <EmailBtn>email</EmailBtn>)
+                without needing to pay again.
               </div>
 
               <div className="mb-10">
@@ -77,7 +78,8 @@ const Disclaimer = () => {
                   What if I know I’m going to arrive late at the consultation?
                 </div>
                 If you are going to be late for your consultation, please let me
-                know by <DMBtn /> or send me an email as soon as possible.
+                know by <DMBtn /> or send me an <EmailBtn>email</EmailBtn> as
+                soon as possible.
               </div>
 
               <div className="mb-10">
@@ -86,8 +88,8 @@ const Disclaimer = () => {
                 </div>
                 If you are <b>more than 10 minutes</b> late for the
                 consultation, it will be considered as a <i>no-show</i> (not
-                refunded) but you can reschedule it <b>once</b> without needing
-                to pay.
+                refunded) but you can reschedule it <b>once</b> (by sending me
+                an <EmailBtn>email</EmailBtn>) without needing to pay.
               </div>
 
               <div className="mb-10">
@@ -113,11 +115,12 @@ const Disclaimer = () => {
                   What if I need to cancel or reschedule my consultation?
                 </div>
                 If you need to cancel or reschedule your consultation, you can
-                do so <b>until 24 hours before your consultation</b> via
-                Calendly. You cannot reschedule less than 24 hours before the
-                consultation. If you cancel it less than 24 hours before the
-                consultation, it <u>won’t be refunded</u> (and you will need to
-                pay again if you want to book another consultation).
+                do so <b>until 24 hours before your consultation</b> by sending
+                me an <EmailBtn>email</EmailBtn>. You cannot reschedule less
+                than 24 hours before the consultation. If you cancel it less
+                than 24 hours before the consultation, it{" "}
+                <u>won’t be refunded</u> (and you will need to pay again if you
+                want to book another consultation).
               </div>
 
               <div className="mb-10">
@@ -130,26 +133,9 @@ const Disclaimer = () => {
 
               <div className="mb-10">
                 <div className="mb-3 font-bold">
-                  I have never used Google Meet before, what should I do?
-                </div>
-                If you have never used Google Meet{" "}
-                <a
-                  href="https://meet.google.com/"
-                  rel="noreferrer noopener"
-                  target={"_blank"}
-                  className="font-bold underline smooth hover:opacity-80"
-                >
-                  click here
-                </a>
-                .
-              </div>
-
-              <div className="mb-10">
-                <div className="mb-3 font-bold">
                   What will happen after I book a consultation?
                 </div>
-                After booking, you will receive a <b>confirmation email</b> from
-                Calendly.
+                After booking, you will receive a <b>confirmation email</b>.
               </div>
 
               <div className="mb-10">
@@ -162,8 +148,7 @@ const Disclaimer = () => {
 
               <div className="mb-10">
                 <div className="mb-3 font-bold">
-                  I didn’t received a confirmation email after booking, what
-                  should I do?
+                  What if I have something that comes up short notice?
                 </div>
                 If something comes up short notice, please <DMBtn /> or{" "}
                 <EmailBtn>email me</EmailBtn>.
