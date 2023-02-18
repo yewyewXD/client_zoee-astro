@@ -22,6 +22,5 @@ export async function submitBooking({ email, name, emailParams }) {
     },
   });
   const data = await res.json();
-  console.log(data);
-  return;
+  return data;
 }

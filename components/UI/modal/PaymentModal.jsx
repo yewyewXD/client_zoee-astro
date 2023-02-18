@@ -38,12 +38,19 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
   const [isNotEligible, setIsNotEligible] = useState(false);
   const [isPassedCheck, setIsPassedCheck] = useState(false);
 
-  const [clientConfig, setClientConfig] = useState({});
+  const [clientConfig, setClientConfig] = useState({
+    email: "",
+    name: "",
+    orderId: "",
+    orderDate: "",
+  });
   const [isPaymentMade, setIsPaymentMade] = useState(false);
 
   const [newZone, setNewZone] = useState(USER_TIMEZONE || "Asia/Singapore");
   const [isPickingDate, setIsPickingDate] = useState(true);
   const [pickedDate, setPickedDate] = useState(INITIAL_DATE.toJSDate());
+
+  const [isBooking, setIsBooking] = useState(false);
 
   const clientLocalDate = DateTime.fromJSDate(pickedDate, {
     zone: newZone,
@@ -63,26 +70,33 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
   }
 
   async function handleAfterBuy({ orderId, orderDate, email, name }) {
-    setClientConfig({ email, name });
+    setClientConfig({ orderId, orderDate, email, name });
     setIsPaymentMade(true);
+  }
+
+  async function onConfirmBookingDate() {
+    setIsBooking(true);
     const emailParams = {
       id: productId,
-      orderId,
-      orderDate: DateTime.fromISO(orderDate, {
+      orderId: clientConfig.orderId,
+      orderDate: DateTime.fromISO(clientConfig.orderDate, {
         zone: newZone,
       })
         .toFormat("dd MMMM yyyy @ hh:mm a (ZZZZ)")
         .toString(),
       date: clientLocalDate,
     };
-    console.log(emailParams);
-    return;
-    const data = await submitBooking({ email, name, emailParams });
+    const bookingConfig = {
+      email: clientConfig.email,
+      name: clientConfig.name,
+      emailParams,
+    };
+    const data = await submitBooking(bookingConfig);
+    console.log(data);
+    setIsBooking(false);
   }
 
-  async function onConfirmBookingDate() {
-    console.log(clientLocalDate);
-  }
+  console.log(isBooking);
 
   return (
     <div
