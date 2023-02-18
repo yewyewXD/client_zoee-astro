@@ -11,10 +11,10 @@ const AboutMe = () => {
           About Me
         </h2>
 
-        <div className="container-deep">
+        <div className="container-deep" data-aos="fade-up">
           <div className="md:grid grid-cols-3 flex flex-col-reverse">
             <div className="col-span-2 flex lg:pr-40 md:pr-20 items-center">
-              <div className="2xl:text-2xl 2xl:text-xl sm:text-lg md:text-left text-center">
+              <div className="2xl:text-2xl xl:text-xl sm:text-lg md:text-left text-center">
                 <div>
                   I’m Zoée, astrologer, consultant and content creator but not
                   only.
