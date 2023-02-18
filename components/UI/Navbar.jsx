@@ -33,23 +33,27 @@ const Navbar = () => {
       >
         <div className="container text-white flex items-center">
           <div className="lg:block hidden">
-            <Image
-              className="smooth"
-              src="/images/logo-transparent.png"
-              alt=""
-              width={isScrolled ? 80 : 120}
-              height={120}
-            />
+            <Link href="/" passHref>
+              <Image
+                className="smooth cursor-pointer"
+                src="/images/logo-transparent.png"
+                alt=""
+                width={isScrolled ? 80 : 120}
+                height={120}
+              />
+            </Link>
           </div>
 
           <div className="lg:hidden">
-            <Image
-              className="smooth"
-              src="/images/logo-transparent.png"
-              alt=""
-              width={isScrolled ? 80 : 90}
-              height={90}
-            />
+            <Link href="/" passHref>
+              <Image
+                className="smooth cursor-pointer"
+                src="/images/logo-transparent.png"
+                alt=""
+                width={isScrolled ? 80 : 90}
+                height={90}
+              />
+            </Link>
           </div>
 
           {/* Desktop Nav Items */}
