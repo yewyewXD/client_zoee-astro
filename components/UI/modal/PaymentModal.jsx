@@ -131,7 +131,7 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
           </svg>
         </span>
 
-        {/* Content 1 - Check is existing student before booking followup */}
+        {/* Content 1 - Check is existing customer before booking followup */}
         {clients && !isPassedCheck && !isBooking && (
           <div>
             <form onSubmit={handleCheckFollowup}>

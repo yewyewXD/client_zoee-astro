@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   const { email, name, emailParams } = req.body;
 
   if (!email) {
-    return res.status(400).send({ message: "Student email is missing" });
+    return res.status(400).send({ message: "Customer email is missing" });
   }
 
   try {
@@ -51,7 +51,8 @@ export default async function handler(req, res) {
         headers: atbleHeaders,
         body: JSON.stringify({
           fields: {
-            students: email,
+            email: email,
+            name: name,
           },
         }),
       }
