@@ -22,7 +22,7 @@ const INITIAL_DATE_END = DateTime.fromObject(
     year: 2023,
     month: 4,
     day: 30,
-    hour: 18,
+    hour: 19,
     minute: 0,
   },
   { zone: "Asia/Singapore" }

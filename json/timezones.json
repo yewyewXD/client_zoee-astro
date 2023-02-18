@@ -112,23 +112,23 @@
     "iana": "Atlantic/Cape_Verde"
   },
   {
-    "name": "(GMT) Casablanca",
+    "name": "Casablanca",
     "iana": "Africa/Casablanca"
   },
   {
-    "name": "(GMT) Dublin",
+    "name": "Dublin",
     "iana": "Europe/Dublin"
   },
   {
-    "name": "(GMT) Lisbon",
+    "name": "Lisbon",
     "iana": "Europe/Lisbon"
   },
   {
-    "name": "(GMT) London",
+    "name": "London",
     "iana": "Europe/London"
   },
   {
-    "name": "(GMT) Monrovia",
+    "name": "Monrovia",
     "iana": "Africa/Monrovia"
   },
   {
@@ -316,7 +316,7 @@
     "iana": "Asia/Kolkata"
   },
   {
-    "name": "(GMT+05:45) Kathmandu",
+    "name": "Kathmandu",
     "iana": "Asia/Kathmandu"
   },
   {
