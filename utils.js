@@ -13,10 +13,10 @@ export async function getClients() {
   return data;
 }
 
-export async function submitBooking({ email, name, emailParams }) {
+export async function submitBooking({ email, name, emailParams, title }) {
   const res = await fetch("/api/booking", {
     method: "POST",
-    body: JSON.stringify({ email, name, emailParams }),
+    body: JSON.stringify({ email, name, emailParams, title }),
     headers: {
       "Content-Type": "application/json",
     },

@@ -90,6 +90,7 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
       date: clientLocalDate,
     };
     const bookingConfig = {
+      title: title,
       email: clientConfig.email,
       name: clientConfig.name,
       emailParams,

@@ -10,7 +10,7 @@ const sibHeaders = {
 };
 
 export default async function handler(req, res) {
-  const { email, name, emailParams } = req.body;
+  const { email, name, emailParams, title } = req.body;
 
   if (!email) {
     return res.status(400).send({ message: "Customer email is missing" });
@@ -53,6 +53,8 @@ export default async function handler(req, res) {
           fields: {
             email: email,
             name: name,
+            consultation: title,
+            date: emailParams.date,
           },
         }),
       }
