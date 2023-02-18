@@ -1,6 +1,12 @@
-const headers = {
+const atbleHeaders = {
   Authorization: `Bearer ${process.env.AIRTABLE_TOKEN}`,
   "Content-Type": "application/json",
+};
+
+const sibHeaders = {
+  "api-key": process.env.EMAIL_TOKEN,
+  "Content-Type": "application/json",
+  Accept: "application/json",
 };
 
 export default async function handler(req, res) {
@@ -16,7 +22,7 @@ export default async function handler(req, res) {
       `https://api.airtable.com/v0/appwdcuTEadLSlTYH/tblUPvGgiPIUh3dhT`,
       {
         method: "GET",
-        headers,
+        headers: atbleHeaders,
       }
     );
     const slotData = await slotRes.json();
@@ -28,7 +34,7 @@ export default async function handler(req, res) {
       `https://api.airtable.com/v0/appwdcuTEadLSlTYH/tblUPvGgiPIUh3dhT/recxOYvQ7fiQ7sPPv`,
       {
         method: "PUT",
-        headers,
+        headers: atbleHeaders,
         body: JSON.stringify({
           fields: {
             count: latestCount - 1,
@@ -42,7 +48,7 @@ export default async function handler(req, res) {
       `https://api.airtable.com/v0/appwdcuTEadLSlTYH/tbleZN2ejVkPUMW7l`,
       {
         method: "POST",
-        headers,
+        headers: atbleHeaders,
         body: JSON.stringify({
           fields: {
             students: email,
@@ -58,6 +64,10 @@ export default async function handler(req, res) {
           email: email,
           name: name,
         },
+        {
+          email: "easy.astrology.by.zoee@gmail.com",
+          name: "Easy Astrology Owner",
+        },
       ],
       templateId: emailParams.id,
       params: emailParams,
@@ -66,6 +76,16 @@ export default async function handler(req, res) {
       //     "orderDate": "23 Feb 2023 @ 9pm (GMT +11)"
       //     "date": "23 Feb 2023 @ 9pm (GMT +11)"
       // }
+    });
+    await fetch("https://api.sendinblue.com/v3/smtp/email", {
+      headers: sibHeaders,
+      body: emailBody,
+    });
+
+    // Step 4: Add user to email list
+    await fetch("https://api.sendinblue.com/v3/contacts", {
+      headers: sibHeaders,
+      body: JSON.stringify({ email: email }),
     });
 
     res.status(200).json({ message: "Booking success!" });
