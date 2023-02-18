@@ -32,7 +32,7 @@ const DMBtn = () => (
   </a>
 );
 
-const EmailBtn = ({ children }) => (
+export const EmailBtn = ({ children }) => (
   <a
     href={"mailto:easy.astrology.by.zoee@gmail.com"}
     className="font-bold underline smooth hover:opacity-80"

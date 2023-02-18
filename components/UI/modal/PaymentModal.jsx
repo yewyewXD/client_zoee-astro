@@ -8,6 +8,7 @@ import timezones from "../../../json/timezones.json";
 import { submitBooking } from "../../../utils";
 import { MoonLoader } from "react-spinners";
 import Tick from "../Tick";
+import { EmailBtn } from "../../../pages/disclaimer";
 
 const INITIAL_DATE = DateTime.fromObject(
   {
@@ -52,8 +53,11 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
   const [isPickingDate, setIsPickingDate] = useState(true);
   const [pickedDate, setPickedDate] = useState(INITIAL_DATE.toJSDate());
 
+  const [userEmail, setUserEmail] = useState("");
   const [isBooking, setIsBooking] = useState(false);
   const [isBookingDone, setIsBookingDone] = useState(false);
+
+  const [hasError, setHasError] = useState(false);
 
   const clientLocalDate = DateTime.fromJSDate(pickedDate, {
     zone: newZone,
@@ -74,11 +78,13 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
 
   async function handleAfterBuy({ orderId, orderDate, email, name }) {
     setClientConfig({ orderId, orderDate, email, name });
+    setUserEmail(email);
     setIsPaymentMade(true);
   }
 
   async function onConfirmBookingDate() {
     setIsBooking(true);
+
     const emailParams = {
       id: productId,
       orderId: clientConfig.orderId,
@@ -89,19 +95,27 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
         .toString(),
       date: clientLocalDate,
     };
+
     const ownerLocalDate = DateTime.fromJSDate(pickedDate, {
       zone: "Asia/Singapore",
     })
       .toFormat("dd MMMM yyyy @ hh:mm a (ZZZZ)")
       .toString();
+
     const bookingConfig = {
       title: title,
       ownerDate: ownerLocalDate,
-      email: clientConfig.email,
+      email: userEmail,
       name: clientConfig.name,
       emailParams,
     };
-    await submitBooking(bookingConfig);
+
+    const data = await submitBooking(bookingConfig);
+    if (data.error) {
+      setHasError(true);
+      return;
+    }
+
     setIsBookingDone(true);
   }
 
@@ -235,8 +249,8 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
                     <span className="font-semibold">Note:</span> Available
                     date/time is shown in
                     <span className="font-semibold"> GMT+8</span> and converted
-                    to your <u>local timezone above</u>. You can re-select your
-                    timezone below.
+                    to your <u>local timezone above</u>. Please confirm your
+                    timezone & email below.
                   </div>
 
                   {isPickingDate && (
@@ -274,6 +288,17 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
                   </select>
                 </div>
 
+                <div className="mt-3">
+                  <div>Your email:</div>
+                  <input
+                    className="border rounded p-3 border-gray-500 w-full"
+                    value={userEmail}
+                    onChange={(e) => {
+                      setUserEmail(e.target.value);
+                    }}
+                  />
+                </div>
+
                 <button
                   className="bg-gray text-white py-2 px-6 rounded-md mt-5 hover:opacity-80 smooth mb-8 sm:w-max w-full"
                   onClick={onConfirmBookingDate}
@@ -288,21 +313,52 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
         {/* Content 4 - Wait for booking */}
         {isBooking && (
           <div className="flex flex-col justify-center items-center text-center">
-            <div className="text-xl mb-5">
-              {isBookingDone ? (
-                <span>
-                  Booking done! An order confirmation is sent to your email (
-                  {clientConfig.email}).
-                </span>
-              ) : (
-                <span>
-                  Confirming your booking. Please{" "}
-                  <span className="font-semibold"> do not</span> close the tab.
-                </span>
-              )}
-            </div>
+            {hasError && (
+              <>
+                <div className="text-xl">
+                  A technical error occurred! If you have paid, please{" "}
+                  <EmailBtn>email me</EmailBtn> for help.{" "}
+                </div>
 
-            <MoonLoader color={"black"} loading={!isBookingDone} size={90} />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="red"
+                  className="w-24 h-24 mt-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+                  />
+                </svg>
+              </>
+            )}
+
+            {!hasError && (
+              <div className="text-xl mb-5">
+                {isBookingDone ? (
+                  <span>
+                    Booking done! An order confirmation is sent to your email (
+                    {userEmail}).
+                  </span>
+                ) : (
+                  <span>
+                    Confirming your booking. Please{" "}
+                    <span className="font-semibold"> do not</span> close the
+                    tab.
+                  </span>
+                )}
+
+                <MoonLoader
+                  color={"black"}
+                  loading={!isBookingDone}
+                  size={90}
+                />
+              </div>
+            )}
 
             {isBookingDone && (
               <div className="border-4 rounded-full p-10 border-green-700">

@@ -20,13 +20,19 @@ export async function submitBooking({
   title,
   ownerDate,
 }) {
-  const res = await fetch("/api/booking", {
-    method: "POST",
-    body: JSON.stringify({ email, name, emailParams, title, ownerDate }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  const data = await res.json();
-  return data;
+  try {
+    const res = await fetch("/api/booking", {
+      method: "POST",
+      body: JSON.stringify({ email, name, emailParams, title, ownerDate }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    return {
+      error: true,
+    };
+  }
 }

@@ -12,12 +12,9 @@ const sibHeaders = {
 export default async function handler(req, res) {
   const { email, name, emailParams, title, ownerDate } = req.body;
 
-  if (!email || !name || !emailParams || !title || !ownerDate) {
-    return res.status(400).send({ message: "Required field is missing" });
-  }
-
   try {
     // Step 1: Minus 1 available slot
+    console.log("Step 1: Minus 1 available slot");
     const slotRes = await fetch(
       `https://api.airtable.com/v0/appwdcuTEadLSlTYH/tblUPvGgiPIUh3dhT`,
       {
@@ -44,6 +41,7 @@ export default async function handler(req, res) {
     );
 
     // Step 2: Add email to student database
+    console.log("Step 2: Add email to student database");
     await fetch(
       `https://api.airtable.com/v0/appwdcuTEadLSlTYH/tbleZN2ejVkPUMW7l`,
       {
@@ -61,6 +59,7 @@ export default async function handler(req, res) {
     );
 
     // Step 3: Send email to recipient & owner
+    console.log("Step 3: Send email to recipient & owner");
     const emailBody = JSON.stringify({
       to: [
         {
@@ -83,14 +82,18 @@ export default async function handler(req, res) {
     });
 
     // Step 4: Add user to email list
+    console.log("Step 4: Add user to email list");
     await fetch("https://api.sendinblue.com/v3/contacts", {
       method: "POST",
       headers: sibHeaders,
       body: JSON.stringify({ email: email }),
     });
 
-    res.status(200).json({ message: "Booking success!" });
+    return res.status(200).json({ message: "Booking success!" });
   } catch (err) {
-    res.status(500).send(err);
+    console.log(err);
+    return res.status(500).send({
+      error: true,
+    });
   }
 }
