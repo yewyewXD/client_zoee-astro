@@ -6,6 +6,8 @@ import { DateTime } from "luxon";
 import moment from "moment-timezone";
 import timezones from "../../../json/timezones.json";
 import { submitBooking } from "../../../utils";
+import { MoonLoader } from "react-spinners";
+import Tick from "../Tick";
 
 const INITIAL_DATE = DateTime.fromObject(
   {
@@ -39,7 +41,7 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
   const [isPassedCheck, setIsPassedCheck] = useState(false);
 
   const [clientConfig, setClientConfig] = useState({
-    email: "",
+    email: "example@mail.com",
     name: "",
     orderId: "",
     orderDate: "",
@@ -51,6 +53,7 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
   const [pickedDate, setPickedDate] = useState(INITIAL_DATE.toJSDate());
 
   const [isBooking, setIsBooking] = useState(false);
+  const [isBookingDone, setIsBookingDone] = useState(false);
 
   const clientLocalDate = DateTime.fromJSDate(pickedDate, {
     zone: newZone,
@@ -91,12 +94,13 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
       name: clientConfig.name,
       emailParams,
     };
-    const data = await submitBooking(bookingConfig);
-    console.log(data);
-    setIsBooking(false);
+    await submitBooking(bookingConfig);
+    setIsBookingDone(true);
   }
 
-  console.log(isBooking);
+  function handleCloseModal() {
+    onClose();
+  }
 
   return (
     <div
@@ -109,7 +113,7 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
       >
         <span
           className="cursor-pointer absolute top-4 right-4"
-          onClick={onClose}
+          onClick={handleCloseModal}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -127,8 +131,8 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
           </svg>
         </span>
 
-        {/* Content */}
-        {clients && !isPassedCheck && (
+        {/* Content 1 - Check is existing student before booking followup */}
+        {clients && !isPassedCheck && !isBooking && (
           <div>
             <form onSubmit={handleCheckFollowup}>
               <div className="text-xl mb-5">
@@ -155,8 +159,51 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
           </div>
         )}
 
-        {(!clients || isPassedCheck) && (
+        {(!clients || isPassedCheck) && !isBooking && (
           <>
+            {/* Content 2 - Payment */}
+            {!isPaymentMade && (
+              <div>
+                <div className="mt-2">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <Image
+                        className="rounded-md"
+                        src={image}
+                        alt=""
+                        height={70}
+                        width={70}
+                      />
+
+                      <div className="ml-4">
+                        <div className="font-semibold">{title}</div>
+                        <div className="text-gray-500 font-semibold">
+                          (Date can be chosen after payment)
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="font-semibold">{price}.00 USD</div>
+                  </div>
+
+                  <div className="w-full border-b my-6 border-gray-500"></div>
+
+                  <div className="flex justify-between items-center font-semibold">
+                    <span>Total</span>
+                    <span className="text-2xl">{price}.00 USD</span>
+                  </div>
+                </div>
+
+                <div className="w-10/12 mx-auto mt-10">
+                  <PaymentBtn
+                    amount={price}
+                    onPaymentSuccess={handleAfterBuy}
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* Content 3 - Choose consultation date */}
             {isPaymentMade && (
               <div style={{ minHeight: "400px" }}>
                 <div className="text-xl mb-5">
@@ -228,48 +275,47 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
                 </button>
               </div>
             )}
+          </>
+        )}
 
-            {!isPaymentMade && (
-              <div>
-                <div className="mt-2">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <Image
-                        className="rounded-md"
-                        src={image}
-                        alt=""
-                        height={70}
-                        width={70}
-                      />
+        {/* Content 4 - Wait for booking */}
+        {isBooking && (
+          <div className="flex flex-col justify-center items-center text-center">
+            <div className="text-xl mb-5">
+              {isBookingDone ? (
+                <span>
+                  Booking done! An order confirmation is sent to your email (
+                  {clientConfig.email}).
+                </span>
+              ) : (
+                <span>
+                  Confirming your booking. Please{" "}
+                  <span className="font-semibold"> do not</span> close the tab.
+                </span>
+              )}
+            </div>
 
-                      <div className="ml-4">
-                        <div className="font-semibold">{title}</div>
-                        <div className="text-gray-500 font-semibold">
-                          (Date can be chosen after payment)
-                        </div>
-                      </div>
-                    </div>
+            <MoonLoader color={"black"} loading={!isBookingDone} size={90} />
 
-                    <div className="font-semibold">{price}.00 USD</div>
-                  </div>
-
-                  <div className="w-full border-b my-6 border-gray-500"></div>
-
-                  <div className="flex justify-between items-center font-semibold">
-                    <span>Total</span>
-                    <span className="text-2xl">{price}.00 USD</span>
-                  </div>
-                </div>
-
-                <div className="w-10/12 mx-auto mt-10">
-                  <PaymentBtn
-                    amount={price}
-                    onPaymentSuccess={handleAfterBuy}
+            {isBookingDone && (
+              <div className="border-4 rounded-full p-10 border-green-700">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="green"
+                  className="w-20 h-20 "
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4.5 12.75l6 6 9-13.5"
                   />
-                </div>
+                </svg>
               </div>
             )}
-          </>
+          </div>
         )}
       </div>
     </div>
