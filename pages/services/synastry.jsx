@@ -10,7 +10,7 @@ import { SyncLoader } from "react-spinners";
 
 const Synastry = ({ openPaymentModal }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [isOk, setIsOk] = useState(true);
+  const [isOk, setIsOk] = useState(false);
 
   async function handleBooking() {
     setIsLoading(true);
