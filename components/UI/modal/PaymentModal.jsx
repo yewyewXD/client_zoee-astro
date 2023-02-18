@@ -44,6 +44,12 @@ const PaymentModal = ({ onClose, price, image, title, clients }) => {
   const [isPickingDate, setIsPickingDate] = useState(true);
   const [pickedDate, setPickedDate] = useState(INITIAL_DATE.toJSDate());
 
+  const clientLocalDate = DateTime.fromJSDate(pickedDate, {
+    zone: newZone,
+  })
+    .toFormat("dd MMMM yyyy @ hh:mm a (ZZZZ)")
+    .toString();
+
   async function handleCheckFollowup(e) {
     e.preventDefault();
     const value = followupEmailRef.current.value;
@@ -60,7 +66,9 @@ const PaymentModal = ({ onClose, price, image, title, clients }) => {
     setIsPaymentMade(true);
   }
 
-  async function onConfirmBookingDate() {}
+  async function onConfirmBookingDate() {
+    console.log(clientLocalDate);
+  }
 
   return (
     <div
@@ -121,10 +129,11 @@ const PaymentModal = ({ onClose, price, image, title, clients }) => {
 
         {(!clients || isPassedCheck) && (
           <>
-            {!isPaymentMade && (
+            {isPaymentMade && (
               <div style={{ minHeight: "400px" }}>
                 <div className="text-xl mb-5">
-                  Please select the <u>date & time</u> for the consultation.
+                  Payment Succeeded! Please select the <u>date & time</u> for
+                  the consultation.
                 </div>
 
                 <div className="relative">
@@ -137,11 +146,7 @@ const PaymentModal = ({ onClose, price, image, title, clients }) => {
                       setIsPickingDate((bool) => !bool);
                     }}
                     readOnly
-                    value={DateTime.fromJSDate(pickedDate, {
-                      zone: newZone,
-                    })
-                      .toFormat("dd MMMM yyyy @ hh:mm a (ZZZZ)")
-                      .toString()}
+                    value={clientLocalDate}
                   />
 
                   <div className="text-base leading-tight mt-1">
@@ -191,17 +196,12 @@ const PaymentModal = ({ onClose, price, image, title, clients }) => {
                   className="bg-gray text-white py-2 px-6 rounded-md mt-5 hover:opacity-80 smooth mb-8 sm:w-max w-full"
                   onClick={onConfirmBookingDate}
                 >
-                  Confirm -{" "}
-                  {DateTime.fromJSDate(pickedDate, {
-                    zone: newZone,
-                  })
-                    .toFormat("dd MMMM yyyy @ hh:mm a (ZZZZ)")
-                    .toString()}
+                  Confirm - {clientLocalDate}
                 </button>
               </div>
             )}
 
-            {isPaymentMade && (
+            {!isPaymentMade && (
               <div>
                 <div className="mt-2">
                   <div className="flex items-center justify-between">
@@ -217,7 +217,7 @@ const PaymentModal = ({ onClose, price, image, title, clients }) => {
                       <div className="ml-4">
                         <div className="font-semibold">{title}</div>
                         <div className="text-gray-500 font-semibold">
-                          22 February 2023 (04.30am PST)
+                          (Date can be chosen after payment)
                         </div>
                       </div>
                     </div>
