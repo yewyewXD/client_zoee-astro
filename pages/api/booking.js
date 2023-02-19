@@ -89,31 +89,17 @@ export default async function handler(req, res) {
       }
     );
 
-    // Step 4: Send email to recipient & owner
-    console.log("Step 4: Add email to student database");
-    await fetch(
-      `https://api.airtable.com/v0/appwdcuTEadLSlTYH/tbleZN2ejVkPUMW7l`,
-      {
-        method: "POST",
-        headers: atbleHeaders,
-        body: JSON.stringify({
-          fields: {
-            email: email,
-            name: name,
-            consultation: title,
-            date: ownerDate,
-          },
-        }),
-      }
-    );
-
-    // Step 5: Send email to recipient
-    console.log("Step 5: Send email to recipient");
+    // Step 4: Send email to recipient
+    console.log("Step 4: Send email to recipient");
     const emailBody = JSON.stringify({
       to: [
         {
           email: email,
           name: name,
+        },
+        {
+          email: "easy.astrology.by.zoee@gmail.com",
+          name: "Order Notification",
         },
       ],
       templateId: emailParams.id,
@@ -130,8 +116,8 @@ export default async function handler(req, res) {
       body: emailBody,
     });
 
-    // Step 6: Add user to email list
-    console.log("Step 6: Add user to email list");
+    // Step 5: Add user to email list
+    console.log("Step 5: Add user to email list");
     await fetch("https://api.sendinblue.com/v3/contacts", {
       method: "POST",
       headers: sibHeaders,
