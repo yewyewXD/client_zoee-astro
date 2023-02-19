@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import PaymentBtn from "../buttons/PaymentBtn";
 import DatePicker from "react-datepicker";
 import { DateTime } from "luxon";
@@ -45,8 +45,11 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
   const [excludeDates, setExcludeDates] = useState([]);
   const [isPickingDate, setIsPickingDate] = useState(true);
   const [datePickerDate, setDatePickerDate] = useState(INITIAL_DATE.toJSDate());
-  const [pickedDate, setPickedDate] = useState(INITIAL_DATE.toJSDate());
+  const [pickedDate, setPickedDate] = useState(
+    INITIAL_DATE.setZone("Asia/Singapore", { keepLocalTime: true }).toJSDate()
+  );
 
+  const userEmailRef = useRef(<input type="email" />);
   const [userEmail, setUserEmail] = useState("");
   const [isBooking, setIsBooking] = useState(false);
   const [isBookingDone, setIsBookingDone] = useState(false);
@@ -72,6 +75,7 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
 
   async function handleAfterBuy({ orderId, orderDate, email, name }) {
     setClientConfig({ orderId, orderDate, email, name });
+
     setUserEmail(email);
 
     const occupiedDates = (await getOccupiedDates()).map((date) => {
@@ -102,6 +106,9 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
     e.preventDefault();
     setIsBooking(true);
 
+    const finalEmail = userEmailRef.current.value;
+    setUserEmail(finalEmail);
+
     const emailParams = {
       id: productId,
       orderId: clientConfig.orderId,
@@ -123,7 +130,7 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
       ownerDate: ownerLocalLuxonDate
         .toFormat("dd MMMM yyyy @ hh:mm a (ZZZZ)")
         .toString(),
-      email: userEmail,
+      email: finalEmail,
       name: clientConfig.name,
       emailParams,
     };
@@ -141,8 +148,8 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
     onClose();
   }
 
-  function isDateValidCheck() {
-    if (!pickedDate || datePickerDate) return false;
+  const isDateValid = useMemo(() => {
+    if (!datePickerDate) return false;
     const picked = DateTime.fromJSDate(datePickerDate);
     const pickedDay = picked.get("day");
     const pickedMonth = picked.get("month");
@@ -162,7 +169,7 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
     }
 
     return true;
-  }
+  }, [datePickerDate, excludeDates]);
 
   return (
     <div
@@ -338,23 +345,21 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
                 <div className="mt-3">
                   <div>Email to receive order confirmation:</div>
                   <input
+                    defaultValue={userEmail}
+                    ref={userEmailRef}
                     className="border rounded p-3 border-gray-500 w-full"
-                    value={userEmail}
                     required
                     type="email"
-                    onChange={(e) => {
-                      setUserEmail(e.target.value);
-                    }}
                   />
                 </div>
 
                 <button
                   className="bg-gray text-white py-2 px-6 rounded-md mt-5 hover:opacity-80 smooth mb-8 sm:w-max w-full"
                   type="submit"
-                  disabled={!isDateValidCheck()}
-                  style={!isDateValidCheck() ? { color: "gray" } : {}}
+                  disabled={!isDateValid}
+                  style={!isDateValid ? { color: "gray" } : {}}
                 >
-                  {isDateValidCheck() ? (
+                  {isDateValid ? (
                     <span>Confirm - {clientLocalDate}</span>
                   ) : (
                     <span>Date is not allowed, please pick another one</span>
