@@ -303,7 +303,7 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
                         selected={datePickerDate}
                         onChange={handlePickDate}
                         showTimeSelect
-                        minDate={INITIAL_DATE.toJSDate()}
+                        minDate={pickerMinDate}
                         maxDate={INITIAL_DATE_END.toJSDate()}
                         minTime={INITIAL_DATE.toMillis()}
                         maxTime={INITIAL_DATE_END.toMillis()}
