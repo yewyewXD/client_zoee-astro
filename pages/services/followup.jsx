@@ -7,15 +7,16 @@ import SectionHead from "../../components/UI/SectionHead";
 import Tick from "../../components/UI/Tick";
 import { getClients } from "../../utils";
 import { SyncLoader } from "react-spinners";
-import { canOpenCheck } from "../../config";
+import { canOpenCheck, FOLLOWUP_TEMPLATE_ID } from "../../config";
 
 const Followup = ({ openPaymentModal }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   async function handleBooking() {
-    const canOpen = canOpenCheck({ productId: 8 });
+    const canOpen = canOpenCheck({ productId: FOLLOWUP_TEMPLATE_ID });
     if (!canOpen) {
       setIsOk(false);
+      return;
     }
 
     setIsLoading(true);
@@ -23,7 +24,7 @@ const Followup = ({ openPaymentModal }) => {
     setIsLoading(false);
 
     openPaymentModal({
-      productId: 8,
+      productId: FOLLOWUP_TEMPLATE_ID,
       price: 50,
       image: "/images/service-follow.jpg",
       title: "Follow-up Consultation",

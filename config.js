@@ -1,8 +1,12 @@
 import { DateTime } from "luxon";
 
+export const COACHING_TEMPLATE_ID = 1;
+export const SYNASTRY_TEMPLATE_ID = 7;
+export const FOLLOWUP_TEMPLATE_ID = 8;
+
 export const INITIAL_DATE = DateTime.fromObject({
   year: 2023,
-  month: 3,
+  month: 4,
   day: 1,
   hour: 11,
   minute: 0,
@@ -10,8 +14,8 @@ export const INITIAL_DATE = DateTime.fromObject({
 
 export const INITIAL_DATE_END = DateTime.fromObject({
   year: 2023,
-  month: 3,
-  day: 31,
+  month: 4,
+  day: 30,
   hour: 19,
   minute: 0,
 });
@@ -27,9 +31,15 @@ export function getMinDate({ productId }) {
     newMinDate = ownerDateNow.plus({ days: 15 });
   }
 
-  const result = newMinDate.toLocal().startOf("day");
+  newMinDate = newMinDate.toLocal().startOf("day").toJSDate();
 
-  return result.toJSDate();
+  const minDate = INITIAL_DATE.toJSDate();
+
+  if (newMinDate > minDate) {
+    return newMinDate;
+  } else {
+    return minDate;
+  }
 }
 
 export function canOpenCheck({ productId }) {

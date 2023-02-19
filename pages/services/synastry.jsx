@@ -7,16 +7,17 @@ import SectionHead from "../../components/UI/SectionHead";
 import Tick from "../../components/UI/Tick";
 import { isSlotAvailable } from "../../utils";
 import { SyncLoader } from "react-spinners";
-import { canOpenCheck } from "../../config";
+import { canOpenCheck, SYNASTRY_TEMPLATE_ID } from "../../config";
 
 const Synastry = ({ openPaymentModal }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isOk, setIsOk] = useState(false);
 
   async function handleBooking() {
-    const canOpen = canOpenCheck({ productId: 7 });
+    const canOpen = canOpenCheck({ productId: SYNASTRY_TEMPLATE_ID });
     if (!canOpen) {
       setIsOk(false);
+      return;
     }
 
     setIsLoading(true);
@@ -25,7 +26,7 @@ const Synastry = ({ openPaymentModal }) => {
 
     if (isOpen) {
       openPaymentModal({
-        productId: 7,
+        productId: SYNASTRY_TEMPLATE_ID,
         price: 200,
         image: "/images/service-synastry.jpg",
         title: "Synastry Consultation",
