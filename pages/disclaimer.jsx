@@ -23,10 +23,10 @@ const AccordRight = () => (
 
 const DMBtn = () => (
   <a
-    href="https://www.instagram.com/direct/t/340282366841710300949128133717595046627"
+    href="https://www.instagram.com/easy.astrology.by.zoee/"
     rel="noreferrer noopener"
     target={"_blank"}
-    className="font-bold smooth hover:opacity-80"
+    className="font-bold smooth hover:opacity-80 underline"
   >
     DM
   </a>
@@ -58,7 +58,7 @@ const Disclaimer = () => {
         <div className="bg-gray lg:py-20 py-14">
           <div className="container-deep 2xl:text-2xl sm:text-xl text-lg">
             <div>
-              <div className="text-center mb-14 2xl:text-3xl sm:text-2xl text-xl font-semibold">
+              <div className="text-center mb-14 2xl:text-3xl sm:text-2xl text-xl font-bold">
                 Make Sure To Read This Before Booking A Consultation…
               </div>
 
@@ -143,7 +143,8 @@ const Disclaimer = () => {
                   I didn’t received a confirmation email after booking, what
                   should I do?
                 </div>
-                <DMBtn /> or if you do not receive one.
+                <DMBtn /> or <EmailBtn>email me</EmailBtn> if you do not receive
+                one.
               </div>
 
               <div className="mb-10">
@@ -165,13 +166,13 @@ const Disclaimer = () => {
             </div>
 
             <div>
-              <div className="text-center mt-28 mb-14 2xl:text-3xl sm:text-2xl text-xl font-semibold">
-                Consultation Disclaimer
+              <div className="text-center mt-28 mb-14 2xl:text-3xl sm:text-2xl text-xl font-bold">
+                Consultation Disclaimers
               </div>
 
               <div className="mt-5">
                 <AccordRight /> My astrological practice prioritizes your{" "}
-                <b>confidentiality</b>,<b>health</b>, and <b>well-being</b>.
+                <b>confidentiality</b>, <b>health</b>, and <b>well-being</b>.
               </div>
               <div className="mt-5">
                 <AccordRight /> I give myself the right to <b>stop</b> the

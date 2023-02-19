@@ -57,7 +57,7 @@ const FAQ = () => {
         <div className="text-center text mt-6 2xl:text-2xl text-xl font-semibold">
           You Got Another Question? Just{" "}
           <a
-            href="https://www.instagram.com/direct/t/340282366841710300949128133717595046627"
+            href="https://www.instagram.com/easy.astrology.by.zoee/"
             rel="noreferrer noopener"
             target={"_blank"}
             className="underline font-bold smooth hover:opacity-80"
