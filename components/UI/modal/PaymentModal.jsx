@@ -8,22 +8,7 @@ import timezones from "../../../json/timezones.json";
 import { getOccupiedDates, submitBooking } from "../../../utils";
 import { MoonLoader } from "react-spinners";
 import { EmailBtn } from "../../../pages/disclaimer";
-
-const INITIAL_DATE = DateTime.fromObject({
-  year: 2023,
-  month: 4,
-  day: 1,
-  hour: 11,
-  minute: 0,
-});
-
-const INITIAL_DATE_END = DateTime.fromObject({
-  year: 2023,
-  month: 4,
-  day: 30,
-  hour: 19,
-  minute: 0,
-});
+import { getMinDate, INITIAL_DATE, INITIAL_DATE_END } from "../../../config";
 
 const USER_TIMEZONE = moment.tz.guess();
 
@@ -148,6 +133,11 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
     onClose();
   }
 
+  const pickerMinDate = useMemo(() => {
+    const minDate = getMinDate({ productId });
+    return minDate;
+  }, [productId]);
+
   const isDateValid = useMemo(() => {
     if (!datePickerDate) return false;
     const picked = DateTime.fromJSDate(datePickerDate);
@@ -164,12 +154,12 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
       }
     }
 
-    if (picked < INITIAL_DATE || picked > INITIAL_DATE_END) {
+    if (picked < pickerMinDate || picked > INITIAL_DATE_END) {
       return false;
     }
 
     return true;
-  }, [datePickerDate, excludeDates]);
+  }, [datePickerDate, excludeDates, pickerMinDate]);
 
   return (
     <div
@@ -334,7 +324,7 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
                     {timezones.map((tz) => (
                       <option value={tz.iana} key={tz.iana}>
                         {DateTime.fromJSDate(pickedDate, {
-                          zone: newZone,
+                          zone: tz.iana,
                         }).toFormat("(ZZZZ)")}{" "}
                         {tz.name}
                       </option>
