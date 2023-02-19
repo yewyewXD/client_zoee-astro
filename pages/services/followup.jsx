@@ -45,7 +45,7 @@ const Followup = ({ openPaymentModal }) => {
       <main className="text-white">
         <SectionHead title={"Follow-up Consultation (50 USD)"} />
 
-        <div className="bg-gray lg:py-20 py-14">
+        <div className="bg-purple lg:py-20 py-14">
           <div className="container-deep 2xl:text-2xl sm:text-xl text-lg">
             <div>
               <div>
@@ -129,7 +129,7 @@ const Followup = ({ openPaymentModal }) => {
                       <Tick />
                     </span>{" "}
                     A <strong>30 to 45 min </strong>online follow-up
-                    consultation with me.
+                    consultation with me
                   </li>
 
                   <li>
@@ -137,7 +137,7 @@ const Followup = ({ openPaymentModal }) => {
                       <Tick />
                     </span>{" "}
                     Bonus: A <strong>recording</strong> of the consultation sent
-                    just after.
+                    just after by email
                   </li>
                 </ul>
               </div>

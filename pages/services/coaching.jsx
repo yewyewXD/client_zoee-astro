@@ -57,7 +57,7 @@ const Coaching = ({ openPaymentModal }) => {
                   What is it?
                 </div>
                 Coaching Astrology is an amazing <i>self-development</i> tool.
-                In coaching astrology, your birth chart describe who you should
+                In coaching astrology, your birth chart describes who you should
                 be and what you should do to achieve <b>happiness</b>,{" "}
                 <b>success</b> and <b>self-growth</b>.
                 <div className="sm:mt-5 mt-3">
@@ -163,36 +163,35 @@ const Coaching = ({ openPaymentModal }) => {
                     <span className="mr-1 not-italic font-bold">
                       <Tick />
                     </span>{" "}
-                    A <strong> 75 to 90 min</strong> online consultation with
-                    me.
+                    A <strong> 75 to 90 min</strong> online consultation with me
                   </li>
                   <li>
                     <span className="mr-1 not-italic font-bold">
                       <Tick />
                     </span>{" "}
                     <strong>1 to 2 hours</strong> of preparation time made by me
-                    before the consultation.
+                    before the consultation
                   </li>
                   <li>
                     <span className="mr-1 not-italic font-bold">
                       <Tick />
                     </span>
                     Bonus 1: A <strong>recording of the consultation</strong>{" "}
-                    sent just after by email.
+                    sent just after by email
                   </li>
                   <li>
                     <span className="mr-1 not-italic font-bold">
                       <Tick />
                     </span>{" "}
                     Bonus 2: A <i>personalized document</i> with{" "}
-                    <strong>practical actions</strong> for you to evolve.
+                    <strong>practical actions</strong> for you to evolve
                   </li>
                   <li>
                     <span className="mr-1 not-italic font-bold">
                       <Tick />
                     </span>{" "}
                     Bonus 3: <u>Unlimited</u> support and questions about your
-                    chart by DM.*
+                    chart by DM *
                   </li>
 
                   <li>
@@ -203,7 +202,7 @@ const Coaching = ({ openPaymentModal }) => {
                     <strong>
                       <i>25% discount</i>
                     </strong>{" "}
-                    on your next order! (except{" "}
+                    on your next order (except{" "}
                     <strong>
                       <i>the Follow-up Consultation</i>
                     </strong>
@@ -218,7 +217,7 @@ const Coaching = ({ openPaymentModal }) => {
                     a
                   </span>
                   <strong>
-                    <i> Follow-up Consultation</i>.
+                    <i> Follow-up Consultation</i>
                   </strong>{" "}
                 </div>
               </div>

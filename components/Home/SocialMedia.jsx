@@ -43,7 +43,7 @@ const SocialMedia = () => {
                   The best way to know when I open{" "}
                   <b>spots for consultations</b>! Follow my daily life, ask me
                   questions, and learn a <i>unique</i> vision of astrology with
-                  interesting videos and post <u>everyday</u>!
+                  interesting videos and posts <u>everyday</u>!
                 </div>
 
                 <div className="2xl:mt-10 sm:mt-7 mt-5">
