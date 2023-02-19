@@ -392,8 +392,9 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
                 <div className="text-xl mb-5">
                   {isBookingDone ? (
                     <span>
-                      Booking done! An order confirmation is sent to your email
-                      ({userEmail}).
+                      Booking done! <strong>An order confirmation</strong> is
+                      sent to your email ({userEmail}). Please also check your
+                      spam mailbox.
                     </span>
                   ) : (
                     <span>
