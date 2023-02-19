@@ -88,20 +88,6 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
     setIsPaymentMade(true);
   }
 
-  // test only
-  useEffect(() => {
-    async function test() {
-      const occupiedDates = (await getOccupiedDates()).map(
-        (date) => new Date(date)
-      );
-      setExcludeDates(occupiedDates);
-
-      setIsPaymentMade(true);
-    }
-
-    test();
-  }, []);
-
   async function onConfirmBookingDate(e) {
     e.preventDefault();
     setIsBooking(true);
