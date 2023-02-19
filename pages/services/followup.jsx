@@ -7,11 +7,17 @@ import SectionHead from "../../components/UI/SectionHead";
 import Tick from "../../components/UI/Tick";
 import { getClients } from "../../utils";
 import { SyncLoader } from "react-spinners";
+import { canOpenCheck } from "../../config";
 
 const Followup = ({ openPaymentModal }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   async function handleBooking() {
+    const canOpen = canOpenCheck({ productId: 8 });
+    if (!canOpen) {
+      setIsOk(false);
+    }
+
     setIsLoading(true);
     const clients = await getClients();
     setIsLoading(false);

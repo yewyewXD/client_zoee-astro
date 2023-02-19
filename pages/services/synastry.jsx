@@ -7,12 +7,18 @@ import SectionHead from "../../components/UI/SectionHead";
 import Tick from "../../components/UI/Tick";
 import { isSlotAvailable } from "../../utils";
 import { SyncLoader } from "react-spinners";
+import { canOpenCheck } from "../../config";
 
 const Synastry = ({ openPaymentModal }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isOk, setIsOk] = useState(false);
 
   async function handleBooking() {
+    const canOpen = canOpenCheck({ productId: 7 });
+    if (!canOpen) {
+      setIsOk(false);
+    }
+
     setIsLoading(true);
     const isOpen = await isSlotAvailable();
     setIsLoading(false);
