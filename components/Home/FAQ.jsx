@@ -8,10 +8,10 @@ const FAQ = () => {
     <div
       className="text-white relative"
       style={{
-        background: "url(/images/faq-bg.webp) no-repeat center center / cover",
+        background: "url(/images/hero-bg.jpg) no-repeat center center / cover",
       }}
     >
-      <BgOverlay opacity={"0.6"} />
+      <BgOverlay opacity={"0.45"} />
       <div className="lg:py-20 py-14 container relative">
         <div className="sm:mb-20 mb-14">
           <h2 className="2xl:text-5xl text-4xl text-center font-bold">FAQ</h2>

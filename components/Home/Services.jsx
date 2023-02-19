@@ -46,7 +46,7 @@ const SERVICE_ITEMS = [
     title: "Follow-up Consultation",
     price: "50 USD",
     description:
-      "Wanna follow-up your <strong>progress</strong> on becoming the <u>best version of yourself</u>? This is the best option! You will get precious additional <strong>advices</strong>, get <strong>answers</strong> to any of your questions but also important <u>guidance and support</u> on your self-growth journey. All you doubts and worries will be away!",
+      "Wanna follow-up your <strong>progress</strong> on becoming the <u>best version of yourself</u>? This is the best option! You will get precious additional <strong>advices</strong>, get <strong>answers</strong> to any of your questions but also important <u>guidance and support</u> on your self-growth journey. All your doubts and worries will be away!",
     image: "/images/service-follow.jpg",
     link: "/services/followup",
     ctaText: "I Want To Continue My Self-Growth Journey",
