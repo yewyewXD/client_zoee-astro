@@ -9,29 +9,22 @@ import { getOccupiedDates, submitBooking } from "../../../utils";
 import { MoonLoader } from "react-spinners";
 import { EmailBtn } from "../../../pages/disclaimer";
 
-const INITIAL_DATE = DateTime.fromObject(
-  {
-    year: 2023,
-    month: 4,
-    day: 1,
-    hour: 11,
-    minute: 0,
-  },
-  { zone: "Asia/Singapore" }
-);
+const INITIAL_DATE = DateTime.fromObject({
+  year: 2023,
+  month: 4,
+  day: 1,
+  hour: 11,
+  minute: 0,
+});
 
-const INITIAL_DATE_END = DateTime.fromObject(
-  {
-    year: 2023,
-    month: 4,
-    day: 30,
-    hour: 19,
-    minute: 0,
-  },
-  { zone: "Asia/Singapore" }
-);
+const INITIAL_DATE_END = DateTime.fromObject({
+  year: 2023,
+  month: 4,
+  day: 30,
+  hour: 19,
+  minute: 0,
+});
 
-const TODAY = DateTime.now();
 const USER_TIMEZONE = moment.tz.guess();
 
 const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
@@ -51,7 +44,8 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
   const [newZone, setNewZone] = useState(USER_TIMEZONE || "Asia/Singapore");
   const [excludeDates, setExcludeDates] = useState([]);
   const [isPickingDate, setIsPickingDate] = useState(true);
-  const [pickedDate, setPickedDate] = useState(undefined);
+  const [datePickerDate, setDatePickerDate] = useState(INITIAL_DATE.toJSDate());
+  const [pickedDate, setPickedDate] = useState(INITIAL_DATE.toJSDate());
 
   const [userEmail, setUserEmail] = useState("");
   const [isBooking, setIsBooking] = useState(false);
@@ -80,12 +74,28 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
     setClientConfig({ orderId, orderDate, email, name });
     setUserEmail(email);
 
-    const occupiedDates = (await getOccupiedDates()).map(
-      (date) => new Date(date)
-    );
+    const occupiedDates = (await getOccupiedDates()).map((date) => {
+      const splitDate = date.split("-");
+      return DateTime.fromObject({
+        year: splitDate[0],
+        month: splitDate[1],
+        day: splitDate[2],
+        hour: 8,
+      }).toJSDate();
+    });
     setExcludeDates(occupiedDates);
 
     setIsPaymentMade(true);
+  }
+
+  function handlePickDate(date) {
+    const luxonDate = DateTime.fromJSDate(date)
+      .setZone("Asia/Singapore", {
+        keepLocalTime: true,
+      })
+      .toJSDate();
+    setDatePickerDate(date);
+    setPickedDate(luxonDate);
   }
 
   async function onConfirmBookingDate(e) {
@@ -132,8 +142,8 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
   }
 
   function isDateValidCheck() {
-    if (!pickedDate) return false;
-    const picked = DateTime.fromJSDate(pickedDate);
+    if (!pickedDate || datePickerDate) return false;
+    const picked = DateTime.fromJSDate(datePickerDate);
     const pickedDay = picked.get("day");
     const pickedMonth = picked.get("month");
 
@@ -281,11 +291,11 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
                   />
 
                   <div className="text-base leading-tight mt-1">
-                    <span className="font-semibold">Note:</span> Available
-                    date/time is shown in
+                    <span className="font-semibold">Note:</span> Available time
+                    is shown in
                     <span className="font-semibold"> GMT+8</span> and converted
-                    to your <u>local timezone above</u>. Please confirm your
-                    timezone & email below.
+                    to your <u>local time above</u> (Incl. Daylight-Saving).
+                    Please confirm your <u>timezone & email below</u>.
                   </div>
 
                   {isPickingDate && (
@@ -293,10 +303,8 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
                       <DatePicker
                         inline
                         excludeDates={excludeDates}
-                        selected={pickedDate}
-                        onChange={(date) => {
-                          setPickedDate(date);
-                        }}
+                        selected={datePickerDate}
+                        onChange={handlePickDate}
                         showTimeSelect
                         minDate={INITIAL_DATE.toJSDate()}
                         maxDate={INITIAL_DATE_END.toJSDate()}
@@ -318,14 +326,17 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
                   >
                     {timezones.map((tz) => (
                       <option value={tz.iana} key={tz.iana}>
-                        {TODAY.setZone(tz.iana).toFormat("(ZZZZ)")} {tz.name}
+                        {DateTime.fromJSDate(pickedDate, {
+                          zone: newZone,
+                        }).toFormat("(ZZZZ)")}{" "}
+                        {tz.name}
                       </option>
                     ))}
                   </select>
                 </div>
 
                 <div className="mt-3">
-                  <div>Your email:</div>
+                  <div>Email to receive order confirmation:</div>
                   <input
                     className="border rounded p-3 border-gray-500 w-full"
                     value={userEmail}
