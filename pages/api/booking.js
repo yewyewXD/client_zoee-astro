@@ -10,7 +10,7 @@ const sibHeaders = {
 };
 
 export default async function handler(req, res) {
-  const { email, name, emailParams, title, ownerDate } = req.body;
+  const { email, name, emailParams, title, ownerDate, databaseDate } = req.body;
 
   try {
     // Step 1: Minus 1 available slot
@@ -25,7 +25,9 @@ export default async function handler(req, res) {
     const slotData = await slotRes.json();
     const latestCount = slotData.records[0].fields.count;
     if (latestCount <= 0) {
-      return res.status(401).send({ message: "Slot is not available" });
+      return res
+        .status(401)
+        .send({ error: true, message: "Slot is not available" });
     }
     await fetch(
       `https://api.airtable.com/v0/appwdcuTEadLSlTYH/tblUPvGgiPIUh3dhT/recxOYvQ7fiQ7sPPv`,
@@ -40,8 +42,37 @@ export default async function handler(req, res) {
       }
     );
 
-    // Step 2: Add email to student database
-    console.log("Step 2: Add email to student database");
+    // Step 2: Book a date
+    console.log("Step 2: Book a date");
+    const dateRes = await fetch(
+      `https://api.airtable.com/v0/appwdcuTEadLSlTYH/tbltV7Nsbk1wCcCSo`,
+      {
+        method: "GET",
+        headers: atbleHeaders,
+      }
+    );
+    const dateData = await dateRes.json();
+    const latestDates = dateData.records.map((record) => record.fields.date);
+    if (latestDates.includes(databaseDate)) {
+      return res
+        .status(401)
+        .send({ error: true, message: "Date is not available" });
+    }
+    await fetch(
+      `https://api.airtable.com/v0/appwdcuTEadLSlTYH/tbltV7Nsbk1wCcCSo`,
+      {
+        method: "POST",
+        headers: atbleHeaders,
+        body: JSON.stringify({
+          fields: {
+            date: databaseDate,
+          },
+        }),
+      }
+    );
+
+    // Step 3: Add email to student database
+    console.log("Step 3: Add email to student database");
     await fetch(
       `https://api.airtable.com/v0/appwdcuTEadLSlTYH/tbleZN2ejVkPUMW7l`,
       {
@@ -58,8 +89,26 @@ export default async function handler(req, res) {
       }
     );
 
-    // Step 3: Send email to recipient & owner
-    console.log("Step 3: Send email to recipient & owner");
+    // Step 4: Send email to recipient & owner
+    console.log("Step 4: Add email to student database");
+    await fetch(
+      `https://api.airtable.com/v0/appwdcuTEadLSlTYH/tbleZN2ejVkPUMW7l`,
+      {
+        method: "POST",
+        headers: atbleHeaders,
+        body: JSON.stringify({
+          fields: {
+            email: email,
+            name: name,
+            consultation: title,
+            date: ownerDate,
+          },
+        }),
+      }
+    );
+
+    // Step 5: Send email to recipient
+    console.log("Step 5: Send email to recipient");
     const emailBody = JSON.stringify({
       to: [
         {
@@ -81,8 +130,8 @@ export default async function handler(req, res) {
       body: emailBody,
     });
 
-    // Step 4: Add user to email list
-    console.log("Step 4: Add user to email list");
+    // Step 6: Add user to email list
+    console.log("Step 6: Add user to email list");
     await fetch("https://api.sendinblue.com/v3/contacts", {
       method: "POST",
       headers: sibHeaders,

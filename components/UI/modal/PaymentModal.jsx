@@ -1,13 +1,12 @@
 import Image from "next/image";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PaymentBtn from "../buttons/PaymentBtn";
 import DatePicker from "react-datepicker";
 import { DateTime } from "luxon";
 import moment from "moment-timezone";
 import timezones from "../../../json/timezones.json";
-import { submitBooking } from "../../../utils";
+import { getOccupiedDates, submitBooking } from "../../../utils";
 import { MoonLoader } from "react-spinners";
-import Tick from "../Tick";
 import { EmailBtn } from "../../../pages/disclaimer";
 
 const INITIAL_DATE = DateTime.fromObject(
@@ -50,8 +49,9 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
   const [isPaymentMade, setIsPaymentMade] = useState(false);
 
   const [newZone, setNewZone] = useState(USER_TIMEZONE || "Asia/Singapore");
+  const [excludeDates, setExcludeDates] = useState([]);
   const [isPickingDate, setIsPickingDate] = useState(true);
-  const [pickedDate, setPickedDate] = useState(INITIAL_DATE.toJSDate());
+  const [pickedDate, setPickedDate] = useState(undefined);
 
   const [userEmail, setUserEmail] = useState("");
   const [isBooking, setIsBooking] = useState(false);
@@ -79,10 +79,31 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
   async function handleAfterBuy({ orderId, orderDate, email, name }) {
     setClientConfig({ orderId, orderDate, email, name });
     setUserEmail(email);
+
+    const occupiedDates = (await getOccupiedDates()).map(
+      (date) => new Date(date)
+    );
+    setExcludeDates(occupiedDates);
+
     setIsPaymentMade(true);
   }
 
-  async function onConfirmBookingDate() {
+  // test only
+  useEffect(() => {
+    async function test() {
+      const occupiedDates = (await getOccupiedDates()).map(
+        (date) => new Date(date)
+      );
+      setExcludeDates(occupiedDates);
+
+      setIsPaymentMade(true);
+    }
+
+    test();
+  }, []);
+
+  async function onConfirmBookingDate(e) {
+    e.preventDefault();
     setIsBooking(true);
 
     const emailParams = {
@@ -96,15 +117,16 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
       date: clientLocalDate,
     };
 
-    const ownerLocalDate = DateTime.fromJSDate(pickedDate, {
+    const ownerLocalLuxonDate = DateTime.fromJSDate(pickedDate, {
       zone: "Asia/Singapore",
-    })
-      .toFormat("dd MMMM yyyy @ hh:mm a (ZZZZ)")
-      .toString();
+    });
 
     const bookingConfig = {
       title: title,
-      ownerDate: ownerLocalDate,
+      databaseDate: ownerLocalLuxonDate.toFormat("yyyy-MM-dd"),
+      ownerDate: ownerLocalLuxonDate
+        .toFormat("dd MMMM yyyy @ hh:mm a (ZZZZ)")
+        .toString(),
       email: userEmail,
       name: clientConfig.name,
       emailParams,
@@ -121,6 +143,29 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
 
   function handleCloseModal() {
     onClose();
+  }
+
+  function isDateValidCheck() {
+    if (!pickedDate) return false;
+    const picked = DateTime.fromJSDate(pickedDate);
+    const pickedDay = picked.get("day");
+    const pickedMonth = picked.get("month");
+
+    for (const exDate of excludeDates) {
+      const excluded = DateTime.fromJSDate(exDate);
+      if (
+        excluded.get("day") === pickedDay &&
+        excluded.get("month") === pickedMonth
+      ) {
+        return false;
+      }
+    }
+
+    if (picked < INITIAL_DATE || picked > INITIAL_DATE_END) {
+      return false;
+    }
+
+    return true;
   }
 
   return (
@@ -226,7 +271,11 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
 
             {/* Content 3 - Choose consultation date */}
             {isPaymentMade && (
-              <div style={{ minHeight: "400px" }}>
+              <form
+                className="block"
+                style={{ minHeight: "400px" }}
+                onSubmit={onConfirmBookingDate}
+              >
                 <div className="text-xl mb-5">
                   Payment Succeeded! Please select the <u>date & time</u> for
                   the consultation.
@@ -257,6 +306,7 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
                     <div className="sm:block flex justify-center">
                       <DatePicker
                         inline
+                        excludeDates={excludeDates}
                         selected={pickedDate}
                         onChange={(date) => {
                           setPickedDate(date);
@@ -293,6 +343,8 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
                   <input
                     className="border rounded p-3 border-gray-500 w-full"
                     value={userEmail}
+                    required
+                    type="email"
                     onChange={(e) => {
                       setUserEmail(e.target.value);
                     }}
@@ -301,11 +353,17 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
 
                 <button
                   className="bg-gray text-white py-2 px-6 rounded-md mt-5 hover:opacity-80 smooth mb-8 sm:w-max w-full"
-                  onClick={onConfirmBookingDate}
+                  type="submit"
+                  disabled={!isDateValidCheck()}
+                  style={!isDateValidCheck() ? { color: "gray" } : {}}
                 >
-                  Confirm - {clientLocalDate}
+                  {isDateValidCheck() ? (
+                    <span>Confirm - {clientLocalDate}</span>
+                  ) : (
+                    <span>Date is not allowed, please pick another one</span>
+                  )}
                 </button>
-              </div>
+              </form>
             )}
           </>
         )}
