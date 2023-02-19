@@ -30,7 +30,29 @@
   {
     "id": "nav-item-4",
     "text": "About Me",
-    "link": "/about"
+    "link": "/about",
+    "subItems": [
+      {
+        "id": "about-sub-item-1",
+        "text": "Who Am I?",
+        "link": "/about#who-am-i"
+      },
+      {
+        "id": "about-sub-item-2",
+        "text": "My Story With Astrology",
+        "link": "/about#my-story"
+      },
+      {
+        "id": "about-sub-item-3",
+        "text": "My Learning Journey",
+        "link": "/about#my-journey"
+      },
+      {
+        "id": "about-sub-item-4",
+        "text": "Why I Chose Astrology",
+        "link": "/about#why-i-chose"
+      }
+    ]
   },
   {
     "id": "nav-item-5",

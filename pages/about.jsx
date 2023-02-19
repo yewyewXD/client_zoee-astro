@@ -34,7 +34,10 @@ const About = () => {
         <div className="bg-green lg:py-20 py-14">
           <div className="container relative">
             {/* Section 1 */}
-            <div className="lg:grid grid-cols-3 flex flex-col-reverse">
+            <div
+              className="lg:grid grid-cols-3 flex flex-col-reverse"
+              id="who-am-i"
+            >
               <div className="col-span-2 flex lg:pr-20 items-center">
                 <div className="2xl:text-xl text-lg">
                   <div className="mb-5 font-bold lg:text-3xl text-xl">
@@ -48,7 +51,7 @@ const About = () => {
                     I help people to <u>truly</u> understand themselves and{" "}
                     <i> change their life</i> with astrology and give them{" "}
                     <b>practical keys</b> to reach happiness. All of this using
-                    multiples ancient and moderns astrology techniques.
+                    multiple ancient and modern astrology techniques.
                   </div>
 
                   <div className="mt-5">
@@ -122,7 +125,10 @@ const About = () => {
             </div>
 
             {/* Section 2 */}
-            <div className="lg:grid flex-col grid-cols-3 lg:mt-32 mt-14">
+            <div
+              className="lg:grid flex-col grid-cols-3 lg:mt-32 mt-14"
+              id="my-story"
+            >
               <div className="col-span-1 lg:flex hidden items-center">
                 <Image
                   className="rounded-xl shadow-md shadow-black"
@@ -172,7 +178,7 @@ const About = () => {
                   </div>
 
                   <div className="mt-5">
-                    Again, I was trying find a logic in the zodiac signs
+                    Again, I was trying find a logic in the Zodiac signs
                     compatibilities. My mind was restless.{" "}
                     <b>I couldn’t stop thinking about it.</b>
                   </div>
@@ -237,7 +243,10 @@ const About = () => {
             </div>
 
             {/* Section 3 */}
-            <div className="lg:grid grid-cols-3 flex flex-col-reverse lg:mt-32 mt-14">
+            <div
+              className="lg:grid grid-cols-3 flex flex-col-reverse lg:mt-32 mt-14"
+              id="my-journey"
+            >
               <div className="col-span-2 flex lg:pr-20 items-center">
                 <div className="2xl:text-xl text-lg">
                   <div className="mb-5 font-bold lg:text-3xl text-xl">
@@ -356,7 +365,7 @@ const About = () => {
             </div>
 
             {/* Section 4 */}
-            <div className="lg:mt-32 mt-14">
+            <div className="lg:mt-32 mt-14" id="why-i-chose">
               <div className="2xl:text-xl text-lg">
                 <div className="mb-8 font-bold lg:text-3xl text-xl">
                   The 5 Reasons Why I Chose Astrology
