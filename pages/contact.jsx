@@ -18,6 +18,7 @@ const contact = () => {
           name="description"
           content="A Question? Need To Contact Me? No Problem! Just Fulfil The Form Below."
         />
+        <meta name="robots" content="noindex nofollow" />
         <link rel="icon" href="/images/logo-color.png" />
       </Head>
 

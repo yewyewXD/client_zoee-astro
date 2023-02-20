@@ -50,6 +50,7 @@ const Disclaimer = () => {
           name="description"
           content="Make Sure To Read This Before Booking A Consultation."
         />
+        <meta name="robots" content="noindex nofollow" />
         <link rel="icon" href="/images/logo-color.png" />
       </Head>
 
