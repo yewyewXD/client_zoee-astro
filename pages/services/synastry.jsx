@@ -45,6 +45,36 @@ const Synastry = ({ openPaymentModal }) => {
           content="Synastry is the part of astrology that study the relationship between 2 people and it’s not only for couples! You can do it between friends, parent-child, coworkers and more. This is the best option to give you the keys to understand any relationship and find ways to improve it. Result: everyone is happier in the relationship!"
         />
         <link rel="icon" href="/images/logo-color.png" />
+
+        {/* OG */}
+        <meta
+          content="Synastry Consultation | Easy Astrology By Zoée"
+          property="og:title"
+        />
+        <meta content="https://easyastrologybyzoee.com/" property="og:url" />
+        <meta
+          content="Synastry is the part of astrology that study the relationship between 2 people and it’s not only for couples! You can do it between friends, parent-child, coworkers and more. This is the best option to give you the keys to understand any relationship and find ways to improve it. Result: everyone is happier in the relationship!"
+          property="og:description"
+        />
+        <meta
+          content="https://easyastrologybyzoee.com/images/service-synastry.jpg"
+          property="og:image"
+        />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Synastry Consultation | Easy Astrology By Zoée"
+        />
+        <meta
+          name="twitter:description"
+          content="Synastry is the part of astrology that study the relationship between 2 people and it’s not only for couples! You can do it between friends, parent-child, coworkers and more. This is the best option to give you the keys to understand any relationship and find ways to improve it. Result: everyone is happier in the relationship!"
+        />
+        <meta
+          name="twitter:image"
+          content="https://easyastrologybyzoee.com/images/service-synastry.jpg"
+        />
       </Head>
 
       <Navbar />

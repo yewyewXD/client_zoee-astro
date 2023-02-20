@@ -41,6 +41,36 @@ const Followup = ({ openPaymentModal }) => {
           content="Follow-up your self-growth progress and make sure the previous consultation was effective. But it will also give you additional advices, answer any of your questions and bring you more guidance and support on your journey."
         />
         <link rel="icon" href="/images/logo-color.png" />
+
+        {/* OG */}
+        <meta
+          content="Follow-up Consultation | Easy Astrology By Zoée"
+          property="og:title"
+        />
+        <meta content="https://easyastrologybyzoee.com/" property="og:url" />
+        <meta
+          content="Follow-up your self-growth progress and make sure the previous consultation was effective. But it will also give you additional advices, answer any of your questions and bring you more guidance and support on your journey."
+          property="og:description"
+        />
+        <meta
+          content="https://easyastrologybyzoee.com/images/service-follow.jpg"
+          property="og:image"
+        />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Follow-up Consultation | Easy Astrology By Zoée"
+        />
+        <meta
+          name="twitter:description"
+          content="Follow-up your self-growth progress and make sure the previous consultation was effective. But it will also give you additional advices, answer any of your questions and bring you more guidance and support on your journey."
+        />
+        <meta
+          name="twitter:image"
+          content="https://easyastrologybyzoee.com/images/service-follow.jpg"
+        />
       </Head>
 
       <Navbar />

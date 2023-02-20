@@ -39,7 +39,6 @@ export default function Home() {
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="https://easyastrologybyzoee.com/" />
         <meta name="twitter:title" content="Home | Easy Astrology By Zoée" />
         <meta
           name="twitter:description"

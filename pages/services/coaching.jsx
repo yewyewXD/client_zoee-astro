@@ -45,6 +45,36 @@ const Coaching = ({ openPaymentModal }) => {
           content="Coaching Astrology is an amazing self-development tool. In coaching astrology, your birth chart describes who you should be and what you should do to achieve happiness, success and self-growth. It will give you the keys to reach your goals, become a better version of yourself and go on the best life path for you."
         />
         <link rel="icon" href="/images/logo-color.png" />
+
+        {/* OG */}
+        <meta
+          content="Coaching Astrology Consultation | Easy Astrology By Zoée"
+          property="og:title"
+        />
+        <meta content="https://easyastrologybyzoee.com/" property="og:url" />
+        <meta
+          content="Coaching Astrology is an amazing self-development tool. In coaching astrology, your birth chart describes who you should be and what you should do to achieve happiness, success and self-growth. It will give you the keys to reach your goals, become a better version of yourself and go on the best life path for you."
+          property="og:description"
+        />
+        <meta
+          content="https://easyastrologybyzoee.com/images/service-coaching.jpg"
+          property="og:image"
+        />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Coaching Astrology Consultation | Easy Astrology By Zoée"
+        />
+        <meta
+          name="twitter:description"
+          content="Coaching Astrology is an amazing self-development tool. In coaching astrology, your birth chart describes who you should be and what you should do to achieve happiness, success and self-growth. It will give you the keys to reach your goals, become a better version of yourself and go on the best life path for you."
+        />
+        <meta
+          name="twitter:image"
+          content="https://easyastrologybyzoee.com/images/service-coaching.jpg"
+        />
       </Head>
 
       <Navbar />

@@ -27,6 +27,30 @@ const About = () => {
           content="I’m Zoée, astrologer, consultant and content creator but not only. I help people to truly understand themselves and change their life with astrology and give them practical keys to reach happiness. All of this using multiple ancient and modern astrology techniques."
         />
         <link rel="icon" href="/images/logo-color.png" />
+
+        {/* OG */}
+        <meta content="About | Easy Astrology By Zoée" property="og:title" />
+        <meta content="https://easyastrologybyzoee.com/" property="og:url" />
+        <meta
+          content="I’m Zoée, astrologer, consultant and content creator but not only. I help people to truly understand themselves and change their life with astrology and give them practical keys to reach happiness. All of this using multiple ancient and modern astrology techniques."
+          property="og:description"
+        />
+        <meta
+          content="https://easyastrologybyzoee.com/images/about-face.jpeg"
+          property="og:image"
+        />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About | Easy Astrology By Zoée" />
+        <meta
+          name="twitter:description"
+          content="I’m Zoée, astrologer, consultant and content creator but not only. I help people to truly understand themselves and change their life with astrology and give them practical keys to reach happiness. All of this using multiple ancient and modern astrology techniques."
+        />
+        <meta
+          name="twitter:image"
+          content="https://easyastrologybyzoee.com/images/about-face.jpeg"
+        />
       </Head>
 
       <Navbar />
