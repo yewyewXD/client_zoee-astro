@@ -32,7 +32,10 @@ export default function Home() {
           content="For People Who Want To Become The Best Version Of Themselves… I use multiple ancient and modern astrology techniques to help you discover your hidden talents, use your true potential, transform drastically your relationships and find the happiest life path for you."
           property="og:description"
         />
-        <meta content="/images/logo-color.png" property="og:image" />
+        <meta
+          content="https://easyastrologybyzoee.com/images/logo-color.png"
+          property="og:image"
+        />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -42,7 +45,10 @@ export default function Home() {
           name="twitter:description"
           content="For People Who Want To Become The Best Version Of Themselves… I use multiple ancient and modern astrology techniques to help you discover your hidden talents, use your true potential, transform drastically your relationships and find the happiest life path for you."
         />
-        <meta name="twitter:image" content="/images/logo-color.png" />
+        <meta
+          name="twitter:image"
+          content="https://easyastrologybyzoee.com/images/logo-color.png"
+        />
       </Head>
 
       <Navbar />
