@@ -24,6 +24,25 @@ export default function Home() {
           content="For People Who Want To Become The Best Version Of Themselves… I use multiple ancient and modern astrology techniques to help you discover your hidden talents, use your true potential, transform drastically your relationships and find the happiest life path for you."
         />
         <link rel="icon" href="/images/logo-color.png" />
+
+        {/* OG */}
+        <meta content="Home | Easy Astrology By Zoée" property="og:title" />
+        <meta content="https://easyastrologybyzoee.com/" property="og:url" />
+        <meta
+          content="For People Who Want To Become The Best Version Of Themselves… I use multiple ancient and modern astrology techniques to help you discover your hidden talents, use your true potential, transform drastically your relationships and find the happiest life path for you."
+          property="og:description"
+        />
+        <meta content="/images/logo-color.png" property="og:image" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="https://easyastrologybyzoee.com/" />
+        <meta name="twitter:title" content="Home | Easy Astrology By Zoée" />
+        <meta
+          name="twitter:description"
+          content="For People Who Want To Become The Best Version Of Themselves… I use multiple ancient and modern astrology techniques to help you discover your hidden talents, use your true potential, transform drastically your relationships and find the happiest life path for you."
+        />
+        <meta name="twitter:image" content="/images/logo-color.png" />
       </Head>
 
       <Navbar />
