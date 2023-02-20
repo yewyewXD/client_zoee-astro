@@ -10,7 +10,7 @@ const OutBoundLink = ({ children, href }) => (
   <a
     className="font-bold underline smooth hover:opacity-80 cursor-pointer"
     target={"_blank"}
-    rel="noreferrer noopener"
+    rel="noreferrer noopener nofollow"
     href={href}
   >
     {children}
