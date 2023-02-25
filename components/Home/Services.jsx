@@ -101,9 +101,9 @@ const Services = () => {
                   service.alt ? "2xl:pr-40 md:pr-20" : "2xl:pl-40 md:pl-20"
                 } md:text-left text-center md:mt-0 mt-8`}
               >
-                <div className="2xl:text-4xl sm:text-3xl text-2xl font-bold relative flex flex-wrap">
-                  <span className="mr-2">{service.title}</span>{" "}
-                  <span>({service.price})</span>
+                <div className="2xl:text-4xl sm:text-3xl text-2xl font-bold relative flex flex-wrap sm:justify-start justify-center">
+                  <div className="sm:mr-2">{service.title}</div>
+                  <div>({service.price})</div>
                 </div>
 
                 <div
