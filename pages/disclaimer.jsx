@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import React from "react";
 import Footer from "../components/UI/Footer";
 import Navbar from "../components/UI/Navbar";
@@ -222,6 +223,30 @@ const Disclaimer = () => {
                 consultation begins, make sure to be in a <b>calm</b> and{" "}
                 <b>alone</b> space in which won’t be disturbed.
               </div>
+            </div>
+
+            <div>
+              <div className="text-center mt-28 mb-14 2xl:text-3xl sm:text-2xl text-xl font-bold">
+                Paying with PayPal
+              </div>
+
+              <Link href="https://www.privacypolicies.com/live/889cb50c-10f0-40f2-aa35-145c2c5a8565">
+                <div className="mt-5 font-semibold underline">
+                  Legal Privacy Policy
+                </div>
+              </Link>
+
+              <Link href="/documents/paypal-privacy-policy.pdf">
+                <div className="mt-5 font-semibold underline">
+                  Privacy Policy (PayPal)
+                </div>
+              </Link>
+
+              <Link href="/documents/paypal-user-agreement.pdf">
+                <div className="mt-5 font-semibold underline">
+                  User Agreement (PayPal)
+                </div>
+              </Link>
             </div>
           </div>
         </div>
