@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Source_Sans_Pro } from "@next/font/google";
 import "react-datepicker/dist/react-datepicker.css";
 import "../styles/global.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PaymentModal from "../components/UI/modal/PaymentModal";
-import Aos from "aos";
-import "aos/dist/aos.css";
 
 const ssp = Source_Sans_Pro({
   subsets: ["latin"],
@@ -14,10 +12,6 @@ const ssp = Source_Sans_Pro({
 });
 
 function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    Aos.init({ duration: 1000, disable: "mobile" });
-  }, []);
-
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [modalProps, setModalProps] = useState({});
 

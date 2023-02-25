@@ -39,7 +39,6 @@ const SERVICE_ITEMS = [
     link: "/services/coaching",
     ctaText: "I Want To Change My Life Now",
     alt: false,
-    aos: "fade-left",
   },
 
   {
@@ -51,7 +50,6 @@ const SERVICE_ITEMS = [
     link: "/services/followup",
     ctaText: "I Want To Continue My Self-Growth Journey",
     alt: true,
-    aos: "fade-right",
   },
 
   {
@@ -63,7 +61,6 @@ const SERVICE_ITEMS = [
     link: "/services/synastry",
     ctaText: "I Want To Improve My Relationship Now",
     alt: false,
-    aos: "fade-left",
   },
 ];
 
@@ -85,7 +82,7 @@ const Services = () => {
         </h2>
 
         {SERVICE_ITEMS.map((service) => (
-          <div key={`service-item-${service.title}`} data-aos={service.aos}>
+          <div key={`service-item-${service.title}`}>
             <div
               className={`flex ${
                 service.alt ? "md:flex-row-reverse" : "md:flex-row"
