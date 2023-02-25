@@ -4,7 +4,7 @@ const atbleHeaders = {
 };
 
 export default async function handler(req, res) {
-  const { email, name, emailParams, title, ownerDate } = req.body;
+  const { email, name, title, ownerDate, clientDate, orderDate } = req.body;
 
   try {
     // Step 1: Add booking info to Airtable
@@ -19,8 +19,8 @@ export default async function handler(req, res) {
             name: name,
             consultation: title,
             date: ownerDate,
-            client_date: emailParams.date,
-            order_date: emailParams.orderDate,
+            client_date: clientDate,
+            order_date: orderDate,
           },
         }),
       }
