@@ -354,7 +354,7 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
 
               <div className="text-lg font-semibold">
                 <a
-                  className="flex items-center p-3 rounded smooth cursor-pointer hover:bg-gray-400"
+                  className="flex items-center p-3 rounded smooth cursor-pointer hover:bg-gray-200"
                   href="https://www.paypal.me/easyastrologybyzoee"
                   target="_blank"
                   rel="noreferrer noopener"
@@ -423,8 +423,8 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
             <div className="xl:text-lg mb-6">
               <div className="mb-3">
                 An order confirmation will be sent to{" "}
-                <span className="font-semibold">{userEmail}</span> after the
-                payment is received. Please check the spam mailbox as well!
+                <span className="font-bold">{userEmail}</span> after the payment
+                is received. Please check the spam mailbox as well!
               </div>
 
               <div>
