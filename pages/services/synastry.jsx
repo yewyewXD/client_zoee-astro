@@ -5,10 +5,9 @@ import Footer from "../../components/UI/Footer";
 import Navbar from "../../components/UI/Navbar";
 import SectionHead from "../../components/UI/SectionHead";
 import Tick from "../../components/UI/Tick";
-import { isSlotAvailable } from "../../utils";
 import { SyncLoader } from "react-spinners";
 import { SYNASTRY_TEMPLATE_ID } from "../../helpers/config";
-import { canOpenCheck } from "../../helpers/utils";
+import { canOpenCheck, isSlotAvailable } from "../../helpers/utils";
 
 const Synastry = ({ openPaymentModal }) => {
   const [isLoading, setIsLoading] = useState(false);

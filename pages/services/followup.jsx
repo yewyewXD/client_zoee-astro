@@ -5,10 +5,9 @@ import Footer from "../../components/UI/Footer";
 import Navbar from "../../components/UI/Navbar";
 import SectionHead from "../../components/UI/SectionHead";
 import Tick from "../../components/UI/Tick";
-import { getClients } from "../../utils";
 import { SyncLoader } from "react-spinners";
 import { FOLLOWUP_TEMPLATE_ID } from "../../helpers/config";
-import { canOpenCheck } from "../../helpers/utils";
+import { canOpenCheck, getClients } from "../../helpers/utils";
 
 const Followup = ({ openPaymentModal }) => {
   const [isLoading, setIsLoading] = useState(false);
