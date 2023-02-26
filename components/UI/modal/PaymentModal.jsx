@@ -7,7 +7,12 @@ import timezones from "../../../json/timezones.json";
 import { getOccupiedDates, submitBooking } from "../../../utils";
 import { MoonLoader } from "react-spinners";
 import { EmailBtn } from "../../../pages/disclaimer";
-import { getMinDate, INITIAL_DATE, INITIAL_DATE_END } from "../../../config";
+import {
+  getMinDate,
+  getWiseLink,
+  INITIAL_DATE,
+  INITIAL_DATE_END,
+} from "../../../config";
 
 const USER_TIMEZONE = moment.tz.guess();
 
@@ -25,6 +30,10 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
   const [isSubmittingDate, setIsSubmittingDate] = useState(false);
 
   // Phase: Payment
+  const wiseLink = useMemo(() => {
+    const link = getWiseLink(productId);
+    return link;
+  }, [productId]);
   const [isPaying, setIsPaying] = useState(false);
   const [hasClickedPayLink, setHasClickedPayLink] = useState(false);
 
@@ -367,7 +376,7 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
 
                 <a
                   className="flex items-center mt-3 p-3 rounded smooth cursor-pointer hover:bg-gray-400"
-                  href="https://wise.com/pay?payerMode=WISE_ACCOUNT&step=BALANCE#K_HnwKZhutndbvVEvg0LRUpKMBs"
+                  href={wiseLink}
                   target="_blank"
                   rel="noreferrer noopener"
                 >
@@ -417,14 +426,14 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
             <div className="font-bold text-xl mb-3">Thank you!</div>
             <div className="xl:text-lg mb-6">
               <div className="mb-3">
-                A confirmation will be sent to{" "}
+                An order confirmation will be sent to{" "}
                 <span className="font-semibold">{userEmail}</span> after the
                 payment is received. Please check the spam mailbox as well!
               </div>
 
               <div>
-                If the email is wrong, repeat the booking process without
-                actually paying.
+                To speed up the confirmation, <EmailBtn>email me</EmailBtn> the
+                receipt of your payment.
               </div>
             </div>
 
@@ -445,8 +454,13 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
               </svg>
             </div>
 
+            <div className="xl:text-lg mt-3">
+              If the email is wrong, repeat the booking process without actually
+              paying.
+            </div>
+
             <button
-              className="bg-gray text-white py-2 px-6 rounded-md mt-10 hover:opacity-80 smooth sm:w-max w-full"
+              className="bg-gray text-white py-2 px-6 rounded-md mt-6 hover:opacity-80 smooth sm:w-max w-full"
               onClick={handleCloseModal}
             >
               Close
