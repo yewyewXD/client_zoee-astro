@@ -36,7 +36,7 @@ const AboutMe = () => {
             <div className="col-span-1 md:flex hidden items-center">
               <Image
                 className="rounded-full shadow-md shadow-black"
-                src="/images/about-face.jpeg"
+                src="/images/about/about-face.jpeg"
                 alt=""
                 width={400}
                 height={400}
@@ -46,7 +46,7 @@ const AboutMe = () => {
             <div className="md:hidden flex justify-center mb-8">
               <Image
                 className="rounded-full shadow-md shadow-black"
-                src="/images/about-face.jpeg"
+                src="/images/about/about-face.jpeg"
                 alt=""
                 width={200}
                 height={200}

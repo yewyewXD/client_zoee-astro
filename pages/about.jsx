@@ -36,7 +36,7 @@ const About = () => {
           property="og:description"
         />
         <meta
-          content="https://easyastrologybyzoee.com/images/about-face.jpeg"
+          content="https://easyastrologybyzoee.com/images/about/about-face.jpeg"
           property="og:image"
         />
 
@@ -49,7 +49,7 @@ const About = () => {
         />
         <meta
           name="twitter:image"
-          content="https://easyastrologybyzoee.com/images/about-face.jpeg"
+          content="https://easyastrologybyzoee.com/images/about/about-face.jpeg"
         />
       </Head>
 
@@ -133,7 +133,7 @@ const About = () => {
               <div className="col-span-1 lg:flex hidden items-center justify-end">
                 <Image
                   className="rounded-full shadow-md shadow-black"
-                  src="/images/about-face.jpeg"
+                  src="/images/about/about-face.jpeg"
                   alt=""
                   width={340}
                   height={400}
@@ -143,7 +143,7 @@ const About = () => {
               <div className="lg:hidden flex justify-center mb-10">
                 <Image
                   className="rounded-full shadow-md shadow-black"
-                  src="/images/about-face.jpeg"
+                  src="/images/about/about-face.jpeg"
                   alt=""
                   width={200}
                   height={200}
@@ -159,7 +159,7 @@ const About = () => {
               <div className="col-span-1 lg:flex hidden items-center">
                 <Image
                   className="rounded-xl shadow-md shadow-black"
-                  src="/images/about-img2.jpeg"
+                  src="/images/about/about-img2.jpeg"
                   alt=""
                   width={380}
                   height={500}
@@ -168,7 +168,7 @@ const About = () => {
               <div className="lg:hidden flex justify-center mb-10">
                 <Image
                   className="rounded-xl shadow-md shadow-black"
-                  src="/images/about-img2.jpeg"
+                  src="/images/about/about-img2.jpeg"
                   alt=""
                   width={300}
                   height={200}
@@ -373,7 +373,7 @@ const About = () => {
               <div className="col-span-1 lg:flex hidden items-center justify-end">
                 <Image
                   className="rounded-xl shadow-md shadow-black"
-                  src="/images/about-img3.jpeg"
+                  src="/images/about/about-img3.jpeg"
                   alt=""
                   width={380}
                   height={500}
@@ -383,7 +383,7 @@ const About = () => {
               <div className="lg:hidden flex justify-center mb-10">
                 <Image
                   className="rounded-xl shadow-md shadow-black"
-                  src="/images/about-img3.jpeg"
+                  src="/images/about/about-img3.jpeg"
                   alt=""
                   width={300}
                   height={200}
