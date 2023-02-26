@@ -21,12 +21,15 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
   );
   const [newZone, setNewZone] = useState(USER_TIMEZONE || "Asia/Singapore");
   const userEmailRef = useRef(<input type="email" />);
+  const [userEmail, setUserEmail] = useState("");
+  const [isSubmittingDate, setIsSubmittingDate] = useState(false);
 
   // Phase: Payment
   const [isPaying, setIsPaying] = useState(false);
+  const [hasClickedPayLink, setHasClickedPayLink] = useState(false);
 
-  // Error handling
-  const [hasError, setHasError] = useState(false);
+  // Phase: Final step
+  const [isAtFinal, setIsAtFinal] = useState(false);
 
   // Step 1: Validate Follow-up Customers
   const followupEmailRef = useRef();
@@ -79,8 +82,10 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
 
   async function onConfirmBookingDate(e) {
     e.preventDefault();
+    setIsSubmittingDate(true);
 
     const finalEmail = userEmailRef.current.value;
+    setUserEmail(finalEmail);
 
     const bookingConfig = {
       name: "",
@@ -100,11 +105,8 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
     };
 
     const data = await submitBooking(bookingConfig);
-    if (data.error) {
-      setHasError(true);
-      return;
-    }
 
+    setIsSubmittingDate(false);
     setIsBooking(false);
     setIsPaying(true);
   }
@@ -136,6 +138,12 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
 
     return true;
   }, [datePickerDate, excludeDates, pickerMinDate]);
+
+  // Step 5: Show final step (after payment)
+  function showFinalStep() {
+    setIsPaying(false);
+    setIsAtFinal(true);
+  }
 
   // Exit: Close Modal
   function handleCloseModal() {
@@ -289,7 +297,7 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
             <button
               className="bg-gray text-white py-2 px-6 rounded-md mt-5 hover:opacity-80 smooth mb-8 sm:w-max w-full"
               type="submit"
-              disabled={!isDateValid}
+              disabled={!isDateValid || isSubmittingDate}
               style={!isDateValid ? { color: "gray" } : {}}
             >
               {isDateValid ? (
@@ -334,32 +342,117 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
               </div>
             </div>
 
-            <div className="w-10/12 mx-auto mt-10">
-              <div>Methods to Pay</div>
-              <div>Paypal</div>
+            <div className="mx-auto mt-10">
+              <div className="text-xl font-semibold text-center mb-2">
+                Methods to Pay
+              </div>
+
+              <div className="text-lg font-semibold">
+                <a
+                  className="flex items-center p-3 rounded smooth cursor-pointer hover:bg-gray-400"
+                  href="https://www.paypal.me/easyastrologybyzoee"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <Image
+                    className="mr-3"
+                    src="/images/icon_paypal.png"
+                    alt=""
+                    height={30}
+                    width={30}
+                  />{" "}
+                  Paypal{" "}
+                  <span className="ml-2 font-normal text-base">(Fastest)</span>
+                </a>
+
+                <a
+                  className="flex items-center mt-3 p-3 rounded smooth cursor-pointer hover:bg-gray-400"
+                  href="https://wise.com/pay?payerMode=WISE_ACCOUNT&step=BALANCE#K_HnwKZhutndbvVEvg0LRUpKMBs"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <Image
+                    className="mr-3"
+                    src="/images/icon_bank.png"
+                    alt=""
+                    height={30}
+                    width={30}
+                  />{" "}
+                  Bank Transfer
+                </a>
+              </div>
+
+              <div className="mt-3 flex items-center">
+                <input
+                  type="checkbox"
+                  id="is-paid-checkbox"
+                  className="cursor-pointer"
+                  onChange={(e) => {
+                    setHasClickedPayLink((bool) => !bool);
+                  }}
+                />{" "}
+                <label
+                  htmlFor="is-paid-checkbox"
+                  className="pl-2 cursor-pointer"
+                >
+                  I have made the payment. (Booking will only be confirmed after
+                  payment is received)
+                </label>
+              </div>
+
+              <button
+                className="bg-gray text-white py-2 px-6 rounded-md mt-5 hover:opacity-80 smooth sm:w-max w-full"
+                disabled={!hasClickedPayLink}
+                onClick={showFinalStep}
+              >
+                Done
+              </button>
             </div>
           </div>
         )}
 
         {/* Success */}
-        {/* <div className="flex flex-col justify-center items-center text-center">
-          <div className="border-4 rounded-full p-10 border-green-700">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="green"
-              className="w-20 h-20 "
+        {isAtFinal && (
+          <div className="flex flex-col justify-center items-center text-center">
+            <div className="font-bold text-xl mb-3">Thank you!</div>
+            <div className="xl:text-lg mb-6">
+              <div className="mb-3">
+                A confirmation will be sent to{" "}
+                <span className="font-semibold">{userEmail}</span> after the
+                payment is received. Please check the spam mailbox as well!
+              </div>
+
+              <div>
+                If the email is wrong, repeat the booking process without
+                actually paying.
+              </div>
+            </div>
+
+            <div className="border-4 rounded-full p-10 border-green-700">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="green"
+                className="w-20 h-20 "
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4.5 12.75l6 6 9-13.5"
+                />
+              </svg>
+            </div>
+
+            <button
+              className="bg-gray text-white py-2 px-6 rounded-md mt-10 hover:opacity-80 smooth sm:w-max w-full"
+              onClick={handleCloseModal}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4.5 12.75l6 6 9-13.5"
-              />
-            </svg>
+              Close
+            </button>
           </div>
-        </div> */}
+        )}
       </div>
     </div>
   );
