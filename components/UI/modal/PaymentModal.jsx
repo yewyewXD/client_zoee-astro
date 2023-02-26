@@ -7,12 +7,8 @@ import timezones from "../../../json/timezones.json";
 import { getOccupiedDates, submitBooking } from "../../../helpers/utils";
 import { MoonLoader } from "react-spinners";
 import { EmailBtn } from "../../../pages/disclaimer";
-import {
-  getMinDate,
-  getWiseLink,
-  INITIAL_DATE,
-  INITIAL_DATE_END,
-} from "../../../helpers/config";
+import { INITIAL_DATE, INITIAL_DATE_END } from "../../../helpers/config";
+import { getMinDate, getWiseLink } from "../../../helpers/utils";
 
 const USER_TIMEZONE = moment.tz.guess();
 

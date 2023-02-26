@@ -1,4 +1,14 @@
 import { DateTime } from "luxon";
+import {
+  INITIAL_DATE,
+  INITIAL_DATE_END,
+  COACHING_TEMPLATE_ID,
+  COACHING_WISE_LINK,
+  FOLLOWUP_TEMPLATE_ID,
+  FOLLOWUP_WISE_LINK,
+  SYNASTRY_TEMPLATE_ID,
+  SYNASTRY_WISE_LINK,
+} from "./config";
 
 export async function isSlotAvailable() {
   const res = await fetch("/api/slots");
@@ -49,4 +59,53 @@ export async function getOccupiedDates() {
   });
 
   return occupiedDates;
+}
+
+export function getMinDate({ productId }) {
+  const ownerDateNow = DateTime.now().setZone("Asia/Singapore");
+
+  let newMinDate;
+
+  if (productId === 8) {
+    newMinDate = ownerDateNow.plus({ days: 8 });
+  } else {
+    newMinDate = ownerDateNow.plus({ days: 15 });
+  }
+
+  newMinDate = newMinDate.toLocal().startOf("day").toJSDate();
+
+  const minDate = INITIAL_DATE.toJSDate();
+
+  if (newMinDate > minDate) {
+    return newMinDate;
+  } else {
+    return minDate;
+  }
+}
+
+export function canOpenCheck({ productId }) {
+  const minDate = getMinDate({ productId });
+  const endDate = INITIAL_DATE_END.setZone("Asia/Singapore", {
+    keepLocalTime: true,
+  })
+    .toLocal()
+    .startOf("day");
+
+  return minDate < endDate;
+}
+
+export function getWiseLink(productId) {
+  switch (productId) {
+    case COACHING_TEMPLATE_ID:
+      return COACHING_WISE_LINK;
+
+    case SYNASTRY_TEMPLATE_ID:
+      return SYNASTRY_WISE_LINK;
+
+    case FOLLOWUP_TEMPLATE_ID:
+      return FOLLOWUP_WISE_LINK;
+
+    default:
+      return "";
+  }
 }

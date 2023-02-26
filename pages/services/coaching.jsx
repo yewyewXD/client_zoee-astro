@@ -7,7 +7,8 @@ import SectionHead from "../../components/UI/SectionHead";
 import Tick from "../../components/UI/Tick";
 import { isSlotAvailable } from "../../helpers/utils";
 import { SyncLoader } from "react-spinners";
-import { canOpenCheck, COACHING_TEMPLATE_ID } from "../../helpers/config";
+import { COACHING_TEMPLATE_ID } from "../../helpers/config";
+import { canOpenCheck } from "../../helpers/utils";
 
 const Coaching = ({ openPaymentModal }) => {
   const [isLoading, setIsLoading] = useState(false);
