@@ -1,6 +1,5 @@
 import Image from "next/image";
-import React, { useMemo, useRef, useState } from "react";
-import PaymentBtn from "../buttons/PaymentBtn";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import DatePicker from "react-datepicker";
 import { DateTime } from "luxon";
 import moment from "moment-timezone";
@@ -13,40 +12,26 @@ import { getMinDate, INITIAL_DATE, INITIAL_DATE_END } from "../../../config";
 const USER_TIMEZONE = moment.tz.guess();
 
 const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
-  // configs for Followup Consultation
-  const followupEmailRef = useRef();
-  const [isNotEligible, setIsNotEligible] = useState(false);
-  const [isPassedCheck, setIsPassedCheck] = useState(false);
-
-  const [clientConfig, setClientConfig] = useState({
-    email: "example@mail.com",
-    name: "",
-    orderId: "",
-    orderDate: "",
-  });
-  const [isPaymentMade, setIsPaymentMade] = useState(false);
-
-  const [newZone, setNewZone] = useState(USER_TIMEZONE || "Asia/Singapore");
-  const [excludeDates, setExcludeDates] = useState([]);
-  const [isPickingDate, setIsPickingDate] = useState(true);
+  // Phase: Booking
+  const [isBooking, setIsBooking] = useState(false);
+  const [isShowingPicker, setIsShowingPicker] = useState(true);
   const [datePickerDate, setDatePickerDate] = useState(INITIAL_DATE.toJSDate());
   const [pickedDate, setPickedDate] = useState(
     INITIAL_DATE.setZone("Asia/Singapore", { keepLocalTime: true }).toJSDate()
   );
-
+  const [newZone, setNewZone] = useState(USER_TIMEZONE || "Asia/Singapore");
   const userEmailRef = useRef(<input type="email" />);
-  const [userEmail, setUserEmail] = useState("");
-  const [isBooking, setIsBooking] = useState(false);
-  const [isBookingDone, setIsBookingDone] = useState(false);
 
+  // Phase: Payment
+  const [isPaying, setIsPaying] = useState(false);
+
+  // Error handling
   const [hasError, setHasError] = useState(false);
 
-  const clientLocalDate = DateTime.fromJSDate(pickedDate, {
-    zone: newZone,
-  })
-    .toFormat("dd MMMM yyyy @ hh:mm a (ZZZZ)")
-    .toString();
-
+  // Step 1: Validate Follow-up Customers
+  const followupEmailRef = useRef();
+  const [isNotEligible, setIsNotEligible] = useState(false);
+  const [isPassedCheck, setIsPassedCheck] = useState(false);
   async function handleCheckFollowup(e) {
     e.preventDefault();
     const value = followupEmailRef.current.value;
@@ -58,25 +43,23 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
     }
   }
 
-  async function handleAfterBuy({ orderId, orderDate, email, name }) {
-    setClientConfig({ orderId, orderDate, email, name });
+  // Step 2: Check Occupied Dates
+  const [isCheckingOccupied, setIsCheckingOccupied] = useState(false);
+  const [excludeDates, setExcludeDates] = useState([]);
+  useEffect(() => {
+    async function checkOccupiedDates() {
+      setIsCheckingOccupied(true);
+      const occupiedDates = await getOccupiedDates();
+      setExcludeDates(occupiedDates);
+      setIsCheckingOccupied(false);
+      setIsBooking(true);
+    }
+    if ((clients && isPassedCheck) || !clients) {
+      checkOccupiedDates();
+    }
+  }, [isPassedCheck, clients]);
 
-    setUserEmail(email);
-
-    const occupiedDates = (await getOccupiedDates()).map((date) => {
-      const splitDate = date.split("-");
-      return DateTime.fromObject({
-        year: splitDate[0],
-        month: splitDate[1],
-        day: splitDate[2],
-        hour: 8,
-      }).toJSDate();
-    });
-    setExcludeDates(occupiedDates);
-
-    setIsPaymentMade(true);
-  }
-
+  // Step 3: Picking Date
   function handlePickDate(date) {
     const luxonDate = DateTime.fromJSDate(date)
       .setZone("Asia/Singapore", {
@@ -87,37 +70,33 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
     setPickedDate(luxonDate);
   }
 
+  // Step 4: Add Booking to Airtable
+  const clientLocalDate = DateTime.fromJSDate(pickedDate, {
+    zone: newZone,
+  })
+    .toFormat("dd MMMM yyyy @ hh:mm a (ZZZZ)")
+    .toString();
+
   async function onConfirmBookingDate(e) {
     e.preventDefault();
-    setIsBooking(true);
 
     const finalEmail = userEmailRef.current.value;
-    setUserEmail(finalEmail);
 
-    const emailParams = {
-      id: productId,
-      orderId: clientConfig.orderId,
-      orderDate: DateTime.fromISO(clientConfig.orderDate, {
-        zone: newZone,
+    const bookingConfig = {
+      name: "",
+      email: finalEmail,
+      title: title,
+
+      ownerDate: DateTime.fromJSDate(pickedDate, {
+        zone: "Asia/Singapore",
       })
         .toFormat("dd MMMM yyyy @ hh:mm a (ZZZZ)")
         .toString(),
-      date: clientLocalDate,
-    };
-
-    const ownerLocalLuxonDate = DateTime.fromJSDate(pickedDate, {
-      zone: "Asia/Singapore",
-    });
-
-    const bookingConfig = {
-      title: title,
-      databaseDate: ownerLocalLuxonDate.toFormat("yyyy-MM-dd"),
-      ownerDate: ownerLocalLuxonDate
+      clientDate: clientLocalDate,
+      orderDate: DateTime.now()
+        .setZone(newZone)
         .toFormat("dd MMMM yyyy @ hh:mm a (ZZZZ)")
         .toString(),
-      email: finalEmail,
-      name: clientConfig.name,
-      emailParams,
     };
 
     const data = await submitBooking(bookingConfig);
@@ -126,11 +105,8 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
       return;
     }
 
-    setIsBookingDone(true);
-  }
-
-  function handleCloseModal() {
-    onClose();
+    setIsBooking(false);
+    setIsPaying(true);
   }
 
   const pickerMinDate = useMemo(() => {
@@ -160,6 +136,11 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
 
     return true;
   }, [datePickerDate, excludeDates, pickerMinDate]);
+
+  // Exit: Close Modal
+  function handleCloseModal() {
+    onClose();
+  }
 
   return (
     <div
@@ -191,7 +172,7 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
         </span>
 
         {/* Content 1 - Check is existing customer before booking followup */}
-        {clients && !isPassedCheck && !isBooking && (
+        {clients && !isPassedCheck && (
           <div>
             <form onSubmit={handleCheckFollowup}>
               <div className="text-xl mb-5">
@@ -218,221 +199,167 @@ const PaymentModal = ({ productId, onClose, price, image, title, clients }) => {
           </div>
         )}
 
-        {(!clients || isPassedCheck) && !isBooking && (
-          <>
-            {/* Content 2 - Payment */}
-            {!isPaymentMade && (
-              <div>
-                <div className="mt-2">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <Image
-                        className="rounded-md"
-                        src={image}
-                        alt=""
-                        height={70}
-                        width={70}
-                      />
-
-                      <div className="ml-4">
-                        <div className="font-semibold">{title}</div>
-                        <div className="text-gray-500 font-semibold">
-                          (Date can be chosen after payment)
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="font-semibold">{price}.00 USD</div>
-                  </div>
-
-                  <div className="w-full border-b my-6 border-gray-500"></div>
-
-                  <div className="flex justify-between items-center font-semibold">
-                    <span>Total</span>
-                    <span className="text-2xl">{price}.00 USD</span>
-                  </div>
-                </div>
-
-                <div className="w-10/12 mx-auto mt-10">
-                  <PaymentBtn
-                    amount={price}
-                    onPaymentSuccess={handleAfterBuy}
-                  />
-                </div>
-              </div>
-            )}
-
-            {/* Content 3 - Choose consultation date */}
-            {isPaymentMade && (
-              <form
-                className="block"
-                style={{ minHeight: "400px" }}
-                onSubmit={onConfirmBookingDate}
-              >
-                <div className="text-xl mb-5">
-                  Payment Succeeded! Please select the <u>date & time</u> for
-                  the consultation.
-                </div>
-
-                <div className="relative">
-                  <input
-                    className="border border-gray-500 rounded w-full p-3 cursor-pointer"
-                    type="email"
-                    placeholder="example@mail.com"
-                    required
-                    onClick={() => {
-                      setIsPickingDate((bool) => !bool);
-                    }}
-                    readOnly
-                    value={clientLocalDate}
-                  />
-
-                  <div className="text-base leading-tight mt-1">
-                    <span className="font-semibold">Note:</span> Available time
-                    is shown in
-                    <span className="font-semibold"> GMT+8</span> and converted
-                    to your <u>local time above</u> (Incl. Daylight-Saving).
-                    Please confirm your <u>timezone & email below</u>.
-                  </div>
-
-                  {isPickingDate && (
-                    <div className="sm:block flex justify-center">
-                      <DatePicker
-                        inline
-                        excludeDates={excludeDates}
-                        selected={datePickerDate}
-                        onChange={handlePickDate}
-                        showTimeSelect
-                        minDate={pickerMinDate}
-                        maxDate={INITIAL_DATE_END.toJSDate()}
-                        minTime={INITIAL_DATE.toMillis()}
-                        maxTime={INITIAL_DATE_END.toMillis()}
-                      />
-                    </div>
-                  )}
-                </div>
-
-                <div className="mt-5">
-                  <div>Your timezone:</div>
-                  <select
-                    className="border rounded p-2 border-gray-500 cursor-pointer"
-                    value={newZone}
-                    onChange={(e) => {
-                      setNewZone(e.target.value);
-                    }}
-                  >
-                    {timezones.map((tz) => (
-                      <option value={tz.iana} key={tz.iana}>
-                        {DateTime.fromJSDate(pickedDate, {
-                          zone: tz.iana,
-                        }).toFormat("(ZZZZ)")}{" "}
-                        {tz.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className="mt-3">
-                  <div>Email to receive order confirmation:</div>
-                  <input
-                    defaultValue={userEmail}
-                    ref={userEmailRef}
-                    className="border rounded p-3 border-gray-500 w-full"
-                    required
-                    type="email"
-                  />
-                </div>
-
-                <button
-                  className="bg-gray text-white py-2 px-6 rounded-md mt-5 hover:opacity-80 smooth mb-8 sm:w-max w-full"
-                  type="submit"
-                  disabled={!isDateValid}
-                  style={!isDateValid ? { color: "gray" } : {}}
-                >
-                  {isDateValid ? (
-                    <span>Confirm - {clientLocalDate}</span>
-                  ) : (
-                    <span>Date is not allowed, please pick another one</span>
-                  )}
-                </button>
-              </form>
-            )}
-          </>
-        )}
-
-        {/* Content 4 - Wait for booking */}
-        {isBooking && (
+        {/* Content 2 - Check Occupied Dates */}
+        {isCheckingOccupied && (
           <div className="flex flex-col justify-center items-center text-center">
-            {hasError && (
-              <>
-                <div className="text-xl">
-                  A technical error occurred! If you have paid, please{" "}
-                  <EmailBtn>email me</EmailBtn> for help.{" "}
-                </div>
-
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="red"
-                  className="w-24 h-24 mt-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
-                  />
-                </svg>
-              </>
-            )}
-
-            {!hasError && (
-              <>
-                <div className="text-xl mb-5">
-                  {isBookingDone ? (
-                    <span>
-                      Booking done! <strong>An order confirmation</strong> is
-                      sent to your email ({userEmail}). Please also check your
-                      spam mailbox.
-                    </span>
-                  ) : (
-                    <span>
-                      Confirming your booking. Please{" "}
-                      <span className="font-semibold"> do not</span> close the
-                      tab.
-                    </span>
-                  )}
-                </div>
-
-                <MoonLoader
-                  color={"black"}
-                  loading={!isBookingDone}
-                  size={90}
-                />
-              </>
-            )}
-
-            {isBookingDone && (
-              <div className="border-4 rounded-full p-10 border-green-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="green"
-                  className="w-20 h-20 "
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4.5 12.75l6 6 9-13.5"
-                  />
-                </svg>
-              </div>
-            )}
+            <div className="text-xl mb-5">Checking available dates</div>
+            <MoonLoader color={"black"} loading={true} size={90} />
           </div>
         )}
+
+        {/* Content 3 - Choose consultation date */}
+        {isBooking && (
+          <form
+            className="block"
+            style={{ minHeight: "400px" }}
+            onSubmit={onConfirmBookingDate}
+          >
+            <div className="text-xl mb-5">
+              Please select the <u>date & time</u> for the consultation.
+            </div>
+
+            <div className="relative">
+              <input
+                className="border border-gray-500 rounded w-full p-3 cursor-pointer"
+                type="email"
+                placeholder="example@mail.com"
+                required
+                onClick={() => {
+                  setIsShowingPicker((bool) => !bool);
+                }}
+                readOnly
+                value={clientLocalDate}
+              />
+
+              <div className="text-base leading-tight mt-1">
+                <span className="font-semibold">Note:</span> Available time is
+                shown in
+                <span className="font-semibold"> GMT+8</span> and converted to
+                your <u>local time above</u> (Incl. Daylight-Saving). Please
+                confirm your <u>timezone & email below</u>.
+              </div>
+
+              {isShowingPicker && (
+                <div className="sm:block flex justify-center">
+                  <DatePicker
+                    inline
+                    excludeDates={excludeDates}
+                    selected={datePickerDate}
+                    onChange={handlePickDate}
+                    showTimeSelect
+                    minDate={pickerMinDate}
+                    maxDate={INITIAL_DATE_END.toJSDate()}
+                    minTime={INITIAL_DATE.toMillis()}
+                    maxTime={INITIAL_DATE_END.toMillis()}
+                  />
+                </div>
+              )}
+            </div>
+
+            <div className="mt-5">
+              <div>Your timezone:</div>
+              <select
+                className="border rounded p-2 border-gray-500 cursor-pointer"
+                value={newZone}
+                onChange={(e) => {
+                  setNewZone(e.target.value);
+                }}
+              >
+                {timezones.map((tz) => (
+                  <option value={tz.iana} key={tz.iana}>
+                    {DateTime.fromJSDate(pickedDate, {
+                      zone: tz.iana,
+                    }).toFormat("(ZZZZ)")}{" "}
+                    {tz.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="mt-3">
+              <div>Email to receive order confirmation:</div>
+              <input
+                ref={userEmailRef}
+                className="border rounded p-3 border-gray-500 w-full"
+                required
+                type="email"
+              />
+            </div>
+
+            <button
+              className="bg-gray text-white py-2 px-6 rounded-md mt-5 hover:opacity-80 smooth mb-8 sm:w-max w-full"
+              type="submit"
+              disabled={!isDateValid}
+              style={!isDateValid ? { color: "gray" } : {}}
+            >
+              {isDateValid ? (
+                <span>Confirm - {clientLocalDate}</span>
+              ) : (
+                <span>Date is not allowed, please pick another one</span>
+              )}
+            </button>
+          </form>
+        )}
+
+        {/* Content 4 - Payment methods */}
+        {isPaying && (
+          <div>
+            <div className="mt-2">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <Image
+                    className="rounded-md"
+                    src={image}
+                    alt=""
+                    height={70}
+                    width={70}
+                  />
+
+                  <div className="ml-4">
+                    <div className="font-semibold">{title}</div>
+                    <div className="text-gray-500 font-semibold">
+                      {clientLocalDate}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="font-semibold">{price}.00 USD</div>
+              </div>
+
+              <div className="w-full border-b my-6 border-gray-500"></div>
+
+              <div className="flex justify-between items-center font-semibold">
+                <span>Total</span>
+                <span className="text-2xl">{price}.00 USD</span>
+              </div>
+            </div>
+
+            <div className="w-10/12 mx-auto mt-10">
+              <div>Methods to Pay</div>
+              <div>Paypal</div>
+            </div>
+          </div>
+        )}
+
+        {/* Success */}
+        {/* <div className="flex flex-col justify-center items-center text-center">
+          <div className="border-4 rounded-full p-10 border-green-700">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="green"
+              className="w-20 h-20 "
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4.5 12.75l6 6 9-13.5"
+              />
+            </svg>
+          </div>
+        </div> */}
       </div>
     </div>
   );
