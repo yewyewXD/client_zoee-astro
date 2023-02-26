@@ -5,9 +5,9 @@ import Footer from "../../components/UI/Footer";
 import Navbar from "../../components/UI/Navbar";
 import SectionHead from "../../components/UI/SectionHead";
 import Tick from "../../components/UI/Tick";
-import { isSlotAvailable } from "../../utils";
+import { isSlotAvailable } from "../../helpers/utils";
 import { SyncLoader } from "react-spinners";
-import { canOpenCheck, COACHING_TEMPLATE_ID } from "../../config";
+import { canOpenCheck, COACHING_TEMPLATE_ID } from "../../helpers/config";
 
 const Coaching = ({ openPaymentModal }) => {
   const [isLoading, setIsLoading] = useState(false);

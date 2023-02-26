@@ -7,7 +7,7 @@ import SectionHead from "../../components/UI/SectionHead";
 import Tick from "../../components/UI/Tick";
 import { getClients } from "../../utils";
 import { SyncLoader } from "react-spinners";
-import { canOpenCheck, FOLLOWUP_TEMPLATE_ID } from "../../config";
+import { canOpenCheck, FOLLOWUP_TEMPLATE_ID } from "../../helpers/config";
 
 const Followup = ({ openPaymentModal }) => {
   const [isLoading, setIsLoading] = useState(false);

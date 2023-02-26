@@ -7,7 +7,7 @@ import SectionHead from "../../components/UI/SectionHead";
 import Tick from "../../components/UI/Tick";
 import { isSlotAvailable } from "../../utils";
 import { SyncLoader } from "react-spinners";
-import { canOpenCheck, SYNASTRY_TEMPLATE_ID } from "../../config";
+import { canOpenCheck, SYNASTRY_TEMPLATE_ID } from "../../helpers/config";
 
 const Synastry = ({ openPaymentModal }) => {
   const [isLoading, setIsLoading] = useState(false);

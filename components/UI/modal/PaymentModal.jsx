@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import { DateTime } from "luxon";
 import moment from "moment-timezone";
 import timezones from "../../../json/timezones.json";
-import { getOccupiedDates, submitBooking } from "../../../utils";
+import { getOccupiedDates, submitBooking } from "../../../helpers/utils";
 import { MoonLoader } from "react-spinners";
 import { EmailBtn } from "../../../pages/disclaimer";
 import {
@@ -12,7 +12,7 @@ import {
   getWiseLink,
   INITIAL_DATE,
   INITIAL_DATE_END,
-} from "../../../config";
+} from "../../../helpers/config";
 
 const USER_TIMEZONE = moment.tz.guess();
 
