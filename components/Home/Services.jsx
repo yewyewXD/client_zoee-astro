@@ -35,7 +35,7 @@ const SERVICE_ITEMS = [
     price: "150 USD",
     description:
       "You want to become a <i>better version of yourself</i>? If yes, this is exactly what do you need! Truly understand yourself, by knowing your <strong>strengths</strong>, discovering your <strong>hidden talents</strong>, knowing the challenges you need to face and how and what’s the <u>happiest life</u> path for you. All of this with <strong>practical advices</strong> to help you evolve and finally be proud of yourself. ",
-    image: "/images/service-coaching.jpg",
+    image: "/images/service/service-coaching.jpg",
     link: "/services/coaching",
     ctaText: "I Want To Change My Life Now",
     alt: false,
@@ -46,7 +46,7 @@ const SERVICE_ITEMS = [
     price: "50 USD",
     description:
       "Wanna follow-up your <strong>progress</strong> on becoming the <u>best version of yourself</u>? This is the best option! You will get precious additional <strong>advices</strong>, get <strong>answers</strong> to any of your questions but also important <u>guidance and support</u> on your self-growth journey. All your doubts and worries will be away!",
-    image: "/images/service-follow.jpg",
+    image: "/images/service/service-follow.jpg",
     link: "/services/followup",
     ctaText: "I Want To Continue My Self-Growth Journey",
     alt: true,
@@ -57,7 +57,7 @@ const SERVICE_ITEMS = [
     price: "200 USD",
     description:
       "Do you want to be <strong>happier</strong> in your relationship? Here is the solution! <strong>Truly understand</strong> and improve <u>drastically</u> your relationships (for couple, friends, parent-child, coworkers and more). Become <strong>more tolerant</strong> towards each other. Discover what challenges you need to face and how but also the <u>strengths</u> of your union. No more sadness and annoying arguments!",
-    image: "/images/service-synastry.jpg",
+    image: "/images/service/service-synastry.jpg",
     link: "/services/synastry",
     ctaText: "I Want To Improve My Relationship Now",
     alt: false,

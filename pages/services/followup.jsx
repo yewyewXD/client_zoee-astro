@@ -26,7 +26,7 @@ const Followup = ({ openPaymentModal }) => {
     openPaymentModal({
       productId: FOLLOWUP_TEMPLATE_ID,
       price: 50,
-      image: "/images/service-follow.jpg",
+      image: "/images/service/service-follow.jpg",
       title: "Follow-up Consultation",
       clients,
     });
@@ -53,7 +53,7 @@ const Followup = ({ openPaymentModal }) => {
           property="og:description"
         />
         <meta
-          content="https://easyastrologybyzoee.com/images/service-follow.jpg"
+          content="https://easyastrologybyzoee.com/images/service/service-follow.jpg"
           property="og:image"
         />
 
@@ -69,7 +69,7 @@ const Followup = ({ openPaymentModal }) => {
         />
         <meta
           name="twitter:image"
-          content="https://easyastrologybyzoee.com/images/service-follow.jpg"
+          content="https://easyastrologybyzoee.com/images/service/service-follow.jpg"
         />
       </Head>
 

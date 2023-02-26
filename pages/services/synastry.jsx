@@ -28,7 +28,7 @@ const Synastry = ({ openPaymentModal }) => {
       openPaymentModal({
         productId: SYNASTRY_TEMPLATE_ID,
         price: 200,
-        image: "/images/service-synastry.jpg",
+        image: "/images/service/service-synastry.jpg",
         title: "Synastry Consultation",
       });
     } else {
@@ -57,7 +57,7 @@ const Synastry = ({ openPaymentModal }) => {
           property="og:description"
         />
         <meta
-          content="https://easyastrologybyzoee.com/images/service-synastry.jpg"
+          content="https://easyastrologybyzoee.com/images/service/service-synastry.jpg"
           property="og:image"
         />
 
@@ -73,7 +73,7 @@ const Synastry = ({ openPaymentModal }) => {
         />
         <meta
           name="twitter:image"
-          content="https://easyastrologybyzoee.com/images/service-synastry.jpg"
+          content="https://easyastrologybyzoee.com/images/service/service-synastry.jpg"
         />
       </Head>
 

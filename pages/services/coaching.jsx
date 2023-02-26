@@ -28,7 +28,7 @@ const Coaching = ({ openPaymentModal }) => {
       openPaymentModal({
         productId: COACHING_TEMPLATE_ID,
         price: 150,
-        image: "/images/service-coaching.jpg",
+        image: "/images/service/service-coaching.jpg",
         title: "Coaching Astrology Consultation",
       });
     } else {
@@ -57,7 +57,7 @@ const Coaching = ({ openPaymentModal }) => {
           property="og:description"
         />
         <meta
-          content="https://easyastrologybyzoee.com/images/service-coaching.jpg"
+          content="https://easyastrologybyzoee.com/images/service/service-coaching.jpg"
           property="og:image"
         />
 
@@ -73,7 +73,7 @@ const Coaching = ({ openPaymentModal }) => {
         />
         <meta
           name="twitter:image"
-          content="https://easyastrologybyzoee.com/images/service-coaching.jpg"
+          content="https://easyastrologybyzoee.com/images/service/service-coaching.jpg"
         />
       </Head>
 
