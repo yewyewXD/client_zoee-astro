@@ -225,7 +225,7 @@ const Disclaimer = () => {
               </div>
             </div>
 
-            <div>
+            {/* <div>
               <div className="text-center mt-28 mb-14 2xl:text-3xl sm:text-2xl text-xl font-bold">
                 Paying with PayPal
               </div>
@@ -247,7 +247,7 @@ const Disclaimer = () => {
                   User Agreement (PayPal)
                 </div>
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </main>
